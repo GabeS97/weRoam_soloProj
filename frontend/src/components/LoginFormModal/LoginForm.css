@@ -1,23 +1,13 @@
 form {
     display: flex;
     position: relative;
+    top:50px;
     flex-direction: column;
-    top: 25px;
     align-items: center;
-    margin: 25px;
-    padding: 30px;
+
 }
 
-.user {
-    margin: 10px 25px;
-}
-
-.password {
-    margin: 10px 35px;
-    margin-right: -29px;
-}
-
-.submit {
+.title {
     position: relative;
-    top: 25px
+    top: 20px;
 }

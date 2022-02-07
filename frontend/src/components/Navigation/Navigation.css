@@ -1,6 +1,43 @@
 .navBar {
-    background-color: rgb(237, 237, 237);
-    height: 40px;
-    margin: 10px;
+    display: flex;
+    position: sticky;
+    justify-content: space-between;
+    background-color: white;
+    top: 0;
+    z-index: 100;
+    width: 100%;
 }
 
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 15vw;
+    margin-right: 20px;
+}
+
+
+.home_icon {
+    object-fit: contain;
+    height: 100px;
+    margin-left: 20px;
+}
+
+.search {
+    display: flex;
+    margin-top: 25px;
+    width: 300px;
+    padding: 10px;
+    height: 50px;
+    border: 1px solid lightgray;
+    border-radius: 999px;
+    justify-content: center;
+    align-items: center;
+}
+
+.hosting {
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+}

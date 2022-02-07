@@ -22,11 +22,7 @@
     position: absolute;
     background-color:white;
     border-radius: 25px;
-    height:350px;
+    height:650px;
+    width: 500px;
   }
 
-  #modal-content:hover {
-    border: solid red 2.5px;
-    transform: scale(1.05);
-    transition-duration: 0.1s;
-  }
