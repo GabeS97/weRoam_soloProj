@@ -12,6 +12,8 @@ module.exports = {
       {
         spotId: 3,
         userId: 1,
+        // reviewId: 1,
+        bookingId: 1,
         address: '11 Naitomachi, Shinjuku City, Tokyo 160-0014, Japan',
         city: 'Tokyo',
         state: null,
@@ -25,6 +27,8 @@ module.exports = {
       {
         spotId: 2,
         userId: 2,
+        // reviewId: 2,
+        bookingId: 2,
         address: 'Rue de Rivoli, 75001 Paris, France',
         city: 'Paris',
         state: null,
@@ -38,6 +42,8 @@ module.exports = {
       {
         spotId: 1,
         userId: 3,
+        // reviewId: 3,
+        bookingId: 3,
         address: '20 Deans Yd, London SW1P 3PA, United Kingdom' ,
         city: 'London',
         state: null,

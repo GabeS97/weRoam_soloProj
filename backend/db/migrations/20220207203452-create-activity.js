@@ -18,6 +18,16 @@ module.exports = {
         allowNull: false,
         references: { model: 'Users' }
       },
+      // reviewId: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: false,
+      //   references: { model: 'Reviews' }
+      // },
+      bookingId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'Bookings' }
+      },
       address: {
         type: Sequelize.STRING,
         allowNull: false
