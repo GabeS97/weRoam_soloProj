@@ -1,0 +1,27 @@
+
+.banner {
+    display: flex;
+    background: url("https://wallpapercave.com/wp/wp3990914.jpg") center center;
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    border-radius: 25px;
+}
+
+.sidebar {
+    background-color: black;
+    color: white;
+    padding-top: 36.73vh;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 40px;
+    width: 300px;
+    border-radius: 25px;
+}
+
+.info {
+    position: relative;
+    bottom: 20vh;
+    left: 10px
+}

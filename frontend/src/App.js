@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Switch } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import Navigation from "./components/Navigation";
 import { useDispatch } from 'react-redux'
 import * as sessionActions from "./store/session";
-
+import Banner from "./components/Banner/Banner";
 
 
 function App() {
@@ -18,6 +18,9 @@ function App() {
     <>
       <Navigation isLoaded={isLoaded} />
       <Switch>
+        <Route>
+          <Banner />
+        </Route>
       </Switch>
     </>
   );
