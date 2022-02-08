@@ -1,17 +1,12 @@
 models and migrations
 
-npx sequelize model:generate --name Customer --attributes email:string,username:string,hashedPassword:string
-npx sequelize model:generate --name Spot --attributes userId:integer,address:string,city:string,state:string,country:string,name:string,price:numeric,description:text,guests:integer
-npx sequelize model:generate --name Review --attributes userId:integer,spotId:integer,reviews:text,rating:integer
-npx sequelize model:generate --name Booking --attributes spotId:integer,userId:integer,dates:datediff
-npx sequelize model:generate --name Activity --attributes spotId:integer,userId:integer
-npx sequelize model:generate --name Image --attributes spotId:integer,url:string
+npx sequelize model:generate --name Booking --attributes activityId:integer,userId:integer,startDate:date;endDate:date;
+npx sequelize model:generate --name Review --attributes userId:integer,activityId:integer,reviews:string;
+npx sequelize model:generate --name Activity --attributes userId:integer,address:string,city:string,state:string,country:string,latitude:numeric,longtitude:numeric,name:string,price:numeric;
+npx sequelize model:generate --name Image --attributes activityId:integer,url:string;
 
 seeders
-
-npx sequelize seed:generate --name customerSeeds
-npx sequelize seed:generate --name spotSeeds
-npx sequelize seed:generate --name reviewSeeds
-npx sequelize seed:generate --name bookingSeeds
-npx sequelize seed:generate --name activitySeeds
-npx sequelize seed:generate --name imageSeed
+npx sequelize seed:generate --name bookingSeeds;
+npx sequelize seed:generate --name reviewSeeds;
+npx sequelize seed:generate --name activitySeeds;
+npx sequelize seed:generate --name imageSeed;

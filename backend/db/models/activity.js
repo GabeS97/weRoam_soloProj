@@ -1,23 +1,22 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Activity = sequelize.define('Activity', {
-    spotId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
-    reviewId: DataTypes.INTEGER,
-    bookingId: DataTypes.INTEGER,
     address: DataTypes.STRING,
     city: DataTypes.STRING,
     state: DataTypes.STRING,
-    price: DataTypes.NUMERIC,
+    country: DataTypes.STRING,
+    latitude: DataTypes.NUMERIC,
+    longtitude: DataTypes.NUMERIC,
     name: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    guests: DataTypes.INTEGER
+    price: DataTypes.NUMERIC
   }, {});
-  Activity.associate = function (models) {
+  Activity.associate = function(models) {
     // associations can be defined here
-    Activity.hasMany(models.Booking, { foreignKey: 'activityId' });
-    Activity.hasMany(models.Image, { foreignKey: 'activityId' });
-    Activity.belongsTo(models.Spot, { foreignKey: 'spotId' });
+    Activity.belongsTo(models.User, { foreignKey: 'userId' })
+    Activity.hasMany(models.Booking, { foreignKey: 'activityId' })
+    Activity.hasMany(models.Review, { foreignKey: 'activityId' } )
+    Activity.hasMany(models.Image, { foreignKey: 'activityId' })
   };
   return Activity;
 };

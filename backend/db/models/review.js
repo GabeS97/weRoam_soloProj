@@ -3,16 +3,12 @@ module.exports = (sequelize, DataTypes) => {
   const Review = sequelize.define('Review', {
     userId: DataTypes.INTEGER,
     activityId: DataTypes.INTEGER,
-    spotId: DataTypes.INTEGER,
-    rating: DataTypes.INTEGER,
-    title: DataTypes.STRING,
-    reviews: DataTypes.STRING,
-    rating: DataTypes.INTEGER
+    reviews: DataTypes.STRING
   }, {});
   Review.associate = function(models) {
     // associations can be defined here
-    Review.belongsToMany(models.User, {through: 'Activity', foreignKey: 'reviewId', otherKey: 'userId'});
-
+    Review.belongsTo(models.User, { foreignKey: 'userId' })
+    Review.belongsTo(models.Activity, { foreignKey: 'activityId' })
   };
   return Review;
 };

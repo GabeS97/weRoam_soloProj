@@ -24,10 +24,9 @@ module.exports = {
       {
         activityId: 3,
         url: 'https://upload.travelawaits.com/ta/uploads/2021/04/westminster-abbey-in-london25c6b2-800x800.jpg',
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-
+          createdAt: new Date(),
+          updatedAt: new Date()
+      }
     ], {});
   },
 

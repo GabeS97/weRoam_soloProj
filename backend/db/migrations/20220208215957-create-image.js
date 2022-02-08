@@ -14,7 +14,7 @@ module.exports = {
         references: { model: 'Activities' }
       },
       url: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(5000),
         allowNull: false
       },
       createdAt: {
