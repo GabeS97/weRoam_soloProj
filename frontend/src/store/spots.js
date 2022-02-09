@@ -24,14 +24,29 @@ export const remove = (activity) => ({
     activity
 });
 
+export const addActviity = payload => async dispatch => {
+    const res = await csrfFetch('/api/spots/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    if (res.ok) {
+        const newActivity = await res.json();
+        dispatch(add(newActivity));
+        return newActivity;
+    }
+}
+
 export const seeActivity = () => async dispatch => {
     const res = await csrfFetch('/api/spots/');
 
     if (res.ok) {
         const activity = await res.json();
         dispatch(load(activity))
+        return activity
     }
-}
+};
+
 
 const initialState = { list: {} };
 
@@ -40,13 +55,21 @@ const activityReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case LOAD_ACTIVITY: {
-            newState = {...state}
+            newState = { ...state }
             const allActivities = {};
             action.activity.forEach(activity => {
                 allActivities[activity.id] = activity
             })
             newState.list = allActivities
             return newState
+        }
+        case ADD_ACTIVITY: {
+            newState = { ...state }
+            newState.newActivity = {
+                ...newState.newActivity,
+                [action.newActivity.id]: action.newActivity
+            };
+            return newState;
         }
         default:
             return state

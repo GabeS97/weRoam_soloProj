@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import * as sessionActions from "./store/session";
 import Splash from "./components/Splash/Splash";
 import Spots from "./components/Spots/Spots";
+import AddSpots from "./components/Spots/AddSpots";
 
 function App() {
   const dispatch = useDispatch();

@@ -24,23 +24,25 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <nav className='navBar'>
-      <NavLink className="home" exact to="/">
-        <img
-          className="home_icon"
-          src='../../../images/weRoam-logos_black.png'
-          alt=""
-        />
-      </NavLink>
-      <input
-        className='search'
-        placeholder='Start your search'
-      ></input>
-      <div className='buttons'>
-          <p className='hosting'>Become a host</p>
-        {isLoaded && sessionLinks}
-      </div>
-    </nav>
+      <nav className='navBar'>
+        <NavLink className="home" exact to="/">
+          <img
+            className="home_icon"
+            src='../../../images/weRoam-logos_black.png'
+            alt=""
+          />
+        </NavLink>
+        <input
+          className='search'
+          placeholder='Start your search'
+        ></input>
+        <div className='buttons'>
+          <div className='hosting'>
+            <p className='host'>Become a host</p>
+          </div>
+          {isLoaded && sessionLinks}
+        </div>
+      </nav>
   );
 }
 

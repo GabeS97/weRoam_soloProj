@@ -4,7 +4,9 @@ import './Inspo.css'
 const inspo = () => {
     return (
         <div className='inspiration'>
-            <h1 className='where'>Inspiration for your next trip</h1>
+            <div className='textdiv'>
+                <h1 className='where'>Inspiration for your next trip</h1>
+            </div>
             <div className='cards'>
                 <div className='card1'>
                     <h2>Jakarta</h2>

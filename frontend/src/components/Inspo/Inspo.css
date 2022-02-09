@@ -1,7 +1,12 @@
+.textDiv {
+    display: flex;
+    justify-content: center;
+}
+
 .where {
     display: flex;
     font-size: 400%;
-    margin-left: 450px;
+
 }
 
 .cards {

@@ -7,6 +7,19 @@ const router = express.Router();
 //     handler(req, res, next). catch(next);
 // }
 
+router.post('/', asyncHandler(async (req, res) => {
+    const { address, city, state, country, price, name } = req.body;
+    const newActivity = await Activity.create({
+        address,
+        city,
+        state,
+        country,
+        price,
+        name
+    });
+    return res.json(newActivity);
+}))
+
 router.get('/', asyncHandler(async (req, res) => {
     const spot = await Activity.findAll({
         include: { model: Image }
