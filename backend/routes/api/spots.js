@@ -8,14 +8,15 @@ const router = express.Router();
 // }
 
 router.post('/', asyncHandler(async (req, res) => {
-    const { address, city, state, country, price, name } = req.body;
+    const { address, city, state, country, price, name, userId } = req.body;
     const newActivity = await Activity.create({
         address,
         city,
         state,
         country,
         price,
-        name
+        name,
+        userId
     });
     return res.json(newActivity);
 }))
@@ -25,6 +26,20 @@ router.get('/', asyncHandler(async (req, res) => {
         include: { model: Image }
     });
     return res.json(spot)
+}))
+
+router.put('/:d', asyncHandler(async (req, res) => {
+    const { address, city, state, country, price, name, userId } = req.body;
+    const editActivity = await Activity.update({
+        address,
+        city,
+        state,
+        country,
+        price,
+        name,
+        userId
+    })
+    return res.json(editActivity)
 }))
 
 module.exports = router

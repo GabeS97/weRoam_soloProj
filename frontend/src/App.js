@@ -25,6 +25,7 @@ function App() {
         </Route>
         <Route path='/spots'>
           <Spots />
+          <AddSpots/>
         </Route>
       </Switch>
     </>

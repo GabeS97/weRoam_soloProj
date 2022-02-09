@@ -25,15 +25,16 @@ export const remove = (activity) => ({
 });
 
 export const addActviity = payload => async dispatch => {
+
     const res = await csrfFetch('/api/spots/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
     })
     if (res.ok) {
-        const newActivity = await res.json();
-        dispatch(add(newActivity));
-        return newActivity;
+        const activity = await res.json();
+        dispatch(add(activity));
+        return activity;
     }
 }
 
@@ -47,7 +48,10 @@ export const seeActivity = () => async dispatch => {
     }
 };
 
+export const editActivity = id => async dispatch => {
+    const res = await csrfFetch(`/api/spots/${id}`)
 
+}
 const initialState = { list: {} };
 
 
@@ -65,11 +69,14 @@ const activityReducer = (state = initialState, action) => {
         }
         case ADD_ACTIVITY: {
             newState = { ...state }
-            newState.newActivity = {
-                ...newState.newActivity,
-                [action.newActivity.id]: action.newActivity
+            newState.activity = {
+                ...newState.activity,
+                [action.activity.id]: action.activity
             };
             return newState;
+        }
+        case EDIT_ACTIVITY: {
+            
         }
         default:
             return state

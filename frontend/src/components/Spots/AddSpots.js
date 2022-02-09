@@ -30,6 +30,7 @@ const AddSpots = () => {
             city,
             state,
             country,
+            userId: user?.id
         }
 
         let createActivity = await dispatch(addActviity(payload))
@@ -44,7 +45,7 @@ const AddSpots = () => {
         // hideForm()
     }
 
-    
+
 
     return (
             <form className='newForm'>
