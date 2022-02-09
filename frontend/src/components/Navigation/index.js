@@ -25,14 +25,10 @@ function Navigation({ isLoaded }) {
 
   return (
     <nav className='navBar'>
-      {/* <ul> */}
-      {/* <li> */}
-      {/* </li> */}
-      {/* </ul> */}
       <NavLink className="home" exact to="/">
         <img
           className="home_icon"
-          src="https://i.pinimg.com/originals/3c/bf/be/3cbfbe148597341fa56f2f87ade90956.png"
+          src='../../../images/weRoam-logos_black.png'
           alt=""
         />
       </NavLink>

@@ -3,8 +3,8 @@ import { Switch, Route } from 'react-router-dom'
 import Navigation from "./components/Navigation";
 import { useDispatch } from 'react-redux'
 import * as sessionActions from "./store/session";
-import Banner from "./components/Banner/Banner";
-
+import Splash from "./components/Splash/Splash";
+import Spots from "./components/Spots/Spots";
 
 function App() {
   const dispatch = useDispatch();
@@ -14,12 +14,16 @@ function App() {
   }, [dispatch]);
 
 
+
   return isLoaded && (
     <>
       <Navigation isLoaded={isLoaded} />
       <Switch>
-        <Route>
-          <Banner />
+        <Route exact path='/'>
+          <Splash />
+        </Route>
+        <Route path='/spots'>
+          <Spots />
         </Route>
       </Switch>
     </>

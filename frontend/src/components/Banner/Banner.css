@@ -7,6 +7,7 @@
     background-size: cover;
     width: 100%;
     border-radius: 25px;
+
 }
 
 .sidebar {
@@ -24,4 +25,23 @@
     position: relative;
     bottom: 20vh;
     left: 10px
+}
+
+.away {
+    margin-top: 10%;
+    margin-left: 10px;
+    border-radius: 999px;
+    height: 60px;
+    width:250px;
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+    background-color: lightcoral;
+}
+
+.away:hover {
+    background-color: white;
+    color: lightcoral;
+    transform: scale(1.05);
+    transition-duration: 250ms;
 }

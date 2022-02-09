@@ -1,0 +1,19 @@
+.locPic {
+    width: 30%;
+    height: 30%;
+    vertical-align: middle;
+
+}
+
+.addressBar {
+    display: flex;
+    justify-content: flex-end;
+}
+.cityBar {
+    display: flex;
+    justify-content: flex-end;
+}
+.stateBar {
+    display: flex;
+    justify-content: flex-end;
+}

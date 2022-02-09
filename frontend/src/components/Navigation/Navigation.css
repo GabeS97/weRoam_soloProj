@@ -22,6 +22,7 @@
     object-fit: contain;
     height: 100px;
     margin-left: 20px;
+
 }
 
 .search {
@@ -40,4 +41,8 @@
     font-weight: bold;
     justify-content: center;
     align-items: center;
+}
+
+input:focus {
+    outline: none;
 }
