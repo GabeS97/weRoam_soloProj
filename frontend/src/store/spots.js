@@ -1,6 +1,6 @@
 import { csrfFetch } from './csrf';
 export const LOAD_ACTIVITY = 'spots/LOAD_ACTIVITY';
-export const ADD_ACTIVITY = 'spots/LOAD_ACTIVITY';
+export const ADD_ACTIVITY = 'spots/ADD_ACTIVITY';
 export const EDIT_ACTIVITY = 'spots/EDIT_ACTIVITY';
 export const REMOVE_ACTIVITY = 'spots/REMOVE_ACTIVITY';
 
@@ -26,7 +26,7 @@ export const remove = (activity) => ({
 
 export const addActviity = payload => async dispatch => {
 
-    const res = await csrfFetch('/api/spots/all', {
+    const res = await csrfFetch('/api/spots/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)

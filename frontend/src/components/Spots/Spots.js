@@ -31,23 +31,25 @@ const Spots = () => {
         <div className='container'>
             <nav className='navigateAdd'>
                 <h2 className='addBtn' onClick={onClick} >Add</h2>
-                { showForm ? <AddSpots/> : null}
-                <h2 className='editBtn' onClick={onClick2} >Edit</h2>
-                { showEdit ? <EditSpots /> : null}
+                {showForm ? <AddSpots /> : null}
             </nav>
             <h1 className='recs'>Hosted By Yours Truly</h1>
             <div className='contain'>{spot.map(({ id, name, userId, address, city, state, Images, price }) =>
-                <div className='lists'>
+                <div className='lists' >
                     {Images.map(({ url }) =>
                         <div className='tester'>
                             <img className='locPic' src={url}></img>
                         </div>
                     )}
-                    <p className='nameBar'>{name}</p>
-                    <p className='addressBar'>{address}</p>
-                    <p className='cityBar'>{city}</p>
-                    <p className='stateBar'>{state}</p>
-                    <p className='priceBar'>{price}</p>
+                    <div className='describe' key={id} >
+                        <h2 className='editBtn' onClick={onClick2} >Edit</h2>
+                        {showEdit ? <EditSpots /> : null}
+                        <p className='nameBar'>{name}</p>
+                        <p className='addressBar'>{address}</p>
+                        <p className='cityBar'>{city}</p>
+                        <p className='stateBar'>{state}</p>
+                        <p className='priceBar'>{price}</p>
+                    </div>
                 </div>
             )}
             </div>
