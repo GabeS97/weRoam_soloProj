@@ -29,6 +29,7 @@ router.get('/', asyncHandler(async (req, res) => {
 }))
 
 router.put('/:id', asyncHandler(async (req, res) => {
+    console.log('..........', req.params.id)
     const { address, city, state, country, price, name, userId, id } = req.body;
     const editActivity = await Activity.update({
         address,

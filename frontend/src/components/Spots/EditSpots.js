@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom/'
+import { Link, useHistory } from 'react-router-dom/'
 import { editActivity } from '../../store/spots';
 
 const EditSpots = ({ spot }) => {
+
     const history = useHistory();
     const dispatch = useDispatch()
 
@@ -13,7 +14,7 @@ const EditSpots = ({ spot }) => {
     const [country, setCountry] = useState(spot?.country)
     const [price, setPrice] = useState(spot?.price)
     const [name, setName] = useState(spot?.name)
-    // const [userId, setUserId] = useState(spot?.userId)
+    const [userId, setUserId] = useState(spot?.userId)
 
     const handleSubmit = (e) => {
 
@@ -24,14 +25,15 @@ const EditSpots = ({ spot }) => {
             country,
             price,
             name,
-            // userId
+            userId: spot.userId,
+            id: spot?.id
         }
 
         dispatch(editActivity(payload))
     }
 
     return (
-        <form className='newForm'>
+        <form className='newForm' onSubmit={handleSubmit}>
         <label htmlFor='name'>
             <input
                 type='text'
@@ -94,7 +96,7 @@ const EditSpots = ({ spot }) => {
             >
             </input>
         </label>
-        <button onClick={handleSubmit}>Edit</button>
+        <button className='editBtn' type='submit'>Edit</button>
     </form>
 
 

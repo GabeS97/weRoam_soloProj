@@ -90,6 +90,11 @@ const activityReducer = (state = initialState, action) => {
             newState.activity = { [action.activity.id]: action.activity }
             return newState;
         }
+        case REMOVE_ACTIVITY: {
+            newState = { ...state }
+            delete newState[action.activity.id]
+            return
+        }
         default:
             return state
     };

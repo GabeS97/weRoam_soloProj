@@ -36,82 +36,86 @@ const AddSpots = () => {
 
         let createActivity = await dispatch(addActviity(payload))
         if (createActivity) {
-            history.push(`/host/${createActivity.id}`)
-            // hideForm()
+            history.push(`/recommendation`)
         }
     }
 
-    const cancelClick = (e) => {
-        e.preventDefault();
-        // hideForm()
-    }
-
     return (
-            <form className='newForm'>
-                <label htmlFor='name'>
-                    <input
-                        type='text'
-                        name='name'
-                        placeholder='Name your activity'
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    >
-                    </input>
-                </label>
+        <form className='newForm' onSubmit={handleSubmit} >
+            <label htmlFor='name'>
+                <input
+                    type='text'
+                    name='name'
+                    placeholder='Name your activity'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                >
+                </input>
+            </label>
 
-                <label htmlFor='price'>
-                    <input
-                        type='number'
-                        name='price'
-                        placeholder='Please include your currency'
-                        value={price}
-                        onChange={(e) => setPrice(e.target.value)}
-                    >
-                    </input>
-                </label>
+            <label htmlFor='price'>
+                <input
+                    type='number'
+                    name='price'
+                    placeholder='Provide price'
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                >
+                </input>
+            </label>
 
-                <label htmlFor='address'>
-                    <input htmlFor='address'
-                        type='text'
-                        name='address'
-                        placeholder='Enter address'
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
+            <label htmlFor='address'>
+                <input htmlFor='address'
+                    type='text'
+                    name='address'
+                    placeholder='Enter address'
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                >
+                </input>
+            </label>
+            <label htmlFor='city'>
+                <input htmlFor='city'
+                    type='text'
+                    name='city'
+                    placeholder='Enter city'
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                >
+                </input>
+            </label>
+            <label htmlFor='country'>
+                <input htmlFor='country'
+                    type='text'
+                    name='country'
+                    placeholder='Enter country'
+                    value={country}
+                    onChange={(e) => setCountry(e.target.value)}
+                >
+                </input>
+            </label>
+            <label htmlFor='state'>
+                <input htmlFor='state'
+                    type='text'
+                    name='state'
+                    placeholder='Enter state'
+                    value={state}
+                    onChange={(e) => setState(e.target.value)}
+                >
+                </input>
+            </label>
+            <label htmlFor='url'>
+                <input htmlFor='url'
+                    type='url'
+                    name='url'
+                    placeholer='Enter image link'
+                    value={url}
+                    onChange={(e) => setUrl(e.target.value)}
                     >
-                    </input>
-                </label>
-                <label htmlFor='city'>
-                    <input htmlFor='city'
-                        type='text'
-                        name='city'
-                        placeholder='Enter city'
-                        value={city}
-                        onChange={(e) => setCity(e.target.value)}
-                    >
-                    </input>
-                </label>
-                <label htmlFor='country'>
-                    <input htmlFor='country'
-                        type='text'
-                        name='country'
-                        placeholder='Enter country'
-                        value={country}
-                        onChange={(e) => setCountry(e.target.value)}
-                    >
-                    </input>
-                </label>
-                <label htmlFor='state'>
-                    <input htmlFor='state'
-                        type='text'
-                        name='state'
-                        placeholder='Enter state'
-                        value={state}
-                        onChange={(e) => setState(e.target.value)}
-                    >
-                    </input>
-                </label>
-                <button onClick={handleSubmit}>Host Me!</button>
-            </form>
+                </input>
+            </label>
+            <button type='submit'>Host Me!</button>
+        </form>
 
     )
 }

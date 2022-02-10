@@ -7,6 +7,8 @@ import EditSpots from "./EditSpots";
 const SpotsDetails = () => {
     const { id } = useParams()
     const spot = useSelector(state => state.activity.id)
+    const image = useSelector(state => state.activity.Images)
+
     return (
         <div>
             <AddSpots />

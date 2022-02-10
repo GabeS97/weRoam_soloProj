@@ -76,3 +76,11 @@
     display: flex;
 }
 
+.editBtn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 3%;
+    margin-top: 3%;
+
+}
