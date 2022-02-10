@@ -18,6 +18,7 @@ const AddSpots = () => {
     const [country, setCountry] = useState('')
     const [price, setPrice] = useState('')
     const [name, setName] = useState('')
+    const [url, setUrl] = useState('')
     // const [display, setDisplay] = useState(false)
 
     const handleSubmit = async (e) => {
@@ -35,7 +36,7 @@ const AddSpots = () => {
 
         let createActivity = await dispatch(addActviity(payload))
         if (createActivity) {
-            history.push(`/spots/${createActivity.id}`)
+            history.push(`/host/${createActivity.id}`)
             // hideForm()
         }
     }
@@ -45,15 +46,13 @@ const AddSpots = () => {
         // hideForm()
     }
 
-
-
     return (
             <form className='newForm'>
                 <label htmlFor='name'>
                     <input
                         type='text'
                         name='name'
-                        placeholder='name your activity'
+                        placeholder='Name your activity'
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     >
@@ -64,7 +63,7 @@ const AddSpots = () => {
                     <input
                         type='number'
                         name='price'
-                        placeholder='please also include your currency'
+                        placeholder='Please include your currency'
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
                     >
@@ -75,7 +74,7 @@ const AddSpots = () => {
                     <input htmlFor='address'
                         type='text'
                         name='address'
-                        placeholder='enter address'
+                        placeholder='Enter address'
                         value={address}
                         onChange={(e) => setAddress(e.target.value)}
                     >
@@ -85,7 +84,7 @@ const AddSpots = () => {
                     <input htmlFor='city'
                         type='text'
                         name='city'
-                        placeholder='enter city'
+                        placeholder='Enter city'
                         value={city}
                         onChange={(e) => setCity(e.target.value)}
                     >
@@ -95,7 +94,7 @@ const AddSpots = () => {
                     <input htmlFor='country'
                         type='text'
                         name='country'
-                        placeholder='enter country'
+                        placeholder='Enter country'
                         value={country}
                         onChange={(e) => setCountry(e.target.value)}
                     >
@@ -105,7 +104,7 @@ const AddSpots = () => {
                     <input htmlFor='state'
                         type='text'
                         name='state'
-                        placeholder='enter state'
+                        placeholder='Enter state'
                         value={state}
                         onChange={(e) => setState(e.target.value)}
                     >

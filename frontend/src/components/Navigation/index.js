@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
@@ -24,25 +24,27 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-      <nav className='navBar'>
-        <NavLink className="home" exact to="/">
-          <img
-            className="home_icon"
-            src='../../../images/weRoam-logos_black.png'
-            alt=""
-          />
-        </NavLink>
-        <input
-          className='search'
-          placeholder='Start your search'
-        ></input>
-        <div className='buttons'>
-          <div className='hosting'>
+    <nav className='navBar'>
+      <NavLink className="home" exact to="/">
+        <img
+          className="home_icon"
+          src='../../../images/weRoam-logos_black.png'
+          alt=""
+        />
+      </NavLink>
+      <input
+        className='search'
+        placeholder='Start your search'
+      ></input>
+      <div className='buttons'>
+        <div className='hosting'>
+          <Link className='hyperlink' to='/recommendation'>
             <p className='host'>Become a host</p>
-          </div>
-          {isLoaded && sessionLinks}
+          </Link>
         </div>
-      </nav>
+        {isLoaded && sessionLinks}
+      </div>
+    </nav>
   );
 }
 

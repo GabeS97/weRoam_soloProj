@@ -10,6 +10,12 @@
     margin-bottom: -170px;;
 }
 
+.nameBar {
+    position: relative;
+    text-align: center;
+    bottom: 150px;
+}
+
 .addressBar {
     position: relative;
     text-align: center;
@@ -17,6 +23,12 @@
 }
 
 .cityBar {
+    position: relative;
+    text-align: center;
+    bottom: 140px;
+}
+
+.stateBar {
     position: relative;
     text-align: center;
     bottom: 140px;
@@ -38,4 +50,24 @@
 .recs {
     font-weight: bold;
     font-size: 50px;
+}
+
+.navigateAdd {
+    display: flex;
+    background-color: white;
+    box-shadow: 0px 10px 15px -8px rgb(238, 237, 237);
+    height: 85px;
+    width: 100%;
+    margin: auto;
+    position: sticky;
+    color: black;
+    justify-content: space-evenly;
+}
+
+.addBtn:hover {
+    cursor: pointer;
+}
+
+.editBtn:hover {
+    cursor: pointer;
 }

@@ -27,7 +27,7 @@ module.exports = {
         state: null,
         country: 'France',
         price: 15.00,
-        name:'Sunday at the Louvre',
+        name:'The Louvre',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -36,12 +36,13 @@ module.exports = {
         address: '20 Deans Yd, London SW1P 3PA, United Kingdom' ,
         city: 'London',
         state: null,
-        country: 'England',
+        country: 'United Kingdom',
         price: 15.00,
-        name:'Shinjuku Gyoen National Garden',
+        name:'Westminster Abbey',
         createdAt: new Date(),
         updatedAt: new Date()
       },
+
     ], {});
   },
 

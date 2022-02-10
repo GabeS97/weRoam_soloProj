@@ -28,8 +28,8 @@ router.get('/', asyncHandler(async (req, res) => {
     return res.json(spot)
 }))
 
-router.put('/:d', asyncHandler(async (req, res) => {
-    const { address, city, state, country, price, name, userId } = req.body;
+router.put('/:id', asyncHandler(async (req, res) => {
+    const { address, city, state, country, price, name, userId, id } = req.body;
     const editActivity = await Activity.update({
         address,
         city,
@@ -39,6 +39,7 @@ router.put('/:d', asyncHandler(async (req, res) => {
         name,
         userId
     })
+    res.status(201)
     return res.json(editActivity)
 }))
 

@@ -6,6 +6,8 @@ import * as sessionActions from "./store/session";
 import Splash from "./components/Splash/Splash";
 import Spots from "./components/Spots/Spots";
 import AddSpots from "./components/Spots/AddSpots";
+import EditSpots from "./components/Spots/EditSpots";
+import SpotsDetails from "./components/Spots/SpotsDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -23,9 +25,11 @@ function App() {
         <Route exact path='/'>
           <Splash />
         </Route>
-        <Route path='/spots'>
+        <Route exact path='/recommendation'>
           <Spots />
-          <AddSpots/>
+        </Route>
+        <Route path='/spots/'>
+          <SpotsDetails />
         </Route>
       </Switch>
     </>
