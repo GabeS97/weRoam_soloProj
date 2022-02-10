@@ -11,7 +11,8 @@ module.exports = {
       activityId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'Activities' }
+        references: { model: 'Activities' },
+        onDelete: 'CASCADE'
       },
       url: {
         type: Sequelize.STRING(5000),

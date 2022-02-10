@@ -3,6 +3,10 @@ import thunk from "redux-thunk";
 import sessionReducer from './session';
 import activityReducer from "./spots";
 
+console.log(sessionReducer)
+console.log(activityReducer)
+
+
 const rootReducer = combineReducers({
   session: sessionReducer,
   activity: activityReducer

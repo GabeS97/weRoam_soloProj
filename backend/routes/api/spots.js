@@ -29,19 +29,37 @@ router.get('/', asyncHandler(async (req, res) => {
 }))
 
 router.put('/:id', asyncHandler(async (req, res) => {
-    console.log('..........', req.params.id)
-    const { address, city, state, country, price, name, userId, id } = req.body;
-    const editActivity = await Activity.update({
-        address,
-        city,
-        state,
-        country,
-        price,
-        name,
-        userId
-    })
-    res.status(201)
-    return res.json(editActivity)
+    // console.log('..........', req.params.id)
+    // const { address, city, state, country, price, name, userId, id } = req.body;
+    // const editActivity = await Activity.update( {where: id}, {
+    //     address,
+    //     city,
+    //     state,
+    //     country,
+    //     price,
+    //     name,
+    //     userId
+    // })
+    // res.status(201)
+    // return res.json(editActivity)
+    console.log(router.put())
+    const activityId = parseInt(req.params.id, 10);
+    const activityName = await Activity.findByPk(activityId);
+
+    const updateActivity = await activityName.update(activityId)
+
+    return res.json(updateActivity)
+}))
+
+
+router.delete('/:id', asyncHandler(async(req, res) => {
+    const { id } = req.body;
+    console.log('............', id)
+    const activityId = await Activity.findByPk(id);
+    console.log(activityId)
+    activityId.destroy();
+    // return res.json({ message: `${activityId.name} removed!`})
+    return res.json(activityId)
 }))
 
 module.exports = router

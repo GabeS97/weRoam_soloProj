@@ -24,12 +24,12 @@ export const remove = (activity) => ({
     activity
 });
 
-export const addActviity = payload => async dispatch => {
+export const addActviity = activityId => async dispatch => {
 
     const res = await csrfFetch('/api/spots/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(activityId)
     })
     if (res.ok) {
         const activity = await res.json();
@@ -48,12 +48,12 @@ export const seeActivity = () => async dispatch => {
     }
 };
 
-export const editActivity = payload => async dispatch => {
+export const editActivity = activityId => async dispatch => {
     // const { id, name, address, city, state, country } = payload
-    const res = await csrfFetch(`/api/spots/${payload.id}`, {
+    const res = await csrfFetch(`/api/spots/${activityId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(activityId)
     })
 
     if (res.ok) {
@@ -61,6 +61,20 @@ export const editActivity = payload => async dispatch => {
         dispatch(edit(activity));
         return activity;
     }
+}
+
+export const removeActivity = activityId => async dispatch => {
+    console.log('.................', activityId)
+    const res = await csrfFetch(`/api/spots/${activityId}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: activityId })
+    })
+
+    const activity = await res.json();
+    console.log(activity, '.............')
+    dispatch(remove(activity))
+
 }
 const initialState = { list: {} };
 
@@ -92,8 +106,8 @@ const activityReducer = (state = initialState, action) => {
         }
         case REMOVE_ACTIVITY: {
             newState = { ...state }
-            delete newState[action.activity.id]
-            return
+            delete newState.list[action.activity.id]
+            return newState
         }
         default:
             return state

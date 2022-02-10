@@ -11,12 +11,12 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     price: DataTypes.NUMERIC
   }, {});
-  Activity.associate = function(models) {
+  Activity.associate = function (models) {
     // associations can be defined here
     Activity.belongsTo(models.User, { foreignKey: 'userId' })
-    Activity.hasMany(models.Booking, { foreignKey: 'activityId' })
-    Activity.hasMany(models.Review, { foreignKey: 'activityId' } )
-    Activity.hasMany(models.Image, { foreignKey: 'activityId' })
+    Activity.hasMany(models.Booking, { foreignKey: 'activityId', onDelete: 'cascade', hooks: true })
+    Activity.hasMany(models.Review, { foreignKey: 'activityId', onDelete: 'cascade', hooks: true })
+    Activity.hasMany(models.Image, { foreignKey: 'activityId', onDelete: 'cascade', hooks: true })
   };
   return Activity;
 };

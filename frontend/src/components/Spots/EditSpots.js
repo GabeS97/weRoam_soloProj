@@ -1,23 +1,31 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom/'
 import { editActivity } from '../../store/spots';
 
-const EditSpots = ({ spot }) => {
-
+const EditSpots = () => {
+    // destructure the spot form other component
+    // replace activity and spot with, spot prop
+    const activity = useSelector(state => state.activity)
+    // const id = activity
+    const spot = activity.list['2']
+    // const spot = useSelector(state => state.activity.list['1'].id)
+    console.log('...........', spot)
     const history = useHistory();
     const dispatch = useDispatch()
-
     const [address, setAddress] = useState(spot?.address)
+    const [id, useId] = useState()
     const [city, setCity] = useState(spot?.city)
     const [state, setState] = useState(spot?.state)
     const [country, setCountry] = useState(spot?.country)
     const [price, setPrice] = useState(spot?.price)
     const [name, setName] = useState(spot?.name)
-    const [userId, setUserId] = useState(spot?.userId)
+    // const [userId, setUserId] = useState(spot?.userId)
 
     const handleSubmit = (e) => {
+        e.preventDefault()
 
+        // console.log(handleSubmit)
         const payload = {
             address,
             city,
@@ -25,11 +33,24 @@ const EditSpots = ({ spot }) => {
             country,
             price,
             name,
-            userId: spot.userId,
+            userId: spot?.userId,
             id: spot?.id
         }
+        console.log(payload)
 
-        dispatch(editActivity(payload))
+        let createdActivity;
+
+        createdActivity = dispatch(editActivity(payload))
+        // console.log(createdActivity)
+
+        // try {
+        // } catch (err) {
+            // throw new Error("This is not working, try again.")
+        // }
+
+        if (createdActivity) {
+            history.push(`/recommendations/`)
+        }
     }
 
     return (
