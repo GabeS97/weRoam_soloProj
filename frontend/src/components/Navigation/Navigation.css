@@ -22,12 +22,15 @@
     object-fit: contain;
     height: 100px;
     margin-left: 20px;
+
 }
 
 .search {
     display: flex;
+    position: relative;
+    left: 5%;
     margin-top: 25px;
-    width: 300px;
+    width: 20%;
     padding: 10px;
     height: 50px;
     border: 1px solid lightgray;
@@ -37,7 +40,35 @@
 }
 
 .hosting {
+    display: flex;
     font-weight: bold;
     justify-content: center;
     align-items: center;
+}
+
+input:focus {
+    outline: none;
+}
+
+.hosting:hover {
+    display: flex;
+    background-color: rgb(244, 238, 238) ;
+    border-radius: 50px;
+    width: 100px;
+    transform: scale(1.05);
+    transition-duration: 200ms;
+}
+
+.host {
+    display: flex;
+    align-items: center;
+    font-size: medium;
+    font-weight: lighter;
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.hyperlink {
+    color: inherit;
+    text-decoration: none;
 }

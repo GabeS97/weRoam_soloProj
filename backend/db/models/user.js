@@ -31,34 +31,37 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   },
-  {
-    defaultScope: {
-      attributes: {
-        exclude: ['hashedPassword', 'email', 'createdAt', 'updatedAt']
-      }
-    },
-    scopes: {
-      currentUser: {
-        attributes: { exclude: ['hashedPassword'] }
+    {
+      defaultScope: {
+        attributes: {
+          exclude: ['hashedPassword', 'email', 'createdAt', 'updatedAt']
+        }
       },
-      loginUser: {
-        attributes: {}
+      scopes: {
+        currentUser: {
+          attributes: { exclude: ['hashedPassword'] }
+        },
+        loginUser: {
+          attributes: {}
+        }
       }
-    }
-  });
+    });
 
-  User.associate = function(models) {
+  User.associate = function (models) {
     // associations can be defined here
+    User.hasMany(models.Activity, { foreignKey: 'userId' })
+    User.hasMany(models.Booking, { foreignKey: 'userId'})
+    User.hasMany(models.Review, { foreignKey: 'userId'})
   };
 
-  User.prototype.toSafeObject = function() { // remember, this cannot be an arrow function
+  User.prototype.toSafeObject = function () { // remember, this cannot be an arrow function
     const { id, username, email } = this; // context will be the User instance
     return { id, username, email };
   };
 
   User.prototype.validatePassword = function (password) {
     return bcrypt.compareSync(password, this.hashedPassword.toString());
-   };
+  };
 
   User.getCurrentUserById = async function (id) {
     return await User.scope('currentUser').findByPk(id);

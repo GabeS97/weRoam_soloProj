@@ -10,7 +10,7 @@ module.exports = {
       */
     return queryInterface.bulkInsert('Bookings', [
       {
-        spotId: 3,
+        activityId: 1,
         userId: 1,
         startDate: new Date(),
         endDate: new Date(),
@@ -18,7 +18,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        spotId: 2,
+        activityId: 2,
         userId: 2,
         startDate: new Date(),
         endDate: new Date(),
@@ -26,7 +26,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        spotId: 1,
+        activityId: 3,
         userId: 3,
         startDate: new Date(),
         endDate: new Date(),

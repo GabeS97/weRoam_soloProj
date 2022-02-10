@@ -8,11 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      spotId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: 'Spots' }
-      },
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -24,31 +19,23 @@ module.exports = {
       },
       city: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull:false
       },
       state: {
         type: Sequelize.STRING,
         allowNull: true
       },
+      country: {
+        type: Sequelize.STRING,
+        allowNull:false
+      },
       name: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull:false
       },
       price: {
-        type: Sequelize.NUMERIC(6, 2),
-        allowNull: false,
-      },
-      name: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      description: {
-        type: Sequelize.STRING(500),
-        allowNull: false
-      },
-      guests: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
+        type: Sequelize.DECIMAL(6,2),
+        allowNull:false
       },
       createdAt: {
         allowNull: false,
