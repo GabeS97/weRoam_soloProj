@@ -8,7 +8,8 @@ const EditSpots = () => {
     // replace activity and spot with, spot prop
     const activity = useSelector(state => state.activity)
     // const id = activity
-    const spot = activity.list['2']
+    const spot = activity.list
+    // console.log(spot)
     // const spot = useSelector(state => state.activity.list['1'].id)
     console.log('...........', spot)
     const history = useHistory();

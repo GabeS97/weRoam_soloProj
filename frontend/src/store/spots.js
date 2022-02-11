@@ -48,12 +48,13 @@ export const seeActivity = () => async dispatch => {
     }
 };
 
-export const editActivity = activityId => async dispatch => {
+export const editActivity = payload => async dispatch => {
     // const { id, name, address, city, state, country } = payload
-    const res = await csrfFetch(`/api/spots/${activityId}`, {
+    // console.log('this is activityId:', activityId.id)
+    const res = await csrfFetch(`/api/spots/${payload.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(activityId)
+        body: JSON.stringify(payload)
     })
 
     if (res.ok) {
@@ -63,8 +64,10 @@ export const editActivity = activityId => async dispatch => {
     }
 }
 
+// console.log('.............', editActivity)
+
 export const removeActivity = activityId => async dispatch => {
-    console.log('.................', activityId)
+    // console.log('************', activityId)
     const res = await csrfFetch(`/api/spots/${activityId}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
@@ -72,7 +75,7 @@ export const removeActivity = activityId => async dispatch => {
     })
 
     const activity = await res.json();
-    console.log(activity, '.............')
+    // console.log(activity, '.............')
     dispatch(remove(activity))
 
 }

@@ -17,6 +17,7 @@ const Spots = () => {
 
     const activity = useSelector(state => {
         return state.activity.list
+
     })
 
     const spot = Object.values(activity);
@@ -34,6 +35,7 @@ const Spots = () => {
             </nav>
             <h1 className='recs'>Hosted By Yours Truly </h1>
             <div className='contain'>{spot.map(({ id, name, userId, address, city, state, Images, price }) =>
+            // <div className='contain'>{spot.map(({ id, name, userId, address, city, state, Images, price }) =>
                 <div className='lists' >
                     {/* Create component forEach map item */}
                     {/* Move show edit useState to component */}

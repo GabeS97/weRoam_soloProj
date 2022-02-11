@@ -29,9 +29,11 @@ router.get('/', asyncHandler(async (req, res) => {
 }))
 
 router.put('/:id', asyncHandler(async (req, res) => {
-    // console.log('..........', req.params.id)
+    // console.log('this is req.params.id:', req.params.id)
     const { address, city, state, country, price, name, userId, id } = req.body;
     const activityId = parseInt(req.params.id, 10);
+    // console.log('...........', activityId)
+    // console.log('this is the id:', id)
     let editActivity = await Activity.update({
         address,
         city,
@@ -39,14 +41,12 @@ router.put('/:id', asyncHandler(async (req, res) => {
         country,
         price,
         name,
-        userId: activityId
+        // userId: activityId
     },
-        { where: { id } }
+        { where: { id: activityId } }
     )
-    // res.status(201)
-    // return res.json(editActivity)
     editActivity = await Activity.findByPk(activityId);
-
+    console.log('this is my editAct:', editActivity)
     return res.json(editActivity)
 }))
 
