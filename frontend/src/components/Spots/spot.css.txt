@@ -11,6 +11,36 @@
     margin-bottom: -170px;;
 }
 
+.nameBar {
+    position: relative;
+    text-align: center;
+    bottom: 150px;
+}
+
+.addressBar {
+    position: relative;
+    text-align: center;
+    bottom: 150px;
+}
+
+.cityBar {
+    position: relative;
+    text-align: center;
+    bottom: 140px;
+}
+
+.stateBar {
+    position: relative;
+    text-align: center;
+    bottom: 140px;
+}
+
+.priceBar {
+    position: relative;
+    text-align: center;
+    bottom: 140px;
+}
+
 .tester {
     display: flex;
     height:300px;
@@ -48,19 +78,15 @@
     display: flex;
 }
 
-.p {
+.editBtn {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    margin-left: 20%;
+    margin-right: 3%;
+    margin-top: 3%;
 
 }
 
-.describe {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-self: center;
+.p {
 
 }

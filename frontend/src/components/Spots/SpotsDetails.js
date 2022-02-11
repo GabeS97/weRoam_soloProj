@@ -6,13 +6,14 @@ import EditSpots from "./EditSpots";
 
 const SpotsDetails = () => {
     const { id } = useParams()
-    const spot = useSelector(state => state.activity.id)
+    const spot = useSelector(state => state.activity[0].id)
+
     const image = useSelector(state => state.activity.Images)
 
     return (
         <div>
             <AddSpots />
-            <EditSpots spot={spot} />
+            <EditSpots />
         </div>
     )
 }

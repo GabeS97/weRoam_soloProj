@@ -40,6 +40,7 @@
 }
 
 .away:hover {
+    cursor: pointer;
     background-color: white;
     color: lightcoral;
     transform: scale(1.05);

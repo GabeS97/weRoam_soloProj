@@ -29,19 +29,32 @@ router.get('/', asyncHandler(async (req, res) => {
 }))
 
 router.put('/:id', asyncHandler(async (req, res) => {
-    console.log('..........', req.params.id)
     const { address, city, state, country, price, name, userId, id } = req.body;
-    const editActivity = await Activity.update({
+    const activityId = parseInt(userId, 10);
+
+    let editActivity = await Activity.update({
         address,
         city,
         state,
         country,
         price,
         name,
-        userId
-    })
-    res.status(201)
+        // userId: activityId
+    },
+        { where: { id: activityId } }
+    )
+    editActivity = await Activity.findByPk(activityId);
     return res.json(editActivity)
+}))
+
+
+router.delete('/:id', asyncHandler(async (req, res) => {
+    const { id } = req.body;
+    const activityId = await Activity.findByPk(id);
+    console.log(activityId)
+    activityId.destroy();
+
+    return res.json(activityId)
 }))
 
 module.exports = router

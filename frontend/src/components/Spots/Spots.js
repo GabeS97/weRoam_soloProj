@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { seeActivity } from '../../store/spots';
+import { add, seeActivity } from '../../store/spots';
 import AddSpots from './AddSpots';
 import EditSpots from './EditSpots';
 import './Spots.css'
+import { removeActivity } from '../../store/spots';
 
 const Spots = () => {
     // const { activityId } = useParams();
@@ -16,16 +17,16 @@ const Spots = () => {
 
     const activity = useSelector(state => {
         return state.activity.list
+
     })
-    console.log(activity)
 
     const spot = Object.values(activity);
-
+    // console.log('..........', spot[0])
     useEffect(() => {
         dispatch(seeActivity())
     }, [])
 
-
+    // pass each sport as prop into new component
     return (
         <div className='container'>
             <nav className='navigateAdd'>
@@ -34,21 +35,33 @@ const Spots = () => {
             </nav>
             <h1 className='recs'>Hosted By Yours Truly </h1>
             <div className='contain'>{spot.map(({ id, name, userId, address, city, state, Images, price }) =>
+                // <div className='contain'>{spot.map(({ id, name, userId, address, city, state, Images, price }) =>
                 <div className='lists' >
+                    {/* Create component forEach map item */}
+                    {/* Move show edit useState to component */}
                     {Images.map(({ url }) =>
                         <div className='tester'>
                             <img className='locPic' src={url}></img>
+                            <div className='p' >
+                                <p className='nameBar'>{name}</p>
+                                <p className='addressBar'>{address}</p>
+                                <p className='cityBar'>{city}</p>
+                                <p className='priceBar'>{price}</p>
+                                <p className='stateBar'>{state}</p>
+                            </div>
+                            {/* inserthere */}
+                            <div className='describe' key={id} >
+                            {/* <i class="fa-light fa-pen-to-square" className='editBtn' onClick={() => setShowEdit(id)} ></i> */}
+                            <button className='editBtn' onClick={() => setShowEdit(id)} >Edit</button>
+                                {showEdit === id ? <EditSpots id={id} name={name} userId={userId} address={address} city={city} state={state} image={Images} price={price} /> : null}
+                                <button className='deleteButton'
+                                    onClick={(e) => dispatch(removeActivity(id))}
+                                >
+                                    Delete
+                                </button>
+                            </div>
                         </div>
                     )}
-                    <h2 className='editBtn' onClick={onClick2} >Edit</h2>
-                    <div className='describe' key={id} >
-                        {showEdit ? <EditSpots /> : null}
-                        <p className='nameBar'>{name}</p>
-                        <p className='addressBar'>{address}</p>
-                        <p className='cityBar'>{city}</p>
-                        <p className='stateBar'>{state}</p>
-                        <p className='priceBar'>{price}</p>
-                    </div>
                 </div>
             )}
             </div>
