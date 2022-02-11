@@ -49,8 +49,8 @@ export const seeActivity = () => async dispatch => {
 };
 
 export const editActivity = payload => async dispatch => {
-    // const { id, name, address, city, state, country } = payload
-    // console.log('this is activityId:', activityId.id)
+    // console.log('THUNK:', payload.id)
+
     const res = await csrfFetch(`/api/spots/${payload.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { seeActivity } from '../../store/spots';
+import { add, seeActivity } from '../../store/spots';
 import AddSpots from './AddSpots';
 import EditSpots from './EditSpots';
 import './Spots.css'
@@ -46,7 +46,7 @@ const Spots = () => {
                     )}
                     <h2 className='editBtn' onClick={() => setShowEdit(id)} >Edit</h2>
                     <div className='describe' key={id} >
-                        {showEdit === id ? <EditSpots /> : null}
+                        {showEdit === id ? <EditSpots id={id} name={name} userId={userId} address={address} city={city} state={state} image={Images} price={price}/> : null}
                         {/* <h2 className='editBtn' onClick={onClick2} >Edit</h2>
                     <div className='describe' key={id} >
                         {showEdit ? <EditSpots /> : null} */}
