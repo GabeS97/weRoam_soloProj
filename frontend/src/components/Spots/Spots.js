@@ -12,8 +12,8 @@ const Spots = () => {
     const dispatch = useDispatch();
     const [showForm, setShorForm] = useState(false);
     const [showEdit, setShowEdit] = useState(false);
-    const onClick = () => setShorForm(!showForm);
-    const onClick2 = () => setShowEdit(!showEdit);
+    // const onClick = () => setShorForm(!showForm);
+    // const onClick2 = () => setShowEdit(!showEdit);
 
     const activity = useSelector(state => {
         return state.activity.list
@@ -21,27 +21,26 @@ const Spots = () => {
     })
 
     const spot = Object.values(activity);
-    // console.log('..........', spot[0])
     useEffect(() => {
         dispatch(seeActivity())
-    }, [])
+    }, [dispatch])
 
     // pass each sport as prop into new component
     return (
         <div className='container'>
             <nav className='navigateAdd'>
-                <h2 className='addBtn' onClick={onClick} >Add</h2>
+                <h2 className='addBtn' onClick={() => setShorForm(!showForm)} >Add</h2>
                 {showForm ? <AddSpots /> : null}
             </nav>
             <h1 className='recs'>Hosted By Yours Truly </h1>
             <div className='contain'>{spot.map(({ id, name, userId, address, city, state, Images, price }) =>
                 // <div className='contain'>{spot.map(({ id, name, userId, address, city, state, Images, price }) =>
-                <div className='lists' >
+                <div className='lists' key={id}>
                     {/* Create component forEach map item */}
                     {/* Move show edit useState to component */}
-                    {Images.map(({ url }) =>
-                        <div className='tester'>
-                            <img className='locPic' src={url}></img>
+                    {Images.map((image) =>
+                        <div className='tester' key={image.id}>
+                            <img className='locPic' src={image.url} alt=''></img>
                             <div className='p' >
                                 <p className='nameBar'>{name}</p>
                                 <p className='addressBar'>{address}</p>
@@ -51,7 +50,6 @@ const Spots = () => {
                             </div>
                             {/* inserthere */}
                             <div className='describe' key={id} >
-                            {/* <i class="fa-light fa-pen-to-square" className='editBtn' onClick={() => setShowEdit(id)} ></i> */}
                             <button className='editBtn' onClick={() => setShowEdit(id)} >Edit</button>
                                 {showEdit === id ? <EditSpots id={id} name={name} userId={userId} address={address} city={city} state={state} image={Images} price={price} /> : null}
                                 <button className='deleteButton'

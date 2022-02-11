@@ -19,7 +19,6 @@ const AddSpots = () => {
     const [price, setPrice] = useState('')
     const [name, setName] = useState('')
     const [url, setUrl] = useState('')
-    // const [display, setDisplay] = useState(false)
 
     const handleSubmit = async (e) => {
         e.preventDefault();

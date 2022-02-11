@@ -16,7 +16,7 @@ export const add = (activity) => ({
 
 export const edit = (activity) => ({
     type: EDIT_ACTIVITY,
-    activity
+    payload: activity
 });
 
 export const remove = (activity) => ({
@@ -48,13 +48,12 @@ export const seeActivity = () => async dispatch => {
     }
 };
 
-export const editActivity = payload => async dispatch => {
+export const editActivity = (input) => async dispatch => {
     // console.log('THUNK:', payload.id)
-
-    const res = await csrfFetch(`/api/spots/${payload.id}`, {
+    const res = await csrfFetch(`/api/spots/${input.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(input)
     })
 
     if (res.ok) {
@@ -63,7 +62,6 @@ export const editActivity = payload => async dispatch => {
         return activity;
     }
 }
-
 
 export const removeActivity = activityId => async dispatch => {
 
@@ -102,7 +100,7 @@ const activityReducer = (state = initialState, action) => {
         }
         case EDIT_ACTIVITY: {
             newState = { ...state }
-            newState.activity = { ...state, [action.activity.id]: action.activity }
+            newState[action.payload.id] = action.payload
             return newState;
         }
         case REMOVE_ACTIVITY: {
