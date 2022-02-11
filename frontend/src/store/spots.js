@@ -93,10 +93,13 @@ const activityReducer = (state = initialState, action) => {
         }
         case ADD_ACTIVITY: {
             newState = { ...state }
+            // console.log('........', '1', 'in reducer', newState)
+            // console.log('........', '1.5', 'in reducer', action.activity)
             newState.activity = {
                 ...newState.activity,
                 [action.activity.id]: action.activity
             };
+            // console.log('..........','2',newState)
             return newState;
         }
         case EDIT_ACTIVITY: {

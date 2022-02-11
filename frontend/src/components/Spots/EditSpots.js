@@ -22,7 +22,7 @@ const EditSpots = () => {
     const [name, setName] = useState(spot?.name)
     // const [userId, setUserId] = useState(spot?.userId)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         // console.log(handleSubmit)
@@ -40,7 +40,7 @@ const EditSpots = () => {
 
         let createdActivity;
 
-        createdActivity = dispatch(editActivity(payload))
+        createdActivity = await dispatch(editActivity(payload))
         // console.log(createdActivity)
 
         // try {
@@ -49,7 +49,7 @@ const EditSpots = () => {
         // }
 
         if (createdActivity) {
-            history.push(`/recommendations/`)
+            history.push(`/recommendations`)
         }
     }
 

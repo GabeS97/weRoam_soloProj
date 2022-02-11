@@ -28,9 +28,9 @@ function App() {
         <Route exact path='/recommendation'>
           <Spots />
         </Route>
-        <Route path='/'>
+        {/* <Route path='/'> */}
           {/* <SpotsDetails /> */}
-        </Route>
+        {/* </Route> */}
       </Switch>
     </>
   );
