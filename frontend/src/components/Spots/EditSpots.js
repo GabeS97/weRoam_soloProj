@@ -39,9 +39,9 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
         }
         console.log(payload)
 
-        let createdActivity;
-
+        let createdActivity; 
         createdActivity = await dispatch(editActivity(payload))
+
         // console.log(createdActivity)
 
         // try {
@@ -50,7 +50,7 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
         // }
 
         if (createdActivity) {
-            history.push(`/recommendations`)
+            history.push(`/recommendation`)
         }
     }
 
