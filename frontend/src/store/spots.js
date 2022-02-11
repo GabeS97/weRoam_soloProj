@@ -64,10 +64,9 @@ export const editActivity = payload => async dispatch => {
     }
 }
 
-// console.log('.............', editActivity)
 
 export const removeActivity = activityId => async dispatch => {
-    // console.log('************', activityId)
+
     const res = await csrfFetch(`/api/spots/${activityId}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
@@ -75,9 +74,8 @@ export const removeActivity = activityId => async dispatch => {
     })
 
     const activity = await res.json();
-    // console.log(activity, '.............')
     dispatch(remove(activity))
-
+    return activity
 }
 const initialState = { list: {} };
 
@@ -96,8 +94,6 @@ const activityReducer = (state = initialState, action) => {
         }
         case ADD_ACTIVITY: {
             newState = { ...state }
-
-
             newState.activity = {
                 ...newState.activity,
                 [action.activity.id]: action.activity
@@ -106,7 +102,7 @@ const activityReducer = (state = initialState, action) => {
         }
         case EDIT_ACTIVITY: {
             newState = { ...state }
-            newState.activity = { [action.activity.id]: action.activity }
+            newState.activity = { ...state, [action.activity.id]: action.activity }
             return newState;
         }
         case REMOVE_ACTIVITY: {
