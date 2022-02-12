@@ -1,30 +1,23 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom/'
-import { editActivity } from '../../store/spots';
+import { add, editActivity } from '../../store/spots';
 
 const EditSpots = ({ id, city, state, country, price, name, userId, address }) => {
-    // destructure the spot form other component
-    // replace activity and spot with, spot prop
-    // const activity = useSelector(state => state.activity)
-    // const id = activity
-    // const spot = activity.list
-    // console.log(spot)
-    // const spot = useSelector(state => state.activity.list['1'].id)
-    // console.log('...........', spot)
     const history = useHistory();
     const dispatch = useDispatch()
-    const [addresses, setAddress] = useState(address)
-    const [cities, setCity] = useState(city)
-    const [states, setState] = useState(state)
-    const [countrys, setCountry] = useState(country)
-    const [prices, setPrice] = useState(price)
-    const [names, setName] = useState(name)
-    // const [userId, setUserId] = useState(userId)
+    const [addresses, setAddress] = useState(address ? address : null)
+    const [cities, setCity] = useState(city ? city : '')
+    const [states, setState] = useState(state ? state : '')
+    const [countrys, setCountry] = useState(country ? country : '')
+    const [prices, setPrice] = useState(price ? price : '')
+    const [names, setName] = useState(name ? name : '')
+    const user = useSelector(state => state.session.user);
 
-    // console.log('.............', spot)
+
     const handleSubmit = async (e) => {
         e.preventDefault()
+
 
         // console.log(handleSubmit)
         const payload = {
@@ -37,17 +30,10 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
             userId: userId,
             id: id
         }
-        console.log(payload)
 
-        let createdActivity; 
+        console.log('...........payload:', payload)
+        let createdActivity;
         createdActivity = await dispatch(editActivity(payload))
-
-        // console.log(createdActivity)
-
-        // try {
-        // } catch (err) {
-        // throw new Error("This is not working, try again.")
-        // }
 
         if (createdActivity) {
             history.push(`/recommendation`)
@@ -57,7 +43,7 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
     return (
         <form className='newForm' onSubmit={handleSubmit}>
             <label htmlFor='name'>
-                <input
+                <input htmlFor='name'
                     type='text'
                     name='name'
                     placeholder='Name your activity'
