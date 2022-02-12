@@ -18,10 +18,10 @@ const AddSpots = () => {
     const [country, setCountry] = useState('')
     const [price, setPrice] = useState('')
     const [name, setName] = useState('')
-    const [url, setUrl] = useState('')
+    const [imageLink, setImageLink] = useState('')
 
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         const payload = {
             name,
@@ -31,13 +31,15 @@ const AddSpots = () => {
             state,
             country,
             userId: user?.id,
-            url
+            imageLink
         }
 
-        let createActivity = await dispatch(addActviity(payload))
-        if (createActivity) {
-            history.push(`/recommendation`)
-        }
+        // let createActivity
+        await dispatch(addActviity(payload))
+        // if (createActivity) {
+        //     history.push(`/recommendation`)
+        // }
+        e.preventDefault()
     }
 
     return (
@@ -109,8 +111,8 @@ const AddSpots = () => {
                     type='url'
                     name='url'
                     placeholer='Enter image link'
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
+                    value={imageLink}
+                    onChange={(e) => setImageLink(e.target.value)}
                     >
                 </input>
             </label>

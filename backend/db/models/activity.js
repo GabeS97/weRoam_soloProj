@@ -2,6 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Activity = sequelize.define('Activity', {
     userId: DataTypes.INTEGER,
+    imageLink: DataTypes.STRING,
     address: DataTypes.STRING,
     city: DataTypes.STRING,
     state: DataTypes.STRING,
@@ -16,7 +17,6 @@ module.exports = (sequelize, DataTypes) => {
     Activity.belongsTo(models.User, { foreignKey: 'userId' })
     Activity.hasMany(models.Booking, { foreignKey: 'activityId', onDelete: 'cascade', hooks: true })
     Activity.hasMany(models.Review, { foreignKey: 'activityId', onDelete: 'cascade', hooks: true })
-    Activity.hasMany(models.Image, { foreignKey: 'activityId', onDelete: 'cascade', hooks: true })
   };
   return Activity;
 };

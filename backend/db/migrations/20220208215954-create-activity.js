@@ -13,6 +13,10 @@ module.exports = {
         allowNull: false,
         references: { model: 'Users' }
       },
+      imageLink: {
+        type: Sequelize.STRING(5000),
+        allowNull: true
+      },
       address: {
         type: Sequelize.STRING,
         allowNull: false

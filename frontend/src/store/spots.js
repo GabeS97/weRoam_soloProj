@@ -49,12 +49,11 @@ export const seeActivity = () => async dispatch => {
     }
 };
 
-export const editActivity = (input) => async dispatch => {
-    // console.log('THUNK:', payload.id)
-    const res = await csrfFetch(`/api/spots/${input.id}`, {
+export const editActivity = (payload) => async dispatch => {
+    const res = await csrfFetch(`/api/spots/${payload.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(input)
+        body: JSON.stringify(payload)
     })
 
     if (res.ok) {
@@ -68,8 +67,8 @@ export const removeActivity = activityId => async dispatch => {
 
     const res = await csrfFetch(`/api/spots/${activityId}`, {
         method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: activityId })
+        // headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({activityId })
     })
 
     const activity = await res.json();
