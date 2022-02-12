@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom/'
 import { add, editActivity } from '../../store/spots';
@@ -18,8 +18,6 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-
-        // console.log(handleSubmit)
         const payload = {
             address: addresses,
             city: cities,
@@ -31,7 +29,6 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
             id: id
         }
 
-        console.log('...........payload:', payload)
         let createdActivity;
         createdActivity = await dispatch(editActivity(payload))
 
@@ -39,6 +36,9 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
             history.push(`/recommendation`)
         }
     }
+
+
+
 
     return (
         <form className='newForm' onSubmit={handleSubmit}>

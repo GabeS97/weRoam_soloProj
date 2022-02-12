@@ -30,7 +30,8 @@ const AddSpots = () => {
             city,
             state,
             country,
-            userId: user?.id
+            userId: user?.id,
+            url
         }
 
         let createActivity = await dispatch(addActviity(payload))
