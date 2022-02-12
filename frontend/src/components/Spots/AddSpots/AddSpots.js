@@ -1,64 +1,66 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom/'
-import { add, editActivity } from '../../store/spots';
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { addActviity } from '../../../store/spots'
+import './AddSpots.css'
 
-const EditSpots = ({ id, city, state, country, price, name, userId, address }) => {
-    const history = useHistory();
-    const dispatch = useDispatch()
-    const [addresses, setAddress] = useState(address ? address : null)
-    const [cities, setCity] = useState(city ? city : '')
-    const [states, setState] = useState(state ? state : '')
-    const [countrys, setCountry] = useState(country ? country : '')
-    const [prices, setPrice] = useState(price ? price : '')
-    const [names, setName] = useState(name ? name : '')
+
+const AddSpots = () => {
     const user = useSelector(state => state.session.user);
+    const activity = useSelector(state => state.activity);
 
+    console.log(activity)
+    const history = useHistory()
+    const dispatch = useDispatch();
+    const [address, setAddress] = useState('')
+    const [city, setCity] = useState('')
+    const [state, setState] = useState('')
+    const [country, setCountry] = useState('')
+    const [price, setPrice] = useState('')
+    const [name, setName] = useState('')
+    const [imageLink, setImageLink] = useState('')
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         const payload = {
-            address: addresses,
-            city: cities,
-            state: states,
-            country: countrys,
-            price: prices,
-            name: names,
-            userId: userId,
-            id: id
+            name,
+            price,
+            address,
+            city,
+            state,
+            country,
+            userId: user?.id,
+            imageLink
         }
 
-        let createdActivity;
-        createdActivity = await dispatch(editActivity(payload))
-
-        if (createdActivity) {
+        // let createActivity
+        let createActivity = await dispatch(addActviity(payload))
+        if (createActivity) {
             history.push(`/recommendation`)
         }
+        // e.preventDefault()
     }
 
-
-
-
     return (
-        <form className='newForm' onSubmit={handleSubmit}>
+        <form className='newForm' onSubmit={handleSubmit} >
             <label htmlFor='name'>
-                <input htmlFor='name'
+                <input
                     type='text'
                     name='name'
                     placeholder='Name your activity'
-                    value={names}
+                    value={name}
                     onChange={(e) => setName(e.target.value)}
                 >
                 </input>
             </label>
 
             <label htmlFor='price'>
-                <input htmlFor='price'
+                <input
                     type='number'
                     name='price'
-                    placeholder='Please include your currency'
-                    value={prices}
+                    placeholder='Provide price'
+                    value={price}
                     onChange={(e) => setPrice(e.target.value)}
                 >
                 </input>
@@ -69,7 +71,7 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
                     type='text'
                     name='address'
                     placeholder='Enter address'
-                    value={addresses}
+                    value={address}
                     onChange={(e) => setAddress(e.target.value)}
                 >
                 </input>
@@ -79,7 +81,7 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
                     type='text'
                     name='city'
                     placeholder='Enter city'
-                    value={cities}
+                    value={city}
                     onChange={(e) => setCity(e.target.value)}
                 >
                 </input>
@@ -89,7 +91,7 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
                     type='text'
                     name='country'
                     placeholder='Enter country'
-                    value={countrys}
+                    value={country}
                     onChange={(e) => setCountry(e.target.value)}
                 >
                 </input>
@@ -99,16 +101,25 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
                     type='text'
                     name='state'
                     placeholder='Enter state'
-                    value={states}
+                    value={state}
                     onChange={(e) => setState(e.target.value)}
                 >
                 </input>
             </label>
-            <button className='editBtn' type='submit'>Edit</button>
+            <label htmlFor='url'>
+                <input htmlFor='url'
+                    type='url'
+                    name='url'
+                    placeholer='Enter image link'
+                    value={imageLink}
+                    onChange={(e) => setImageLink(e.target.value)}
+                    >
+                </input>
+            </label>
+            <button type='submit'>Host Me!</button>
         </form>
-
 
     )
 }
 
-export default EditSpots
+export default AddSpots

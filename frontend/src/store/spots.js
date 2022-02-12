@@ -92,8 +92,8 @@ const activityReducer = (state = initialState, action) => {
         }
         case ADD_ACTIVITY: {
             newState = { ...state }
-            newState.activity = {
-                ...newState.activity,
+            newState.list = {
+                ...state.list,
                 [action.activity.id]: action.activity
             };
             return newState;
@@ -105,7 +105,7 @@ const activityReducer = (state = initialState, action) => {
         }
         case REMOVE_ACTIVITY: {
             newState = { ...state }
-            delete newState.list[action.activity]
+            delete newState.list[action.activity.id]
             return newState
         }
         default:
