@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { add, seeActivity } from '../../store/spots';
-import AddSpots from './AddSpots';
-import EditSpots from './EditSpots';
+import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { add, seeActivity } from '../../../store/spots';
+import AddSpots from '../AddSpots/AddSpots';
+import EditSpots from '../EditSpots/EditSpots';
 import './Spots.css'
-import { removeActivity } from '../../store/spots';
+import { removeActivity } from '../../../store/spots';
 
 const Spots = () => {
-    // const { activityId } = useParams();
+    // const { id } = useParams()
+
+    const history = useHistory();
     const dispatch = useDispatch();
     const [showForm, setShorForm] = useState(false);
     const [showEdit, setShowEdit] = useState(false);
@@ -17,13 +19,24 @@ const Spots = () => {
 
     const activity = useSelector(state => {
         return state.activity.list
-
     })
 
+
     const spot = Object.values(activity);
+    console.log(' this is taking too much spot' , activity)
     useEffect(() => {
         dispatch(seeActivity())
     }, [dispatch])
+
+
+    // const handleDelete = async (e) => {
+    //     e.preventDefault();
+
+    //     const deleted = await removeActivity(spot)
+    //     if (deleted) {
+    //         return history.push('/recommendation')
+    //     }
+    // }
 
     return (
         <div className='container'>
@@ -31,7 +44,7 @@ const Spots = () => {
                 <h2 className='addBtn' onClick={() => setShorForm(!showForm)} >Add</h2>
                 {showForm ? <AddSpots /> : null}
             </nav>
-            <h1 className='recs'>Hosted By Yours Truly </h1>
+            <h1 className='recs'>Hosted By You! </h1>
             <div className='contain'>{spot.map(({ id, name, userId, address, city, country, state, imageLink, price }) => (
                 // <div className='contain'>{spot.map(({ id, name, userId, address, city, state, Images, price }) =>
                 <div className='lists' key={id}>
@@ -52,6 +65,7 @@ const Spots = () => {
                                 {showEdit === id ? <EditSpots id={id} name={name} userId={userId} address={address} city={city} state={state}  price={price} /> : null}
                                 <button className='deleteButton'
                                     onClick={(e) => dispatch(removeActivity(id))}
+                                    // onClick={handleDelete}
                                 >
                                     Delete
                                 </button>
