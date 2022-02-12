@@ -16,7 +16,7 @@ export const add = (activity) => ({
 
 export const edit = (activity) => ({
     type: EDIT_ACTIVITY,
-    payload: activity
+    activity
 });
 
 export const remove = (activity) => ({
@@ -24,13 +24,14 @@ export const remove = (activity) => ({
     activity
 });
 
-export const addActviity = activityId => async dispatch => {
+export const addActviity = payload => async dispatch => {
 
     const res = await csrfFetch('/api/spots/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(activityId)
+        body: JSON.stringify(payload)
     })
+
     if (res.ok) {
         const activity = await res.json();
         dispatch(add(activity));
@@ -48,12 +49,11 @@ export const seeActivity = () => async dispatch => {
     }
 };
 
-export const editActivity = (input) => async dispatch => {
-    // console.log('THUNK:', payload.id)
-    const res = await csrfFetch(`/api/spots/${input.id}`, {
+export const editActivity = (payload) => async dispatch => {
+    const res = await csrfFetch(`/api/spots/${payload.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(input)
+        body: JSON.stringify(payload)
     })
 
     if (res.ok) {
@@ -67,16 +67,16 @@ export const removeActivity = activityId => async dispatch => {
 
     const res = await csrfFetch(`/api/spots/${activityId}`, {
         method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id: activityId })
+        // headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({activityId })
     })
 
     const activity = await res.json();
     dispatch(remove(activity))
     return activity
 }
-const initialState = { list: {} };
 
+const initialState = { list: {} };
 
 const activityReducer = (state = initialState, action) => {
     let newState;
@@ -100,12 +100,12 @@ const activityReducer = (state = initialState, action) => {
         }
         case EDIT_ACTIVITY: {
             newState = { ...state }
-            newState[action.payload.id] = action.payload
+            newState.list = { ...state.list, [action.activity.id] : action.activity }
             return newState;
         }
         case REMOVE_ACTIVITY: {
             newState = { ...state }
-            delete newState.list[action.activity.id]
+            delete newState.list[action.activity]
             return newState
         }
         default:
