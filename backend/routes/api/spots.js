@@ -8,7 +8,7 @@ const router = express.Router();
 // }
 
 router.post('/', asyncHandler(async (req, res) => {
-    const { address, city, state, country, price, name, userId } = req.body;
+    const { address, city, state, country, price, name, userId, url } = req.body;
     const newActivity = await Activity.create({
         address,
         city,
@@ -16,7 +16,8 @@ router.post('/', asyncHandler(async (req, res) => {
         country,
         price,
         name,
-        userId
+        userId,
+        url
     });
     return res.json(newActivity);
 }))
@@ -25,6 +26,7 @@ router.get('/', asyncHandler(async (req, res) => {
     const spot = await Activity.findAll({
         include: { model: Image }
     });
+
     return res.json(spot)
 }))
 
@@ -43,7 +45,7 @@ router.put('/:id', asyncHandler(async (req, res) => {
     },
         { where: { id: activityId } }
     )
-    editActivity = await Activity.findByPk(activityId);
+    editActivity = await Activity.findByPk(activityId, { include: { model: Image } });
     return res.json(editActivity)
 }))
 
