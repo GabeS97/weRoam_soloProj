@@ -41,7 +41,7 @@ function Navigation({ isLoaded }) {
       <div className='buttons'>
         <div className='hosting'>
           <Link className='hyperlink' to='/spots'>
-            <p className='host'>Become a host</p>
+            {sessionUser && (<p className='host'>Become a host</p>)}
           </Link>
         </div>
         {isLoaded && sessionLinks}

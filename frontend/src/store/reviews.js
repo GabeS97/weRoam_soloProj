@@ -28,7 +28,6 @@ export const remove = (review) => ({
     type: REMOVE_REVIEW,
     review,
 })
-console.log('4.................', remove)
 
 export const seeReview = (id) => async dispatch => {
     const res = await csrfFetch(`/api/reviews`)
@@ -72,14 +71,12 @@ export const editReview = payload => async dispatch => {
 }
 
 export const removeReview = payload => async dispatch => {
-    console.log('1.................', payload)
     const res = await csrfFetch(`/api/reviews/${payload}`, {
         method: 'DELETE',
         body: JSON.stringify({payload})
 
     })
     const review = await res.json();
-    console.log('3....................', review)
     dispatch(remove(review))
     return review
 }

@@ -8,7 +8,7 @@ const router = express.Router();
 // }
 
 router.post('/', asyncHandler(async (req, res) => {
-    const { address, city, state, country, price, name, userId, imageLink } = req.body;
+    const { address, city, state, country, price, name, userId, imageLink, activityId } = req.body;
     const newActivity = await Activity.create({
         address,
         city,
@@ -17,7 +17,8 @@ router.post('/', asyncHandler(async (req, res) => {
         price,
         name,
         userId,
-        imageLink
+        imageLink,
+        activityId
     });
     return res.json(newActivity);
 }))

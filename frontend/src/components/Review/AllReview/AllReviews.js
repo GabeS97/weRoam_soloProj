@@ -4,9 +4,11 @@ import reviewReducer, { removeReview, seeReview } from '../../../store/reviews'
 import { useState } from 'react'
 import EditSpots from '../../Spots/EditSpots/EditSpots'
 import EditReview from '../EditReview/EditReview'
+import { seeActivity } from '../../../store/spots'
 
 const AllReviews = () => {
     const dispatch = useDispatch();
+    const user = useSelector(state => state.session)
     const [showForm, setShorForm] = useState(false);
     const [showEdit, setShowEdit] = useState(false);
     const review = useSelector(state => {
@@ -15,12 +17,11 @@ const AllReviews = () => {
     })
 
     const single = Object.values(review)
-
+    console.log(single)
     useEffect(() => {
         dispatch(seeReview())
-        // showReview()
-
     }, [dispatch])
+
 
     // const showReview = () => {
     //     console.log('single console' , review)
@@ -33,9 +34,10 @@ const AllReviews = () => {
             <div className='comments' key={id}>
                 <p className='title'>{title}</p>
                 <p className='reviews'>{reviews}</p>
-                <button className='editReview' onClick={() => setShowEdit(id)}>Edit</button>
+
+                <button className='editBtn' onClick={() => setShowEdit(id)}>Edit</button>
                 {showEdit === id ? <EditReview id={id} userId={userId} reviews={reviews} title={title} /> : null}
-                <button className='deleteButton'
+                <button className='deleteBtn'
                     onClick={(e) => { { dispatch(removeReview(id)) } }}
                 >
                     Delete

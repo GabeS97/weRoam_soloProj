@@ -1,0 +1,45 @@
+.inputSignIn {
+    margin-top: 20%;
+    margin-left: -10%;
+}
+
+.signinTitle {
+    position: relative;
+    font-weight: bolder;
+    font-size: 150%;
+    top: 20px;
+    margin-left: 5%;
+}
+.emailSignIn, .usernameSignIn, .passwordSignIn, .confirmSignIn {
+    display: flex;
+    margin-bottom: 15;
+    border-radius: 999px;
+    height: 50px;
+    width: 150%;
+    outline: none;;
+    border: 1px solid lightgray;
+;
+
+}
+
+.submitSignup {
+    margin-top: 20px;
+    margin-left: 5%;
+    cursor: pointer;
+    border-radius: 999px;
+    background-color: lightcoral;
+    outline: none;
+    width: 15%;
+    height: 30px;
+    border: 1px solid lightgray;
+}
+
+.submitSignup:hover{
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: white;
+    color: lightcoral;
+    transform: scale(1.05);
+    transition-duration: 250ms;
+
+}

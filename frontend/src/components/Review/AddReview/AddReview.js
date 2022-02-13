@@ -7,10 +7,6 @@ const AddReview = () => {
 
     const user = useSelector(state => state.session.user)
     const activity = useSelector(state => state.session.activity)
-
-    console.log(activity, '------------------------')
-    // console.log(ac,  'this it the reviews stuff')
-    // console.log(review)
     const history = useHistory();
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
@@ -27,14 +23,14 @@ const AddReview = () => {
 
 
         const payload = {
-            // title,
-            // review,
-            // userId: user?.id,
-            // activityId: activity.id
+            title,
+            review,
+            userId: user?.id,
+    
         }
+        console.log('1................... Bread trails for addReviews', payload)
 
         let createReview = await dispatch(addReview(payload));
-        console.log('1. addReview component. ' , payload)
         if (createReview) {
             history.push('/spots/id')
         }

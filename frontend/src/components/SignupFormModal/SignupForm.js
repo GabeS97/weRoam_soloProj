@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 // import { useSelector } from "react-redux";
 // import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
-
+import './SignupForm.css'
 
 function SignupForm() {
   const dispatch = useDispatch();
@@ -31,46 +31,53 @@ function SignupForm() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <header className="signinTitle">Sign In</header>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
-      <label>
-        Email
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Username
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Confirm Password
-        <input
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Sign Up</button>
+      <div className="inputSignIn">
+        <label>
+          {/* Email */}
+          <input className="emailSignIn"
+            placeholder="Please enter your email"
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          {/* Username */}
+          <input className="usernameSignIn"
+            placeholder="Please enter your username"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          {/* Password */}
+          <input className="passwordSignIn"
+            placeholder="Please enter your password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          {/* Confirm Password */}
+          <input className="confirmSignIn"
+            placeholder="Please confirm your password"
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+        </label>
+      </div>
+      <button type="submit" className="submitSignup">Sign Up</button>
     </form>
   );
 }

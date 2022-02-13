@@ -102,7 +102,6 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
                     placeholder='Enter state'
                     value={states}
                     onChange={(e) => setState(e.target.value)}
-                    required
                 >
                 </input>
             </label>
