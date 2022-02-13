@@ -30,8 +30,6 @@ const AddReview = () => {
             userId: user?.id,
             activityId : id
         }
-        // console.log('&&&&&&&&&&&&&&&&&&&&&&&&', payload)
-        console.log('1................... Bread trails for addReviews', payload)
 
         let createReview = await dispatch(addReview(payload));
         if (createReview) {
