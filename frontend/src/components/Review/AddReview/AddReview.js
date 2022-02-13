@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min'
+import { useHistory, useParams } from 'react-router-dom'
 import { addReview, seeReview } from '../../../store/reviews'
 import { seeActivity } from '../../../store/spots'
 
@@ -15,6 +15,7 @@ const AddReview = () => {
     const activities = useSelector(state => state.activity)
 
     const { id } = useParams()
+    console.log('ACTIVITIES..................', id)
 
     useEffect(() => {
         dispatch(seeActivity())
@@ -28,12 +29,14 @@ const AddReview = () => {
             title,
             reviews,
             userId: user?.id,
-            activityId : id
+            activityId: id
         }
+        // console.log('&&&&&&&&&&&&&&&&&&&&&&&&', payload)
+        console.log('1................... Bread trails for addReviews', payload)
 
         let createReview = await dispatch(addReview(payload));
         if (createReview) {
-            history.push('/spots/id')
+            history.push('/spots/:id')
         }
     }
 
