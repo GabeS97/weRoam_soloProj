@@ -72,10 +72,10 @@ module.exports = {
       {
         userId: 1,
         imageLink: 'https://wallpapercave.com/wp/wp1851483.jpg',
-        address: '1 Sheikh Mohammed bin Rashid Blvd - Downtown Dubai - Dubai - United Arab Emirates',
+        address: '1 Sheikh Mohammed bin Rashid Blvd - Downtown Dubai - Dubai - UAE',
         city: 'Dubai',
         state: null,
-        country: 'United Arab Emirates',
+        country: 'UAE',
         price: 15.00,
         name: 'Burj Khalifa',
         createdAt: new Date(),

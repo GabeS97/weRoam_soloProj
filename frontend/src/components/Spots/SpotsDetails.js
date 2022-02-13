@@ -15,7 +15,6 @@ const SpotsDetails = () => {
                 <h2 className='addBtn' onClick={() => setShorForm(!showForm)} >Add</h2>
                 {showForm ?  <AddReview /> : null}
             </nav>
-
             <AllReviews />
         </div>
     )

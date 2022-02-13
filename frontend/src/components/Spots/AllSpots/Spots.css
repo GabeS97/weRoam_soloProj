@@ -1,6 +1,11 @@
+
+.contain {
+}
+
+
 .locPic {
     display: flex;
-    width: 30%;
+    width:100%;
     height: 100%;
     /* border-radius: 50px 0px 0px 50px; */
     border-radius: 50px;
@@ -16,12 +21,19 @@
     height:300px;
     border: solid lightgrey;
     border-radius: 50px;;
+    background-color: rgb(255, 254, 254);
 
 }
 
+.imageLinkBar {
+    width: 35%;
+    border: 3px solid lightgrey;
+    padding: 0px;
+    border-radius: 50px;
+}
 .recs {
     font-weight: bold;
-    font-size: 50px;
+    font-size: 45px
 }
 
 .navigateAdd {
@@ -30,18 +42,40 @@
     box-shadow: 0px 10px 15px -8px rgb(238, 237, 237);
     height: 85px;
     width: 100%;
-    margin: auto;
+    /* margin: auto; */
+
     position: sticky;
     color: black;
-    justify-content: space-evenly;
+    justify-content: space-evenly;;
 }
 
+.addBtn {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5%;
+}
 .addBtn:hover {
     cursor: pointer;
+    background-color: white;
+    color: lightcoral;
+    transition-duration: 250ms;
 }
 
 .editBtn:hover {
     cursor: pointer;
+    cursor: pointer;
+    background-color: white;
+    color: lightcoral;
+    transform: scale(1.05);
+    transition-duration: 250ms;
+}
+
+.deleteButton:hover {
+    cursor: pointer;
+    background-color: white;
+    color: lightcoral;
+    transform: scale(1.05);
+    transition-duration: 250ms;
 }
 
 .tester {
@@ -49,18 +83,74 @@
 }
 
 .p {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
-    margin-left: 20%;
+    align-items: center; */
+    margin-left: 18%;
+}
+
+.buttonsEditandDelete {
+
 
 }
 
-.describe {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-self: center;
+.editBtn {
+    margin-top: 10%;
+    margin-left: 10px;
+    border-radius: 999px;
+    height: 30px;
+    width:100px;
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+    background-color: lightcoral;
+}
 
+.deleteButton {
+    margin-top: 10%;
+    margin-left: 10px;
+    border-radius: 999px;
+    height: 30px;
+    width:100px;
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+    background-color: lightcoral;
+}
+
+.nameBar {
+    margin-top: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.priceBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.addressBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cityBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.countryBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.stateBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addForm {
+    z-index: 100;
+    position: fixed;
 }

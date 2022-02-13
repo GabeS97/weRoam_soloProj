@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post('/', asyncHandler(async (req, res) => {
     const { userId, activityId, title, reviews } = req.body;
-    const review = await Review.create({ userId, activityId, title, reviews });
+    const review = await Review.create({ userId, activityId, title, reviews }, { include: Activity });
     return res.json(review)
 }));
 
@@ -31,8 +31,6 @@ router.put('/:id', asyncHandler(async (req, res) => {
 
 router.delete('/:id', asyncHandler(async (req, res) => {
     const reviewId = await Review.findByPk(req.params.id);
-    console.log('2............', reviewId)
-    console.log('2.5..............', req.params.id, req.body)
     reviewId.destroy();
     return res.json(reviewId);
 }))

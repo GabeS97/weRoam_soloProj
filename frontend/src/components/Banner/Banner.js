@@ -1,8 +1,11 @@
 import React from 'react';
 import './Banner.css'
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import LoginFormModal from '../LoginFormModal';
 
 function Banner() {
+    const user = useSelector(state => state.session.user)
     return (
         <div className='banner'>
             <div className='sidebar'>

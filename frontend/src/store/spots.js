@@ -27,7 +27,6 @@ export const remove = (activity) => ({
     type: REMOVE_ACTIVITY,
     activity
 });
-console.log('4. action creator check for delete trail ', remove)
 
 export const addActviity = payload => async dispatch => {
 
@@ -69,8 +68,6 @@ export const editActivity = (payload) => async dispatch => {
 }
 
 export const removeActivity = payload => async dispatch => {
-
-    console.log('1. delete button trail, check thunk delete', payload)
     const res = await csrfFetch(`/api/spots/${payload}`, {
         method: 'DELETE',
         // headers: { 'Content-Type': 'application/json' },
@@ -79,7 +76,6 @@ export const removeActivity = payload => async dispatch => {
     })
 
     const activity = await res.json();
-    console.log('3. delete trail, see if our info is given back from database, thunk ', activity)
     dispatch(remove(activity))
     return activity
 }
@@ -113,7 +109,6 @@ const activityReducer = (state = initialState, action) => {
         }
         case REMOVE_ACTIVITY: {
             newState = { ...state }
-            console.log('4.5..............', newState)
             delete newState[action.activity.id]
             return newState
         }
