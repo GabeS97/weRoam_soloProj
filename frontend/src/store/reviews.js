@@ -26,8 +26,9 @@ export const edit = (review) => ({
 
 export const remove = (review) => ({
     type: REMOVE_REVIEW,
-    review
+    review,
 })
+console.log('4.................', remove)
 
 export const seeReview = (id) => async dispatch => {
     const res = await csrfFetch(`/api/reviews`)
@@ -71,16 +72,18 @@ export const editReview = payload => async dispatch => {
 }
 
 export const removeReview = payload => async dispatch => {
-    const res = await csrfFetch(`/api/reviews/${payload.id}`, {
+    console.log('1.................', payload)
+    const res = await csrfFetch(`/api/reviews/${payload}`, {
         method: 'DELETE',
-        body: JSON.stringify(payload)
+        body: JSON.stringify({payload})
 
     })
     const review = await res.json();
+    console.log('3....................', review)
     dispatch(remove(review))
     return review
 }
-const initialState = { list: {} };
+const initialState = {};
 
 const reviewReducer = (state = initialState, action) => {
     let newState;
@@ -91,25 +94,27 @@ const reviewReducer = (state = initialState, action) => {
             action.review.forEach(review => {
                 alLReviews[review.id] = review
             })
-            newState.list = alLReviews
+            newState = alLReviews
             return newState
         }
         case ADD_REVIEW: {
             newState = { ...state }
-            newState.list = {
-                ...state.list,
+            newState = {
+                ...state,
                 [action.review.id]: action.review
             };
             return newState;
         }
         case EDIT_REVIEW: {
             newState = { ...state }
-            newState.list = { ...state.list, [action.review.id]: action.review }
+            newState  = { ...state, [action.review.id]: action.review }
             return newState
         }
         case REMOVE_REVIEW: {
             newState = { ...state }
-            delete newState.list[action.review.id]
+            console.log('5..................', newState)
+            console.log('5.5...................' , action.review.id)
+            delete newState[action.review.id]
             return newState
         }
         default:

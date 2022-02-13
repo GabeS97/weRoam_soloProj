@@ -38,6 +38,7 @@ const EditReview = ({id, userId, reviews, title}) => {
                 placeholder='Change your review'
                 value={review}
                 onChange={(e) => setReview(e.target.value)}
+                required
             >
             </input>
         </label>
@@ -48,6 +49,7 @@ const EditReview = ({id, userId, reviews, title}) => {
                 placeholder='Set new title'
                 value={titles}
                 onChange={(e) => setTitles(e.target.value)}
+                required
             >
             </input>
         </label>

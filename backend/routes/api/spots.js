@@ -57,6 +57,7 @@ router.put('/:id', asyncHandler(async (req, res) => {
 
 router.delete('/:id', asyncHandler(async (req, res) => {
     const activityId = await Activity.findByPk(req.params.id);
+    console.log('2. delete trail check the routes', req.params.id)
 
     activityId.destroy();
     return res.json(activityId)

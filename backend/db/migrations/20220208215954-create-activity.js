@@ -13,6 +13,12 @@ module.exports = {
         allowNull: false,
         references: { model: 'Users' }
       },
+      // activityId: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: false,
+      //   references: { model: 'Activities' },
+      //   onDelete: 'CASCADE'
+      // },
       imageLink: {
         type: Sequelize.STRING(5000),
         allowNull: true
@@ -23,7 +29,7 @@ module.exports = {
       },
       city: {
         type: Sequelize.STRING,
-        allowNull:false
+        allowNull: false
       },
       state: {
         type: Sequelize.STRING,
@@ -31,15 +37,15 @@ module.exports = {
       },
       country: {
         type: Sequelize.STRING,
-        allowNull:false
+        allowNull: false
       },
       name: {
         type: Sequelize.STRING,
-        allowNull:false
+        allowNull: false
       },
       price: {
-        type: Sequelize.DECIMAL(6,2),
-        allowNull:false
+        type: Sequelize.DECIMAL(6, 2),
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
