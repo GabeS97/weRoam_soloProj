@@ -12,7 +12,6 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
     const [countrys, setCountry] = useState(country ? country : '')
     const [prices, setPrice] = useState(price ? price : '')
     const [names, setName] = useState(name ? name : '')
-    const user = useSelector(state => state.session.user);
 
 
     const handleSubmit = async (e) => {
@@ -37,9 +36,6 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
         }
     }
 
-
-
-
     return (
         <form className='newForm' onSubmit={handleSubmit}>
             <label htmlFor='name'>
@@ -49,6 +45,7 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
                     placeholder='Name your activity'
                     value={names}
                     onChange={(e) => setName(e.target.value)}
+                    required
                 >
                 </input>
             </label>
@@ -60,6 +57,7 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
                     placeholder='Please include your currency'
                     value={prices}
                     onChange={(e) => setPrice(e.target.value)}
+                    required
                 >
                 </input>
             </label>
@@ -71,6 +69,7 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
                     placeholder='Enter address'
                     value={addresses}
                     onChange={(e) => setAddress(e.target.value)}
+                    required
                 >
                 </input>
             </label>
@@ -81,6 +80,7 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
                     placeholder='Enter city'
                     value={cities}
                     onChange={(e) => setCity(e.target.value)}
+                    required
                 >
                 </input>
             </label>
@@ -91,6 +91,7 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
                     placeholder='Enter country'
                     value={countrys}
                     onChange={(e) => setCountry(e.target.value)}
+                    required
                 >
                 </input>
             </label>
@@ -101,6 +102,7 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
                     placeholder='Enter state'
                     value={states}
                     onChange={(e) => setState(e.target.value)}
+                    required
                 >
                 </input>
             </label>

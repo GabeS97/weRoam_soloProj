@@ -18,7 +18,7 @@ module.exports = {
         allowNull: false,
         references: { model: 'Activities' },
         onDelete: 'CASCADE'
-      }, 
+      },
       title: {
         type: Sequelize.STRING,
         allowNull: false

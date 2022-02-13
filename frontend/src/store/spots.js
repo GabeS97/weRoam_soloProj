@@ -1,12 +1,12 @@
 import { csrfFetch } from './csrf';
-export const LOAD_ACTIVITY = 'reviews/LOAD_ACTIVITY';
-export const ADD_ACTIVITY = 'reviews/ADD_ACTIVITY';
-export const EDIT_ACTIVITY = 'reviews/EDIT_ACTIVITY';
-export const REMOVE_ACTIVITY = 'reviews/REMOVE_ACTIVITY';
-// export const LOAD_ACTIVITY = 'spots/LOAD_ACTIVITY';
-// export const ADD_ACTIVITY = 'spots/ADD_ACTIVITY';
-// export const EDIT_ACTIVITY = 'spots/EDIT_ACTIVITY';
-// export const REMOVE_ACTIVITY = 'spots/REMOVE_ACTIVITY';
+// export const LOAD_ACTIVITY = 'reviews/LOAD_ACTIVITY';
+// export const ADD_ACTIVITY = 'reviews/ADD_ACTIVITY';
+// export const EDIT_ACTIVITY = 'reviews/EDIT_ACTIVITY';
+// export const REMOVE_ACTIVITY = 'reviews/REMOVE_ACTIVITY';
+export const LOAD_ACTIVITY = 'spots/LOAD_ACTIVITY';
+export const ADD_ACTIVITY = 'spots/ADD_ACTIVITY';
+export const EDIT_ACTIVITY = 'spots/EDIT_ACTIVITY';
+export const REMOVE_ACTIVITY = 'spots/REMOVE_ACTIVITY';
 
 export const load = (activity) => ({
     type: LOAD_ACTIVITY,
@@ -27,6 +27,7 @@ export const remove = (activity) => ({
     type: REMOVE_ACTIVITY,
     activity
 });
+console.log('4. action creator check for delete trail ', remove)
 
 export const addActviity = payload => async dispatch => {
 
@@ -69,7 +70,7 @@ export const editActivity = (payload) => async dispatch => {
 
 export const removeActivity = payload => async dispatch => {
 
-    // console.log('!!!!!!!!!!!!!!!!!!!!!!', payload.id)
+    console.log('1. delete button trail, check thunk delete', payload)
     const res = await csrfFetch(`/api/spots/${payload}`, {
         method: 'DELETE',
         // headers: { 'Content-Type': 'application/json' },
@@ -78,11 +79,12 @@ export const removeActivity = payload => async dispatch => {
     })
 
     const activity = await res.json();
+    console.log('3. delete trail, see if our info is given back from database, thunk ', activity)
     dispatch(remove(activity))
     return activity
 }
 
-const initialState = { list: {} };
+const initialState = {};
 
 const activityReducer = (state = initialState, action) => {
     let newState;
@@ -93,24 +95,25 @@ const activityReducer = (state = initialState, action) => {
             action.activity.forEach(activity => {
                 allActivities[activity.id] = activity
             })
-            newState.list = allActivities
+            newState = allActivities
             return newState
         }
         case ADD_ACTIVITY: {
             newState = { ...state }
-            newState.list = {
-                ...state.list,
+            newState = {
+                ...state,
                 [action.activity.id]: action.activity
             };
             return newState;
         }
         case EDIT_ACTIVITY: {
             newState = { ...state }
-            newState.list = { ...state.list, [action.activity.id] : action.activity }
+            newState = { ...state, [action.activity.id] : action.activity }
             return newState;
         }
         case REMOVE_ACTIVITY: {
             newState = { ...state }
+            console.log('4.5..............', newState)
             delete newState[action.activity.id]
             return newState
         }

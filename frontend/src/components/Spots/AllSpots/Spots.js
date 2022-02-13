@@ -16,11 +16,13 @@ const Spots = () => {
     const dispatch = useDispatch();
     const [showForm, setShorForm] = useState(false);
     const [showEdit, setShowEdit] = useState(false);
+
     // const onClick = () => setShorForm(!showForm);
     // const onClick2 = () => setShowEdit(!showEdit);
 
     const activity = useSelector(state => {
-        return state.activity.list
+        // return state.activity.list
+        return state.activity
     })
 
 
@@ -36,7 +38,7 @@ const Spots = () => {
 
     //     const deleted = await removeActivity(spot)
     //     if (deleted) {
-    //         return history.push('/recommendation')
+    //         return history.push('/spots')
     //     }
     // }
 
@@ -69,8 +71,7 @@ const Spots = () => {
                             <button className='editBtn' onClick={() => setShowEdit(id)} >Edit</button>
                             {showEdit === id ? <EditSpots id={id} name={name} userId={userId} address={address} city={city} state={state} price={price} /> : null}
                             <button className='deleteButton'
-                                onClick={(e) => dispatch(removeActivity(id))}
-                            // onClick={handleDelete}
+                                onClick={(e) => {{dispatch(removeActivity(id))}}}
                             >
                                 Delete
                             </button>

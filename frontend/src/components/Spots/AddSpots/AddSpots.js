@@ -51,6 +51,7 @@ const AddSpots = () => {
                     placeholder='Name your activity'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    required
                 >
                 </input>
             </label>
@@ -62,6 +63,8 @@ const AddSpots = () => {
                     placeholder='Provide price'
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
+                    required
+
                 >
                 </input>
             </label>
@@ -73,6 +76,8 @@ const AddSpots = () => {
                     placeholder='Enter address'
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
+                    required
+
                 >
                 </input>
             </label>
@@ -83,6 +88,7 @@ const AddSpots = () => {
                     placeholder='Enter city'
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
+                    required
                 >
                 </input>
             </label>
@@ -93,6 +99,7 @@ const AddSpots = () => {
                     placeholder='Enter country'
                     value={country}
                     onChange={(e) => setCountry(e.target.value)}
+                    required
                 >
                 </input>
             </label>
@@ -103,6 +110,7 @@ const AddSpots = () => {
                     placeholder='Enter state'
                     value={state}
                     onChange={(e) => setState(e.target.value)}
+                    required
                 >
                 </input>
             </label>
@@ -113,6 +121,7 @@ const AddSpots = () => {
                     placeholer='Enter image link'
                     value={imageLink}
                     onChange={(e) => setImageLink(e.target.value)}
+                    required
                     >
                 </input>
             </label>
