@@ -53,7 +53,7 @@ const Spots = () => {
                     {/* {Images.map((image) => */}
 
                     <div className='tester' key={id}>
-                        <NavLink to={`spots/${id}`}>
+                        <NavLink to={`/spots/${id}`}>
                             <img className='locPic' src={imageLink} alt=''></img>
                             <div className='p' >
                                 <p className='nameBar'>{name}</p>
