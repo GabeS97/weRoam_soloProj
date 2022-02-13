@@ -22,6 +22,8 @@ router.put('/:id', asyncHandler(async (req, res) => {
     const { userId, activityId, title, reviews, id } = req.body;
     const reviewId = req.params.id;
 
+
+
     const review = await Review.findOne({ where: { id: reviewId } })
     review.update(req.body);
     return res.json(review);

@@ -13,13 +13,9 @@ const AllReviews = () => {
         return state.review.list
     })
 
-    // const review = useSelector(state => Object.values(state.))
     console.log('frontend review', review, '<<<<<<<<<<<<<<<<<')
-
     const single = Object.values(review)
     console.log(single, '<<<<<<<<<<<<<<<<<<<<< SINGLE')
-
-
 
     useEffect(() => {
         dispatch(seeReview())
@@ -35,7 +31,7 @@ const AllReviews = () => {
 
     return (
         <div className='containReview'>{single.map(({ id, reviews, title, userId    }) => (
-            <div className='comments' id={id}>
+            <div className='comments' key={id}>
                 <p className='title'>{title}</p>
                 <p className='reviews'>{reviews}</p>
                 <button className='editReview' onClick={() => setShowEdit(id)}>Edit</button>
