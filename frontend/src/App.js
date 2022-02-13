@@ -7,7 +7,7 @@ import Splash from "./components/Splash/Splash";
 import Spots from "./components/Spots/AllSpots/Spots";
 import AllReviews from "./components/Review/AllReview/AllReviews";
 import SpotsDetails from "./components/Spots/SpotsDetails";
-
+import Footer from "./components/Footer/Footer";
 
 
 function App() {
@@ -33,6 +33,7 @@ function App() {
           <SpotsDetails />
         </Route>
       </Switch>
+      <Footer />
     </>
   );
 }

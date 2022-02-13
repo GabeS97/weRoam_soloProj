@@ -2,21 +2,23 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min'
 import { addReview, seeReview } from '../../../store/reviews'
+import { seeActivity } from '../../../store/spots'
 
 const AddReview = () => {
 
     const user = useSelector(state => state.session.user)
-    const activity = useSelector(state => state.session.activity)
     const history = useHistory();
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
-    const [review, setReview] = useState('')
+    const [reviews, setReview] = useState('')
 
-    // const activity = useSelector(state => state.activity)
+    const activities = useSelector(state => state.activity)
 
-    // useEffect(() => {
-    //     dispatch(seeReview(activity))
-    // }, [dispatch])
+    const { id } = useParams()
+
+    useEffect(() => {
+        dispatch(seeActivity())
+    }, [dispatch])
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -24,10 +26,11 @@ const AddReview = () => {
 
         const payload = {
             title,
-            review,
+            reviews,
             userId: user?.id,
-    
+            activityId : id
         }
+        // console.log('&&&&&&&&&&&&&&&&&&&&&&&&', payload)
         console.log('1................... Bread trails for addReviews', payload)
 
         let createReview = await dispatch(addReview(payload));
@@ -43,7 +46,7 @@ const AddReview = () => {
                 type='text'
                 name='name'
                 placeholder='Change your review'
-                value={review}
+                value={reviews}
                 onChange={(e) => setReview(e.target.value)}
                 required
             >

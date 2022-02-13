@@ -61,11 +61,14 @@ input:focus {
 
 .host {
     display: flex;
+    position: relative;
     align-items: center;
     font-size: medium;
     font-weight: lighter;
     color: inherit;
     text-decoration: inherit;
+    right: 100px
+    ;
 }
 
 .hyperlink {

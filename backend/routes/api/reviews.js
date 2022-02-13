@@ -5,7 +5,8 @@ const router = express.Router();
 
 router.post('/', asyncHandler(async (req, res) => {
     const { userId, activityId, title, reviews } = req.body;
-    const review = await Review.create({ userId, activityId, title, reviews }, { include: Activity });
+    console.log('3.................. Bread trails for addReview routes', req.body)
+    const review = await Review.create({ userId, activityId, title, reviews } );
     return res.json(review)
 }));
 
@@ -25,8 +26,8 @@ router.put('/:id', asyncHandler(async (req, res) => {
 
 
     const review = await Review.findOne({ where: { id: reviewId } })
-    review.update(req.body);
-    return res.json(review);
+    const reviewUpdate = await review.update(req.body);
+    return res.json(reviewUpdate);
 }))
 
 router.delete('/:id', asyncHandler(async (req, res) => {
