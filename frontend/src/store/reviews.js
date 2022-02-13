@@ -1,8 +1,12 @@
 import { csrfFetch } from './csrf';
-export const LOAD_REVIEW = 'spots/LOAD_REVIEW';
-export const ADD_REVIEW = 'spots/ADD_REVIEW';
-export const EDIT_REVIEW = 'spots/EDIT_REVIEW';
-export const REMOVE_REVIEW = 'spots/REMOVE_REVIEW';
+export const LOAD_REVIEW = 'reviews/LOAD_REVIEW';
+export const ADD_REVIEW = 'reviews/ADD_REVIEW';
+export const EDIT_REVIEW = 'reviews/EDIT_REVIEW';
+export const REMOVE_REVIEW = 'reviews/REMOVE_REVIEW';
+// export const LOAD_REVIEW = 'spots/LOAD_REVIEW';
+// export const ADD_REVIEW = 'spots/ADD_REVIEW';
+// export const EDIT_REVIEW = 'spots/EDIT_REVIEW';
+// export const REMOVE_REVIEW = 'spots/REMOVE_REVIEW';
 
 export const load = (review) => ({
     type: LOAD_REVIEW,
@@ -51,6 +55,7 @@ export const addReview = (payload) => async dispatch => {
 
 
 export const editReview = payload => async dispatch => {
+        // thunk
     const res = await csrfFetch(`/api/reviews/${payload.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -59,6 +64,7 @@ export const editReview = payload => async dispatch => {
 
     if (res.ok) {
         const review = await res.json();
+        // thunk
         dispatch(edit(review));
         return review
     }
@@ -99,7 +105,7 @@ const reviewReducer = (state = initialState, action) => {
         case EDIT_REVIEW: {
             newState = { ...state }
             newState.list = { ...state.list, [action.review.id]: action.review }
-            return newState;
+            return newState
         }
         case REMOVE_REVIEW: {
             newState = { ...state }
@@ -110,5 +116,12 @@ const reviewReducer = (state = initialState, action) => {
             return state
     };
 }
+
+// component
+// thunk
+// routes
+// thunk
+// action-creator
+// reducer
 
 export default reviewReducer

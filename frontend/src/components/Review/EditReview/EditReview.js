@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { editReview } from '../../../store/reviews';
 import { edit } from '../../../store/spots';
 
 const EditReview = ({id, userId, reviews, title}) => {
@@ -19,8 +20,9 @@ const EditReview = ({id, userId, reviews, title}) => {
             id: id
         }
 
+        console.log('1+>>>>>>>>>>>>>', payload)
         let reviewUpdate;
-        reviewUpdate = await dispatch(edit(payload))
+        reviewUpdate = await dispatch(editReview(payload))
 
         if (reviewUpdate) {
             history.push(`/spots/:id`)
