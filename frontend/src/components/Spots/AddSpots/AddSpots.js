@@ -37,7 +37,7 @@ const AddSpots = () => {
         // let createActivity
         let createActivity = await dispatch(addActviity(payload))
         if (createActivity) {
-            history.push(`/recommendation`)
+            history.push(`/spots`)
         }
         // e.preventDefault()
     }

@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux'
 import * as sessionActions from "./store/session";
 import Splash from "./components/Splash/Splash";
 import Spots from "./components/Spots/AllSpots/Spots";
+import AllReviews from "./components/Review/AllReview/AllReviews";
+import SpotsDetails from "./components/Spots/SpotsDetails";
 
 
 
@@ -24,10 +26,12 @@ function App() {
         <Route exact path='/'>
           <Splash />
         </Route>
-        <Route exact path='/recommendation'>
+        <Route exact path='/spots'>
           <Spots />
         </Route>
-
+        <Route exact path='/spots/:id'>
+          <SpotsDetails />
+        </Route>
       </Switch>
     </>
   );

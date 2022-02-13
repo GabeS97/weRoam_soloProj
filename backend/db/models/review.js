@@ -3,7 +3,9 @@ module.exports = (sequelize, DataTypes) => {
   const Review = sequelize.define('Review', {
     userId: DataTypes.INTEGER,
     activityId: DataTypes.INTEGER,
-    reviews: DataTypes.STRING
+    title: DataTypes.STRING,
+    reviews: DataTypes.STRING,
+
   }, {});
   Review.associate = function(models) {
     // associations can be defined here

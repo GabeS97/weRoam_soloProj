@@ -40,7 +40,7 @@ function Navigation({ isLoaded }) {
       ></input>
       <div className='buttons'>
         <div className='hosting'>
-          <Link className='hyperlink' to='/recommendation'>
+          <Link className='hyperlink' to='/spots'>
             <p className='host'>Become a host</p>
           </Link>
         </div>

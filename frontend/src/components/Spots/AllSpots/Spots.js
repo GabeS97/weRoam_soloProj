@@ -6,6 +6,8 @@ import AddSpots from '../AddSpots/AddSpots';
 import EditSpots from '../EditSpots/EditSpots';
 import './Spots.css'
 import { removeActivity } from '../../../store/spots';
+import { Link, NavLink } from 'react-router-dom';
+// import AllReviews from '../../Review/AllReview/AllReviews';
 
 const Spots = () => {
     // const { id } = useParams()
@@ -23,7 +25,7 @@ const Spots = () => {
 
 
     const spot = Object.values(activity);
-    console.log(' this is taking too much spot' , activity)
+
     useEffect(() => {
         dispatch(seeActivity())
     }, [dispatch])
@@ -49,7 +51,9 @@ const Spots = () => {
                 // <div className='contain'>{spot.map(({ id, name, userId, address, city, state, Images, price }) =>
                 <div className='lists' key={id}>
                     {/* {Images.map((image) => */}
-                        <div className='tester' key={id}>
+
+                    <div className='tester' key={id}>
+                        <NavLink to={`spots/${id}`}>
                             <img className='locPic' src={imageLink} alt=''></img>
                             <div className='p' >
                                 <p className='nameBar'>{name}</p>
@@ -59,21 +63,22 @@ const Spots = () => {
                                 <p className='countryBar'>{country}</p>
                                 <p className='stateBar'>{state}</p>
                             </div>
-                            {/* inserthere */}
-                            <div className='describe' key={id} >
+                        </NavLink>
+                        {/* inserthere */}
+                        <div className='describe' key={id} >
                             <button className='editBtn' onClick={() => setShowEdit(id)} >Edit</button>
-                                {showEdit === id ? <EditSpots id={id} name={name} userId={userId} address={address} city={city} state={state}  price={price} /> : null}
-                                <button className='deleteButton'
-                                    onClick={(e) => dispatch(removeActivity(id))}
-                                    // onClick={handleDelete}
-                                >
-                                    Delete
-                                </button>
-                            </div>
+                            {showEdit === id ? <EditSpots id={id} name={name} userId={userId} address={address} city={city} state={state} price={price} /> : null}
+                            <button className='deleteButton'
+                                onClick={(e) => dispatch(removeActivity(id))}
+                            // onClick={handleDelete}
+                            >
+                                Delete
+                            </button>
                         </div>
-                {/* // )} */}
+                    </div>
+                    {/* // )} */}
                 </div>
-                    )
+            )
             )}
             </div>
         </div >

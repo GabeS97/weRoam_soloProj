@@ -1,8 +1,12 @@
 import { csrfFetch } from './csrf';
-export const LOAD_ACTIVITY = 'spots/LOAD_ACTIVITY';
-export const ADD_ACTIVITY = 'spots/ADD_ACTIVITY';
-export const EDIT_ACTIVITY = 'spots/EDIT_ACTIVITY';
-export const REMOVE_ACTIVITY = 'spots/REMOVE_ACTIVITY';
+export const LOAD_ACTIVITY = 'reviews/LOAD_ACTIVITY';
+export const ADD_ACTIVITY = 'reviews/ADD_ACTIVITY';
+export const EDIT_ACTIVITY = 'reviews/EDIT_ACTIVITY';
+export const REMOVE_ACTIVITY = 'reviews/REMOVE_ACTIVITY';
+// export const LOAD_ACTIVITY = 'spots/LOAD_ACTIVITY';
+// export const ADD_ACTIVITY = 'spots/ADD_ACTIVITY';
+// export const EDIT_ACTIVITY = 'spots/EDIT_ACTIVITY';
+// export const REMOVE_ACTIVITY = 'spots/REMOVE_ACTIVITY';
 
 export const load = (activity) => ({
     type: LOAD_ACTIVITY,
@@ -63,12 +67,14 @@ export const editActivity = (payload) => async dispatch => {
     }
 }
 
-export const removeActivity = activityId => async dispatch => {
+export const removeActivity = payload => async dispatch => {
 
-    const res = await csrfFetch(`/api/spots/${activityId}`, {
+    // console.log('!!!!!!!!!!!!!!!!!!!!!!', payload.id)
+    const res = await csrfFetch(`/api/spots/${payload}`, {
         method: 'DELETE',
         // headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({activityId })
+        body: JSON.stringify({payload })
+        // body: JSON.stringify({payload })
     })
 
     const activity = await res.json();
@@ -105,7 +111,7 @@ const activityReducer = (state = initialState, action) => {
         }
         case REMOVE_ACTIVITY: {
             newState = { ...state }
-            delete newState.list[action.activity.id]
+            delete newState[action.activity.id]
             return newState
         }
         default:

@@ -18,7 +18,7 @@ module.exports = {
         allowNull: false,
         references: { model: 'Activities' },
         onDelete: 'CASCADE'
-      },
+      }, 
       title: {
         type: Sequelize.STRING,
         allowNull: false
@@ -27,6 +27,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      // username: {
+      //   type: Sequelize.STRING,
+      //   allowNull: false
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

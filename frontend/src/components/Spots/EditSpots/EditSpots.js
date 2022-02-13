@@ -33,7 +33,7 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
         createdActivity = await dispatch(editActivity(payload))
 
         if (createdActivity) {
-            history.push(`/recommendation`)
+            history.push(`/spots`)
         }
     }
 

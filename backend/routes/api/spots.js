@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { Activity, Image } = require('../../db/models')
+const { Activity, Image, Review } = require('../../db/models')
 const router = express.Router();
 
 // const asyncHandler = (handler) => (req, res, next) => {
@@ -23,7 +23,9 @@ router.post('/', asyncHandler(async (req, res) => {
 }))
 
 router.get('/', asyncHandler(async (req, res) => {
-    const spot = await Activity.findAll();
+    const spot = await Activity.findAll({
+        include : Review
+    });
 
     console.log(spot)
     return res.json(spot)
