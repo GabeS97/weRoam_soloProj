@@ -105,7 +105,7 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
                 >
                 </input>
             </label>
-            <button className='editBtn' type='submit'>Edit</button>
+            <button className='editButton ' type='submit'>Edit</button>
         </form>
 
 

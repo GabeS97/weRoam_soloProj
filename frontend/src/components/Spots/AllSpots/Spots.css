@@ -1,8 +1,4 @@
 
-.contain {
-}
-
-
 .locPic {
     display: flex;
     width:100%;
@@ -61,7 +57,7 @@
     transition-duration: 250ms;
 }
 
-.editBtn:hover {
+.editButton:hover {
     cursor: pointer;
     cursor: pointer;
     background-color: white;
@@ -89,12 +85,8 @@
     margin-left: 18%;
 }
 
-.buttonsEditandDelete {
 
-
-}
-
-.editBtn {
+.editButton {
     margin-top: 10%;
     margin-left: 10px;
     border-radius: 999px;

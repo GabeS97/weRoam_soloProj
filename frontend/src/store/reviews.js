@@ -18,6 +18,7 @@ export const add = (review) => ({
     type: ADD_REVIEW,
     review
 })
+console.log('5.................... Bread trail action creator for addReview', add)
 
 export const edit = (review) => ({
     type: EDIT_REVIEW,
@@ -40,6 +41,7 @@ export const seeReview = (id) => async dispatch => {
 }
 
 export const addReview = (payload) => async dispatch => {
+    console.log('2................... Bread trails for addReview thunk', payload)
     const res = await csrfFetch(`/api/reviews`, {
         method: 'POST',
         Headers: { 'Content-Type': 'application/json' },
@@ -48,6 +50,7 @@ export const addReview = (payload) => async dispatch => {
 
     if (res.ok) {
         const review = await res.json();
+        console.log('4..................... Bread trail for addReview thunk, res database', review)
         dispatch(add(review))
         return review
     }
@@ -109,8 +112,6 @@ const reviewReducer = (state = initialState, action) => {
         }
         case REMOVE_REVIEW: {
             newState = { ...state }
-            console.log('5..................', newState)
-            console.log('5.5...................' , action.review.id)
             delete newState[action.review.id]
             return newState
         }
