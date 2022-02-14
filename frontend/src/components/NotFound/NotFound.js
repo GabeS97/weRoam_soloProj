@@ -5,12 +5,12 @@ import './NotFound.css'
 
 const NotFound = () => {
 
-    
+
 
     return (
         <div className='notFoundContained'>
             <div className='pagenotfoudn'>
-                <h1 className='title' >Oops...</h1>
+                <h1 className='notFOundTitle' >Oops...</h1>
                 <h2 className='under'>The page you are looking for is under construction</h2>
                 <Link className='redirece' to='/'>Checkout out our other activities though!</Link>
             </div>
