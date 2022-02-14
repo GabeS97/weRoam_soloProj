@@ -11,7 +11,6 @@ const AddReview = () => {
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
     const [reviews, setReview] = useState('')
-
     const activities = useSelector(state => state.activity)
 
     const { id } = useParams()
@@ -32,7 +31,6 @@ const AddReview = () => {
             activityId: id
         }
         // console.log('&&&&&&&&&&&&&&&&&&&&&&&&', payload)
-        console.log('1................... Bread trails for addReviews', payload)
 
         let createReview = await dispatch(addReview(payload));
         if (createReview) {

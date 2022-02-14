@@ -47,9 +47,9 @@ const Spots = () => {
     return (
         <div className='container'>
             <nav className='navigateAdd'>
-                {user ? <h1 className='recs'>Hosted By You! </h1> : <h1 className='recs'>Developers Favorites </h1> }
+                {user ? <h1 className='recs'>Hosted By {user.username}! </h1> : <h1 className='recs'>Developers Favorites </h1>}
+                {/* <h1 className='recs'>Hosted By You! </h1> */}
 
-              {/* <h1 className='recs'>Hosted By You! </h1> */}
             </nav>
             {user && (<h2 className='addBtn' onClick={() => setShorForm(!showForm)} >Add</h2>)}
             {/* <h2 className='addBtn' onClick={() => setShorForm(!showForm)} >Add</h2> */}
@@ -64,7 +64,7 @@ const Spots = () => {
                         <NavLink className='imageLinkBar' to={`/spots/${id}`} >
                             <img className='locPic' src={imageLink} alt=''></img>
                         </NavLink>
-                        <div className='p' >
+                        <div className='words' >
                             <p className='nameBar'>{name}</p>
                             <p className='priceBar'>{price}</p>
                             <p className='addressBar'>{address}</p>

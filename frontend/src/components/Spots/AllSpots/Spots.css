@@ -8,6 +8,7 @@
 }
 
 .lists {
+    /* display: flex; */
     height: 500px;
     margin-bottom: -170px;;
 }
@@ -57,7 +58,18 @@
     transition-duration: 250ms;
 }
 
-.editButton:hover {
+.editBtn {
+    margin-top: 10%;
+    margin-left: 10px;
+    border-radius: 999px;
+    height: 30px;
+    width:100px;
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+    background-color: lightcoral;
+}
+.editBtn:hover {
     cursor: pointer;
     cursor: pointer;
     background-color: white;
@@ -78,15 +90,17 @@
     display: flex;
 }
 
-.p {
+.words {
     /* display: flex;
     justify-content: center;
     align-items: center; */
+    width: 20em;
     margin-left: 18%;
+    text-align: center;
 }
 
 
-.editButton {
+/* .editButton {
     margin-top: 10%;
     margin-left: 10px;
     border-radius: 999px;
@@ -96,7 +110,7 @@
     font-weight: bold;
     font-size: medium;
     background-color: lightcoral;
-}
+} */
 
 .deleteButton {
     margin-top: 10%;
@@ -145,4 +159,16 @@
 .addForm {
     z-index: 100;
     position: fixed;
+}
+
+.buttonsEditandDelete {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5em;
+    justify-content: center;
+    gap: 1.6em;
+}
+
+.newForm {
+    position: relative;
 }

@@ -53,6 +53,18 @@ export const seeActivity = () => async dispatch => {
     }
 };
 
+
+// // load one activity
+// export const seeOne = id => async dispatch => {
+//     const res = await csrfFetch(`/api/spots/${id}`);
+
+//     if (res.ok) {
+//         const activity = await res.json()
+//         dispatch(load(activity));
+//         return activity
+//     }
+// }
+
 export const editActivity = (payload) => async dispatch => {
     const res = await csrfFetch(`/api/spots/${payload.id}`, {
         method: 'PUT',

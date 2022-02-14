@@ -8,6 +8,7 @@ import Spots from "./components/Spots/AllSpots/Spots";
 import AllReviews from "./components/Review/AllReview/AllReviews";
 import SpotsDetails from "./components/Spots/SpotsDetails";
 import Footer from "./components/Footer/Footer";
+import NotFound from "./components/NotFound/NotFound";
 
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route exact path='/spots/:id'>
           <SpotsDetails />
+        </Route>
+        <Route exact path='/pagenotfound'>
+            <NotFound />
         </Route>
       </Switch>
       <Footer />

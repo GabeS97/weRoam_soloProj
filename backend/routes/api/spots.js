@@ -23,6 +23,15 @@ router.post('/', asyncHandler(async (req, res) => {
     return res.json(newActivity);
 }))
 
+// // single song
+// router.get(
+//     '/:id',
+//     asyncHandler(async function(req, res) {
+//         const activityId = await db.Activity.findAll();
+//         return res.json(activityId);
+//     })
+// );
+
 router.get('/', asyncHandler(async (req, res) => {
     const spot = await Activity.findAll({
         include : Review
