@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min'
+import { useHistory, useParams } from 'react-router-dom'
 import { addReview, seeReview } from '../../../store/reviews'
 import { seeActivity } from '../../../store/spots'
 
@@ -14,12 +14,13 @@ const AddReview = () => {
     const activities = useSelector(state => state.activity)
 
     const { id } = useParams()
+    // console.log('ACTIVITIES..................', id)
 
     useEffect(() => {
         dispatch(seeActivity())
     }, [dispatch])
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
 
@@ -27,43 +28,42 @@ const AddReview = () => {
             title,
             reviews,
             userId: user?.id,
-            activityId : id
+            activityId: id
         }
-        // console.log('&&&&&&&&&&&&&&&&&&&&&&&&', payload)
 
         let createReview = await dispatch(addReview(payload));
         if (createReview) {
-            history.push('/spots/id')
+            history.push(`/spots/${payload.activityId}`)
         }
     }
 
     return (
         <form className='formForReviewUpdate' onSubmit={handleSubmit}>
-        <label htmlFor='review'>
-            <input htmlFor='review'
-                type='text'
-                name='name'
-                placeholder='Change your review'
-                value={reviews}
-                onChange={(e) => setReview(e.target.value)}
-                required
-            >
-            </input>
-        </label>
-        <label htmlFor='title'>
-            <input htmlFor='title'
-                type='text'
-                name='title'
-                placeholder='Set new title'
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                required
-            >
-            </input>
-        </label>
+            <label htmlFor='review'>
+                <input htmlFor='review'
+                    type='text'
+                    name='name'
+                    placeholder='Change your review'
+                    value={reviews}
+                    onChange={(e) => setReview(e.target.value)}
+                    required
+                >
+                </input>
+            </label>
+            <label htmlFor='title'>
+                <input htmlFor='title'
+                    type='text'
+                    name='title'
+                    placeholder='Set new title'
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    required
+                >
+                </input>
+            </label>
 
-        <button className='editReviewBtn' type='submit'>Add</button>
-    </form>
+            <button className='editReviewBtn' type='submit'>Add</button>
+        </form>
     )
 }
 

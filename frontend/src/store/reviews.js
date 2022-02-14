@@ -30,7 +30,8 @@ export const remove = (review) => ({
 })
 
 export const seeReview = (id) => async dispatch => {
-    const res = await csrfFetch(`/api/reviews`)
+    console.log('seeReview paylaod', id)
+    const res = await csrfFetch(`/api/reviews/`)
 
     if (res.ok) {
         const reviews = await res.json()
@@ -40,7 +41,6 @@ export const seeReview = (id) => async dispatch => {
 }
 
 export const addReview = (payload) => async dispatch => {
-    console.log('2................... Bread trails for addReview thunk', payload)
     const res = await csrfFetch(`/api/reviews`, {
         method: 'POST',
         Headers: { 'Content-Type': 'application/json' },
@@ -55,9 +55,10 @@ export const addReview = (payload) => async dispatch => {
 }
 
 
-export const editReview = payload => async dispatch => {
+export const editReview = (payload) => async dispatch => {
         // thunk
-    const res = await csrfFetch(`/api/reviews/${payload.id}`, {
+        console.log('2..................', payload)
+    const res = await csrfFetch(`/api/reviews/${payload.reviewId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
@@ -66,6 +67,7 @@ export const editReview = payload => async dispatch => {
     if (res.ok) {
         const review = await res.json();
         // thunk
+        console.log('4.......................', review)
         dispatch(edit(review));
         return review
     }

@@ -8,6 +8,7 @@ import './Spots.css'
 import { removeActivity } from '../../../store/spots';
 import { Link, NavLink } from 'react-router-dom';
 import AddReview from '../../Review/AddReview/AddReview';
+import NotFound from '../../NotFound/NotFound';
 // import AllReviews from '../../Review/AllReview/AllReviews';
 
 const Spots = () => {
@@ -49,7 +50,6 @@ const Spots = () => {
             <nav className='navigateAdd'>
                 {user ? <h1 className='recs'>Hosted By {user.username}! </h1> : <h1 className='recs'>Developers Favorites </h1>}
                 {/* <h1 className='recs'>Hosted By You! </h1> */}
-
             </nav>
             {user && (<h2 className='addBtn' onClick={() => setShorForm(!showForm)} >Add</h2>)}
             {/* <h2 className='addBtn' onClick={() => setShorForm(!showForm)} >Add</h2> */}
@@ -75,7 +75,7 @@ const Spots = () => {
                         {user && (user.id === userId) &&
 
                             (<div className='buttonsEditandDelete' key={id} >
-                                <button className='editBtn' onClick={() => setShowEdit(id)} >Edit</button>
+                                <button className='editBtn' onClick={() => setShowEdit(id && !showEdit)} >Edit</button>
                                 <button className='deleteButton'
                                     onClick={(e) => { { dispatch(removeActivity(id)) } }}
                                 >

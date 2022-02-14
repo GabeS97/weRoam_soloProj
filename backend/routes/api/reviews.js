@@ -36,16 +36,17 @@ router.get(
 // );
 
 
-router.put('/:id', asyncHandler(async (req, res) => {
-    const { userId, activityId, title, reviews, id } = req.body;
-    const reviewId = req.params.id;
+router.put(
+    '/:id',
+    asyncHandler(async function(req, res) {
+        const reviewId = req.params.reviewId;
 
+        const review = await Review.findOne({ where: {id: reviewId}});
+        review.update(req.body)
+        return res.json(review);
+    })
+);
 
-
-    const review = await Review.findOne({ where: { id: reviewId } })
-    const reviewUpdate = await review.update(req.body);
-    return res.json(reviewUpdate);
-}))
 
 router.delete('/:id', asyncHandler(async (req, res) => {
     const reviewId = await Review.findByPk(req.params.id);
