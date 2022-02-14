@@ -71,7 +71,7 @@ const Spots = () => {
                         </NavLink> */}
                         <div className='words' >
                             <p className='nameBar'>{name}</p>
-                            <p className='priceBar'>{price}</p>
+                            <p className='priceBar'>{`$${price}`}</p>
                             <p className='addressBar'>{address}</p>
                             <p className='cityBar'>{city}</p>
                             <p className='countryBar'>{country}</p>
