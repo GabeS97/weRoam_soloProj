@@ -5,19 +5,28 @@ https://github.com/GabeS97/weRoam_soloProj.wiki.git
 
    ```git clone https://github.com/GabeS97/weRoam_soloProj.wiki.git```
 
-2. CD into the backend directory and install dependencies
+2. cd into the backend directory and install dependencies
 
     ```npm install```
 
-3. CD into the frontend directory and install dependencies
+3. cd into the frontend directory and install dependencies
 
     ```npm install```
 
-4.  Create a .env file based on the .env.example given
+4.  Create a .env file using the follwing format 
+5.  
+            PORT=5000
+            DB_USERNAME=auth_app
+            DB_PASSWORD= <create password>
+            DB_DATABASE=auth_db
+            DB_HOST=localhost
+            JWT_SECRET= <ener secret token>
+            JWT_EXPIRES_IN=604800
 
-5.  Create a user in psql based on your .env DB_USERNAME
-
-    ```psql -c "CREATE USER <username> PASSWORD '<password>' CREATEDB"```
+5.  Create a user in psql based on what the foramt given above: 
+6.  Enter psql onto your terminal and create a user using the follwing command: 
+   
+    ```"CREATE USER <username> PASSWORD '<password>' CREATEDB"```
 
 6. Create the database, migrate, and seed
 
@@ -27,5 +36,6 @@ https://github.com/GabeS97/weRoam_soloProj.wiki.git
 
     ```npx dotenv sequelize db:seed:all```
 
-7. Open up two terminals and cd into the backend and frontend directories, npm start on each terminal
+7. Open up two terminals one for the backend and another for the frontend directories, npm start on each terminal
 
+8. Sign in or you may use demo id to access the ewebstie
