@@ -18,7 +18,6 @@ export const add = (review) => ({
     type: ADD_REVIEW,
     review
 })
-console.log('5.................... Bread trail action creator for addReview', add)
 
 export const edit = (review) => ({
     type: EDIT_REVIEW,
@@ -50,7 +49,6 @@ export const addReview = (payload) => async dispatch => {
 
     if (res.ok) {
         const review = await res.json();
-        console.log('4..................... Bread trail for addReview thunk, res database', review)
         dispatch(add(review))
         return review
     }

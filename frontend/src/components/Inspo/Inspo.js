@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+
 import './Inspo.css'
 
 const inspo = () => {
@@ -11,9 +14,10 @@ const inspo = () => {
                 <div className='card1'>
                     <h2>Jakarta</h2>
                 </div>
-                <div className='card2'>
+
+                <Link to='/pagenotfound' className='card2'>
                     <h2>London</h2>
-                </div>
+                </Link>
                 <div className='card3'>
                     <h2>Paris</h2>
                 </div>

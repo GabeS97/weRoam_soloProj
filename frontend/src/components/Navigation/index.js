@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal'
-import DemoUser from './DemoUser';
 import './Navigation.css';
+import DemoUser from './DemoUser';
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
@@ -39,11 +39,9 @@ function Navigation({ isLoaded }) {
         placeholder='Start your search'
       ></input>
       <div className='buttons'>
-        <div className='hosting'>
           <Link className='hyperlink' to='/spots'>
-            {sessionUser && (<p className='host'>Become a host</p>)}
+            {sessionUser && (  <p className='host'>Become a host</p>)}
           </Link>
-        </div>
         {isLoaded && sessionLinks}
       </div>
     </nav>

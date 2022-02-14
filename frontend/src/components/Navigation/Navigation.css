@@ -67,16 +67,26 @@ input:focus {
     font-weight: lighter;
     color: inherit;
     text-decoration: inherit;
-    right: 100px
-    ;
+    right: 100px;
+    font-weight: bolder;
+    font-size: larger;
+
 }
 
 .hyperlink {
     color: inherit;
     text-decoration: none;
+    align-content: center;
 }
 
 
 ::placeholder {
     text-align: center;
+}
+
+.host:hover {
+    cursor: pointer;
+    background-color: white;
+    color: lightcoral;
+    transition-duration: 250ms;
 }
