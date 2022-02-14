@@ -61,9 +61,14 @@ const Spots = () => {
                     {/* {Images.map((image) => */}
 
                     <div className='tester' key={id}>
-                        <NavLink className='imageLinkBar' to={`/spots/${id}`} >
+                        {user ? <NavLink className='imageLinkBar' to={`/spots/${id}`} >
                             <img className='locPic' src={imageLink} alt=''></img>
-                        </NavLink>
+                        </NavLink> : <div className='imageLinkBar' to={`/spots/${id}`} >
+                            <img className='locPic' src={imageLink} alt=''></img>
+                        </div>}
+                        {/* <NavLink className='imageLinkBar' to={`/spots/${id}`} >
+                            <img className='locPic' src={imageLink} alt=''></img>
+                        </NavLink> */}
                         <div className='words' >
                             <p className='nameBar'>{name}</p>
                             <p className='priceBar'>{price}</p>
