@@ -27,8 +27,8 @@ const AllReviews = () => {
 
 
     const filterReview = review?.filter(comment => {
-        console.log(comment,  '....................')
-        console.log(comment.activityId, id, '<<<<<<<<<<<<<<<<<<<<')
+        // console.log(comment,  '....................')
+        // console.log(comment.activityId, id, '<<<<<<<<<<<<<<<<<<<<')
         return comment.activityId === +id
     })
 

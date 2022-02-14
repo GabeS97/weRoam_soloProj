@@ -37,7 +37,7 @@ const EditSpots = ({ id, city, state, country, price, name, userId, address }) =
     }
 
     return (
-        <form className='newForm' onSubmit={handleSubmit}>
+        <form className='newForm' onSubmit={handleSubmit }>
             <label htmlFor='name'>
                 <input htmlFor='name'
                     type='text'
