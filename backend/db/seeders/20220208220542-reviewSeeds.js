@@ -20,16 +20,16 @@ module.exports = {
       {
         userId: 2,
         activityId: 2,
-        title: 'Love it',
-        reviews: 'Such an amazing experience',
+        title: 'Could have been better',
+        reviews: 'It was a greate exp, had great food, but the host was kinda rude',
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         userId: 3,
         activityId: 3,
-        title: 'Love it',
-        reviews: 'Such an amazing experience',
+        title: 'Im coming back next year with my family',
+        reviews: 'amazing. ',
         createdAt: new Date(),
         updatedAt: new Date()
       },
