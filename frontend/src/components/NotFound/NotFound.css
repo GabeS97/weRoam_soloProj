@@ -4,6 +4,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-repeat: no-repeat;
+    filter: blur(0px);
+    background-color: lightcoral;
 }
 
 .pagenotfoudn {
@@ -12,4 +15,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.notFOundTitle {
+    z-index: 200;
 }

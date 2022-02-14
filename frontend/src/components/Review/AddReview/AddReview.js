@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 import { addReview, seeReview } from '../../../store/reviews'
 import { seeActivity } from '../../../store/spots'
+import '../AllReview/AllReviews.css'
 
 const AddReview = () => {
 
