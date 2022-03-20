@@ -68,3 +68,9 @@ form {
 ::placeholder {
     text-align: center;
 }
+
+#demo_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}

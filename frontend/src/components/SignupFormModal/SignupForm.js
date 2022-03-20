@@ -78,6 +78,7 @@ function SignupForm() {
         </label>
       </div>
       <button type="submit" className="submitSignup">Sign Up</button>
+      {/* <button type="submit" className="submitSignup">Aready have an account?</button> */}
     </form>
   );
 }

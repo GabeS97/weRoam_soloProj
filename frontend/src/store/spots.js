@@ -1,34 +1,34 @@
 import { csrfFetch } from './csrf';
-// export const LOAD_ACTIVITY = 'reviews/LOAD_ACTIVITY';
-// export const ADD_ACTIVITY = 'reviews/ADD_ACTIVITY';
-// export const EDIT_ACTIVITY = 'reviews/EDIT_ACTIVITY';
-// export const REMOVE_ACTIVITY = 'reviews/REMOVE_ACTIVITY';
-export const LOAD_ACTIVITY = 'spots/LOAD_ACTIVITY';
-export const ADD_ACTIVITY = 'spots/ADD_ACTIVITY';
-export const EDIT_ACTIVITY = 'spots/EDIT_ACTIVITY';
-export const REMOVE_ACTIVITY = 'spots/REMOVE_ACTIVITY';
+// export const LOAD_spots = 'reviews/LOAD_spots';
+// export const ADD_spots = 'reviews/ADD_spots';
+// export const EDIT_spots = 'reviews/EDIT_spots';
+// export const REMOVE_spots = 'reviews/REMOVE_spots';
+export const LOAD_spots = 'spots/LOAD_spots';
+export const ADD_spots = 'spots/ADD_spots';
+export const EDIT_spots = 'spots/EDIT_spots';
+export const REMOVE_spots = 'spots/REMOVE_spots';
 
-export const load = (activity) => ({
-    type: LOAD_ACTIVITY,
-    activity
+export const load = (spots) => ({
+    type: LOAD_spots,
+    spots
 });
 
-export const add = (activity) => ({
-    type: ADD_ACTIVITY,
-    activity
+export const add = (spots) => ({
+    type: ADD_spots,
+    spots
 });
 
-export const edit = (activity) => ({
-    type: EDIT_ACTIVITY,
-    activity
+export const edit = (spots) => ({
+    type: EDIT_spots,
+    spots
 });
 
-export const remove = (activity) => ({
-    type: REMOVE_ACTIVITY,
-    activity
+export const remove = (spots) => ({
+    type: REMOVE_spots,
+    spots
 });
 
-export const addActviity = payload => async dispatch => {
+export const addSpots = payload => async dispatch => {
 
     const res = await csrfFetch('/api/spots/', {
         method: 'POST',
@@ -37,35 +37,24 @@ export const addActviity = payload => async dispatch => {
     })
 
     if (res.ok) {
-        const activity = await res.json();
-        dispatch(add(activity));
-        return activity;
+        const spots = await res.json();
+        dispatch(add(spots));
+        return spots;
     }
 }
 
-export const seeActivity = () => async dispatch => {
+export const seeSpots = () => async dispatch => {
     const res = await csrfFetch('/api/spots/');
 
     if (res.ok) {
-        const activity = await res.json();
-        dispatch(load(activity))
-        return activity
+        const spots = await res.json();
+        dispatch(load(spots))
+        return spots
     }
 };
 
 
-// // load one activity
-// export const seeOne = id => async dispatch => {
-//     const res = await csrfFetch(`/api/spots/${id}`);
-
-//     if (res.ok) {
-//         const activity = await res.json()
-//         dispatch(load(activity));
-//         return activity
-//     }
-// }
-
-export const editActivity = (payload) => async dispatch => {
+export const editSpots = (payload) => async dispatch => {
     const res = await csrfFetch(`/api/spots/${payload.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -73,13 +62,13 @@ export const editActivity = (payload) => async dispatch => {
     })
 
     if (res.ok) {
-        const activity = await res.json();
-        dispatch(edit(activity));
-        return activity;
+        const spots = await res.json();
+        dispatch(edit(spots));
+        return spots;
     }
 }
 
-export const removeActivity = payload => async dispatch => {
+export const removeSpots = payload => async dispatch => {
     const res = await csrfFetch(`/api/spots/${payload}`, {
         method: 'DELETE',
         // headers: { 'Content-Type': 'application/json' },
@@ -87,41 +76,41 @@ export const removeActivity = payload => async dispatch => {
         // body: JSON.stringify({payload })
     })
 
-    const activity = await res.json();
-    dispatch(remove(activity))
-    return activity
+    const spots = await res.json();
+    dispatch(remove(spots))
+    return spots
 }
 
 const initialState = {};
 
-const activityReducer = (state = initialState, action) => {
+const spotsReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
-        case LOAD_ACTIVITY: {
+        case LOAD_spots: {
             newState = { ...state }
             const allActivities = {};
-            action.activity.forEach(activity => {
-                allActivities[activity.id] = activity
+            action.spots.forEach(spots => {
+                allActivities[spots.id] = spots
             })
             newState = allActivities
             return newState
         }
-        case ADD_ACTIVITY: {
+        case ADD_spots: {
             newState = { ...state }
             newState = {
                 ...state,
-                [action.activity.id]: action.activity
+                [action.spots.id]: action.spots
             };
             return newState;
         }
-        case EDIT_ACTIVITY: {
+        case EDIT_spots: {
             newState = { ...state }
-            newState = { ...state, [action.activity.id]: action.activity }
+            newState = { ...state, [action.spots.id]: action.spots }
             return newState;
         }
-        case REMOVE_ACTIVITY: {
+        case REMOVE_spots: {
             newState = { ...state }
-            delete newState[action.activity.id]
+            delete newState[action.spots.id]
             return newState
         }
         default:
@@ -130,4 +119,4 @@ const activityReducer = (state = initialState, action) => {
 
 }
 
-export default activityReducer
+export default spotsReducer

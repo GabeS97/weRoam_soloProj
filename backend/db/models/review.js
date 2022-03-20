@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Review.belongsTo(models.User, { foreignKey: 'userId' })
     Review.belongsTo(models.Activity, { foreignKey: 'activityId' })
+    Review.belongsTo(models.Image, { foreignKey: 'imageId' });
+
   };
   return Review;
 };

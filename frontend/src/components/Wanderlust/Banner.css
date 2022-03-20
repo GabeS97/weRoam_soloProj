@@ -1,16 +1,20 @@
 
 .banner {
     display: flex;
+    position: absolute;
     background: url("https://wallpapercave.com/wp/wp3990914.jpg") center center;
     height: 50vh;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    border-radius: 25px;
+    /* border-radius: 25px; */
+    left: 0;
 
 }
 
 .sidebar {
+    display: flex;
+    position: relative;
     background-color: black;
     color: white;
     padding-top: 36.73vh;
@@ -18,18 +22,26 @@
     padding-right: 50px;
     padding-bottom: 40px;
     width: 300px;
-    border-radius: 25px;
+    /* border-radius: 25px; */
 }
 
 .info {
-    position: relative;
-    bottom: 20vh;
-    left: 10px
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    position: absolute;
+    bottom: 10vh;
+    left: .2em;
 }
 
 .away {
-    margin-top: 10%;
-    margin-left: 10px;
+    /* margin-top: 10%;
+    margin-left: 10px; */
+    margin: auto;
+    /* display: flex; */
+    text-align: center;
+    position: relative;
     border-radius: 999px;
     height: 60px;
     width:250px;
@@ -45,4 +57,9 @@
     color: lightcoral;
     transform: scale(1.05);
     transition-duration: 250ms;
+}
+
+.info > h1 {
+    position: relative;
+    top: 1em ;
 }
