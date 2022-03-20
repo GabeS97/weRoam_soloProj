@@ -20,7 +20,7 @@ function Navigation({ isLoaded }) {
       <>
         <LoginFormModal />
         <SignupFormModal />
-        <DemoUser />
+        {/* <DemoUser /> */}
       </>
     );
   }
