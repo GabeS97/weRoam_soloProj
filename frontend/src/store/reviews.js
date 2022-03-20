@@ -86,6 +86,7 @@ export const removeReview = payload => async dispatch => {
 const initialState = {};
 
 const reviewReducer = (state = initialState, action) => {
+    
     let newState;
     switch (action.type) {
         case LOAD_REVIEW: {

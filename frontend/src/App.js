@@ -4,11 +4,7 @@ import Navigation from "./components/Navigation";
 import { useDispatch } from 'react-redux'
 import * as sessionActions from "./store/session";
 import Splash from "./components/Splash/Splash";
-import Spots from "./components/Spots/AllSpots/Spots";
-import AllReviews from "./components/Review/AllReview/AllReviews";
-import SpotsDetails from "./components/Spots/SpotsDetails";
-import Footer from "./components/Footer/Footer";
-import NotFound from "./components/NotFound/NotFound";
+import Footer from "./components/Footer/Footer";  
 
 
 function App() {
@@ -26,15 +22,6 @@ function App() {
       <Switch>
         <Route exact path='/'>
           <Splash />
-        </Route>
-        <Route exact path='/spots'>
-          <Spots />
-        </Route>
-        <Route exact path='/spots/:id'>
-          <SpotsDetails />
-        </Route>
-        <Route exact path='/pagenotfound'>
-            <NotFound />
         </Route>
       </Switch>
       <Footer />
