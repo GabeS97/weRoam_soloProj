@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
-import Inspo from '../Inspo/Inspo';
+import Inspo from '../Wanderlust/Inspo';
 
 const Splash = () => {
     return (

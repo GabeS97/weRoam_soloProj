@@ -83,7 +83,7 @@ export const removeActivity = payload => async dispatch => {
     const res = await csrfFetch(`/api/spots/${payload}`, {
         method: 'DELETE',
         // headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({payload })
+        body: JSON.stringify({ payload })
         // body: JSON.stringify({payload })
     })
 
@@ -116,7 +116,7 @@ const activityReducer = (state = initialState, action) => {
         }
         case EDIT_ACTIVITY: {
             newState = { ...state }
-            newState = { ...state, [action.activity.id] : action.activity }
+            newState = { ...state, [action.activity.id]: action.activity }
             return newState;
         }
         case REMOVE_ACTIVITY: {
