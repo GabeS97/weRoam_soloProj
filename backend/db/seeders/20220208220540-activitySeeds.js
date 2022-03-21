@@ -8,7 +8,7 @@ module.exports = {
 
       Example:
       */
-    return queryInterface.bulkInsert('Activities', [
+    return queryInterface.bulkInsert('Spots', [
       {
         userId: 1,
         imageLink: 'https://www.japan-guide.com/g18/3034_001_01.jpg',
@@ -117,6 +117,6 @@ module.exports = {
 
       Example:
       */
-    return queryInterface.bulkDelete('Activities', null, {});
+    return queryInterface.bulkDelete('Spots', null, {});
   }
 };

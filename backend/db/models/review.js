@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Review = sequelize.define('Review', {
     userId: DataTypes.INTEGER,
-    activityId: DataTypes.INTEGER,
+    spotId: DataTypes.INTEGER,
     title: DataTypes.STRING,
     reviews: DataTypes.STRING,
 
@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   Review.associate = function(models) {
     // associations can be defined here
     Review.belongsTo(models.User, { foreignKey: 'userId' })
-    Review.belongsTo(models.Activity, { foreignKey: 'activityId' })
+    Review.belongsTo(models.Spot, { foreignKey: 'spotId' })
     Review.belongsTo(models.Image, { foreignKey: 'imageId' });
 
   };
