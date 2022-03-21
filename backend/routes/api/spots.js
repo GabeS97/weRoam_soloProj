@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { Activity, Image, Review } = require('../../db/models')
+const { Spot, Image, Review } = require('../../db/models')
 const router = express.Router();
 
 // const asyncHandler = (handler) => (req, res, next) => {
@@ -8,8 +8,8 @@ const router = express.Router();
 // }
 
 router.post('/', asyncHandler(async (req, res) => {
-    const { address, city, state, country, price, name, userId, imageLink, activityId } = req.body;
-    const newActivity = await Activity.create({
+    const { address, city, state, country, price, name, userId, imageLink, spotId } = req.body;
+    const newSpot = await Spot.create({
         address,
         city,
         state,
@@ -18,59 +18,31 @@ router.post('/', asyncHandler(async (req, res) => {
         name,
         userId,
         imageLink,
-        activityId
+        spotId
     });
-    return res.json(newActivity);
+    return res.json(newSpot);
 }))
 
-// // single song
-// router.get(
-//     '/:id',
-//     asyncHandler(async function(req, res) {
-//         const activityId = await db.Activity.findAll();
-//         return res.json(activityId);
-//     })
-// );
-
 router.get('/', asyncHandler(async (req, res) => {
-    const spot = await Activity.findAll({
-        include : Review
+    const spot = await Spot.findAll({
     });
-
-    console.log(spot)
     return res.json(spot)
 }))
 
 router.put('/:id', asyncHandler(async (req, res) => {
-    // const { address, city, state, country, price, name, userId, id } = req.body;
-    // const activityId = parseInt(userId, 10);
-    // console.log(req.params.id, '******&*********')
-    // let editActivity = await Activity.update({
-    //     address,
-    //     city,
-    //     state,
-    //     country,
-    //     price,
-    //     name,
-    // },
-    //     { where: { id: activityId } }
-    // )
-    // editActivity = await Activity.findOne({ where: { id: activityId } });
-    // return res.json(editActivity)
-    const activityId = req.params.id;
+    const spotId = req.params.id;
 
-    const activity = await Activity.findOne({ where: { id: activityId } })
-    activity.update(req.body);
-    return res.json(activity);
+    const Spot = await Spot.findOne({ where: { id: spotId } })
+    Spot.update(req.body);
+    return res.json(Spot);
 }))
 
 
 router.delete('/:id', asyncHandler(async (req, res) => {
-    const activityId = await Activity.findByPk(req.params.id);
-    console.log('2. delete trail check the routes', req.params.id)
+    const spotId = await Spot.findByPk(req.params.id);
 
-    activityId.destroy();
-    return res.json(activityId)
+    spotId.destroy();
+    return res.json(spotId)
 
 }))
 

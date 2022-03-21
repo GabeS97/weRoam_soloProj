@@ -11,7 +11,8 @@ module.exports = {
     return queryInterface.bulkInsert('Reviews', [
       {
         userId: 1,
-        activityId: 1,
+        spotId: 1,
+        // imageId: 2,
         title: 'Love it',
         reviews: 'Such an amazing experience',
         createdAt: new Date(),
@@ -19,7 +20,8 @@ module.exports = {
       },
       {
         userId: 2,
-        activityId: 2,
+        spotId: 2,
+        // imageId: 1,
         title: 'Could have been better',
         reviews: 'It was a greate exp, had great food, but the host was kinda rude',
         createdAt: new Date(),
@@ -27,7 +29,8 @@ module.exports = {
       },
       {
         userId: 3,
-        activityId: 3,
+        spotId: 3,
+        // imageId: 3,
         title: 'Im coming back next year with my family',
         reviews: 'amazing. ',
         createdAt: new Date(),

@@ -13,29 +13,20 @@ module.exports = {
         allowNull: false,
         references: { model: 'Users' }
       },
-      activityId: {
+      spotId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'Activities' },
+        references: { model: 'Spots' },
         onDelete: 'CASCADE'
       },
       title: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      imageId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { model: 'Images' }
-      },
       reviews: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      // username: {
-      //   type: Sequelize.STRING,
-      //   allowNull: false
-      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

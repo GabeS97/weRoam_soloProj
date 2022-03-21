@@ -2,13 +2,13 @@
 module.exports = (sequelize, DataTypes) => {
   const Image = sequelize.define('Image', {
     userId: DataTypes.INTEGER,
-    activityId: DataTypes.INTEGER,
-    imageUrl: DataTypes.STRING,
+    spotId: DataTypes.INTEGER,
+    // spotId: DataTypes.STRING,
     content: DataTypes.STRING
   }, {});
   Image.associate = function(models) {
     // associations can be defined here
-    Image.belongsTo(models.Activity, { foreignKey: 'activityId' });
+    Image.belongsTo(models.Spot, { foreignKey: 'spotId' });
     Image.belongsTo(models.User, { foreignKey: 'userId' });
     Image.hasMany(models.Review, { foreignKey: 'imageId', onDelete: 'CASCADE', hooks: true  });
   };

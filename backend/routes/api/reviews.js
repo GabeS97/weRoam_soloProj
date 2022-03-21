@@ -1,12 +1,12 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { Activity, Image, Review } = require('../../db/models')
+const { Spot, Image, Review } = require('../../db/models')
 const { restoreUser } = require('../../utils/auth');
 const router = express.Router();
 
 router.post('/', asyncHandler(async (req, res) => {
-    const { userId, activityId, title, reviews } = req.body;
-    const review = await Review.create({ userId, activityId, title, reviews });
+    const { userId, spotId, title, reviews } = req.body;
+    const review = await Review.create({ userId, spotId, title, reviews });
     return res.json(review)
 }));
 
@@ -15,7 +15,7 @@ router.get(
     restoreUser,
     asyncHandler(async (req, res) => {
         // const id = req.params.id;
-        const activityId  = req.params.activityId
+        const spotId  = req.params.spotId
         const reviews = await Review.findAll({
         });
 

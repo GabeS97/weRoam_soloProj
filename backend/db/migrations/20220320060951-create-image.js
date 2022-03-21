@@ -12,9 +12,9 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: { model: 'Users'}
       },
-      activityId: {
+      spotId: {
         type: Sequelize.INTEGER,
-        references: { model: 'Activities'}
+        references: { model: 'Spots'}
       },
       imageUrl: {
         type: Sequelize.STRING(1000),

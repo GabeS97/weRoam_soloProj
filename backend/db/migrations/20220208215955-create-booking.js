@@ -8,10 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      activityId: {
+      spotId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'Activities'},
+        references: { model: 'Spots'},
         onDelete: 'CASCADE'
       },
       userId: {
