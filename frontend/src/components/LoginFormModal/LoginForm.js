@@ -22,13 +22,13 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='login_form' onSubmit={handleSubmit}>
       <header className="title">Log In</header>
-      <ul>
+      {/* <ul>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
-      </ul>
+      </ul> */}
       <div className="inputs">
         <label>
           {/* Username or Email */}
@@ -52,10 +52,12 @@ function LoginForm() {
           />
         </label>
       </div>
-      <button className="submit" type="submit">Log In</button>
-      <button className="submit" type="submit">
-        <DemoUser />
-      </button>
+      <div className="login__buttons">
+        <button className="submit" type="submit">Log In</button>
+        <button className="submit" type="submit">
+          <DemoUser />
+        </button>
+      </div>
     </form>
   );
 }

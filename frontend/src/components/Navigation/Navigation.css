@@ -87,3 +87,21 @@ input:focus {
   color: lightcoral;
   transition-duration: 250ms;
 }
+.dropdown__button {
+  display: flex;
+  background-color: transparent;
+  border-radius: 999px;
+  height: 3em;
+  width: 3em;
+  object-fit: fill;;
+  cursor: pointer;
+}
+
+.dropdown__image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+}
+
+

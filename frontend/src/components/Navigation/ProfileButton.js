@@ -34,11 +34,11 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="far fa-user-circle"></i>
-      </button>
+      <div className='dropdown__button' onClick={openMenu}>
+        <img className='dropdown__image' src={`https://img.favpng.com/25/13/19/samsung-galaxy-a8-a8-user-login-telephone-avatar-png-favpng-dqKEPfX7hPbc6SMVUCteANKwj.jpg`} alt='' />
+      </div>
       {showMenu && (
-        <div className="profile-dropdown">
+        <div className="profile__dropdown">
           <p>{user.username}</p>
           <p>{user.email}</p>
           <p>
