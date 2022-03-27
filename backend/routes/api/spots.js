@@ -46,4 +46,11 @@ router.delete('/:id', asyncHandler(async (req, res) => {
 
 }))
 
+router.get('/:spotId', asyncHandler(async (req, res) => {
+    const { spotId } = req.params
+
+    const spot = await Spot.findByPk(spotId)
+    return res.json(spot)
+}))
+
 module.exports = router
