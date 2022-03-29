@@ -2,18 +2,22 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { seeSpots } from '../../../store/spots'
-
+import { seeSpots, viewOneSpot } from '../../../store/spots'
+import './ViewOne.css'
 const ViewOne = () => {
     const { spotId } = useParams()
-    const images = useSelector(state => console.log(state))
+    const spots = useSelector(state => state.spots)
+    const spot = Object.values(spots)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(seeSpots())
+        dispatch(viewOneSpot(spotId))
     }, [dispatch])
+
     return (
-        <div>ViewOne</div>
+        <div className='viewOne__page'>
+            <h1 className='tester__text'>Hey!</h1>
+        </div>
     )
 }
 

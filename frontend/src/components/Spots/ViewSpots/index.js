@@ -11,8 +11,7 @@ const ViewSpots = () => {
     const dispatch = useDispatch()
     const views = useSelector(state => state.spots)
     const viewPage = Object.values(views)
-    console.log(views, '<<<<<<<<<,'
-    )
+    console.log(viewPage)
     useEffect(() => {
         dispatch(seeSpots())
     }, [dispatch])
@@ -28,8 +27,11 @@ const ViewSpots = () => {
                             </div>
 
                             <div className='viewSpots__infoContainer'>
-                                <h2 className='viewSpots__city'>{view.city}</h2>
-                                <p className='viewSpots__address'>{view.address}</p>
+                                <div className='viewSpots__label'>
+                                    <h1 className='viewSpots__title'>{view.title}</h1>
+                                    <h3 className='viewSpots__city'>{view.city}</h3>
+                                    <p className='viewSpots__address'>{view.address}</p>
+                                </div>
                             </div>
                         </div>
                     </Link>

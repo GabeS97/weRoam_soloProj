@@ -3,7 +3,9 @@
   grid-template-columns: repeat(3, 1fr);
   flex-direction: column;
   row-gap: 0.5em;
+  position: relative;
   column-gap: 0.5em;
+
 }
 
 .viewSpots__cardContainer {
@@ -13,14 +15,14 @@
   align-items: center;
   text-align: center;
   flex-direction: column;
-  /* width: 100px;
-  height: 100px; */
+  filter: grayscale();
   position: relative;
 }
 
 .viewSpots__image {
   display: flex;
   height: 35vh;
+  /* filter: grayscale(100%); */
   width: 35vw;
   flex-direction: column;
 }
@@ -28,14 +30,26 @@
 .viewSpots__infoContainer {
   display: flex;
   flex-direction: column;
-  bottom: 0;
+  justify-content: center;
+  row-gap: 1em;
+  /* bottom: 0; */
+  align-items: center;
   width: 100%;
   text-align: center;
   align-items: center;
   height: 100%;
   color: white;
-  top: 7em;
+  /* top: 7em; */
   position: absolute;
+}
+
+.viewSpots__label {
+  position: absolute;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  width: 100%;
 }
 
 .viewSpots__infoContainer > h2 {
@@ -56,4 +70,8 @@
 .viewSpots__page > h1 {
   display: flex;
   justify-content: center;
+}
+
+.viewSpots__cardContainer:hover {
+  filter: none;
 }
