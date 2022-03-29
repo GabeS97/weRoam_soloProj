@@ -76,7 +76,7 @@ module.exports = {
       },
       {
         userId: 1,
-        title: 'This is my first time too! Explore with me',
+        title: 'First Timer! Explore with me',
         imageLink: 'https://wallpapercave.com/wp/wp1851483.jpg',
         address: '1 Sheikh Mohammed bin Rashid Blvd - Downtown Dubai - Dubai - UAE',
         city: 'Dubai',

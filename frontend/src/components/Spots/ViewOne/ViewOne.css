@@ -1,13 +1,38 @@
 .viewOne__page {
     display: flex;
-    position: absolute;
+    position: relative;
     height: 100%;
     width: 100%;
-    border-radius: 25px;
     left: 0;
 }
 
-.tester__text  {
-    display: flex;
+.viewOne__image {
     position: relative;
+    width: 100%;
+    height: 50vh;
+
+}
+.viewOne__card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-bottom: solid lightgray;
+    width: 100%;
+}
+
+.viewOne__textInfo {
+    z-index: 3;
+    color: white;
+    text-align: center;
+    white-space: pre-line;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 2em;
+    background-color: black;
+    position: absolute;
+    height: 100%;
+    right: 0;
 }

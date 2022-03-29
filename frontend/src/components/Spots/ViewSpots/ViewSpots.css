@@ -1,3 +1,11 @@
+.viewSpots__page > h1 {
+  height:2em ;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+}
+
 .viewSpots__imageContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -5,7 +13,6 @@
   row-gap: 0.5em;
   position: relative;
   column-gap: 0.5em;
-
 }
 
 .viewSpots__cardContainer {
