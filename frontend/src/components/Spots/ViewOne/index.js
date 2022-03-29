@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { addSpots, seeSpots, viewOneSpot } from '../../../store/spots'
 import './ViewOne.css'
+import ViewOneContent from './ViewOneContent'
 
 const ViewOne = () => {
     const { spotId } = useParams()
@@ -30,7 +31,7 @@ const ViewOne = () => {
                     </div>
                 </>
             ))}
-            <h1>Hey</h1>
+            <ViewOneContent /> 
         </div>
     )
 }
