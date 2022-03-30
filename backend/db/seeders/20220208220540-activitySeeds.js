@@ -37,7 +37,7 @@ module.exports = {
       },
       {
         userId: 1,
-        title: 'No place like London',
+        title: 'viewOne__imagelike London',
         imageLink: 'https://upload.travelawaits.com/ta/uploads/2021/04/westminster-abbey-in-london25c6b2-800x800.jpg',
         address: '20 Deans Yd, London SW1P 3PA, United Kingdom',
         city: 'London',

@@ -1,21 +1,19 @@
 .viewOne__page {
     display: flex;
+    height: 100%;
+    position: absolute;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
 }
 
-.viewOne__card {
-    border: solid black;
-    display: flex;
-    border-radius: 50px;;
-    margin-top: 2em;
+.fa-grip-dots {
 
 }
 
-.viewOne__image {
-    border-radius: 50px;
-    display: flex;
-    z-index: -1;
-    object-fit: fill;
+.viewOne__moreButton {
+    background-color: beige;
+    z-index: 10;
+    width: 2em;
+    height: 2em;
+    background-color: transparent;
 }

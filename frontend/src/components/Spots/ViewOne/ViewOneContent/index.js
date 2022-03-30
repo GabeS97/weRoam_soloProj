@@ -2,7 +2,11 @@ import React from 'react'
 
 const ViewOneContent = () => {
     return (
-        <div>ViewOneContent</div>
+        <div className="viewOne__contents">
+            <h1>Hey </h1>
+            {/* <Review />
+            <Calander />  */}
+        </div>
     )
 }
 
