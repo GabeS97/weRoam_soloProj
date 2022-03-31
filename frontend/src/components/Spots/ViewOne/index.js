@@ -12,7 +12,6 @@ const ViewOne = () => {
     const spots = useSelector(state => state.spots)
     const spot = Object.values(spots)
     const dispatch = useDispatch()
-    console.log(spot)
     useEffect(() => {
         dispatch(viewOneSpot(spotId))
     }, [dispatch])
@@ -22,9 +21,6 @@ const ViewOne = () => {
             {spot.map(loc => (
                 <>
                     <div key={loc.id} className='viewOne__card'>
-                        <button className="viewOne__moreButton">
-                            <i class="fa-solid fa-grip-dots"></i>
-                        </button>
                         <img className='viewOne__image' src={loc.imageLink} alt='' />
                     </div>
                 </>

@@ -1,11 +1,11 @@
 import React from 'react'
+import Review from '../../../Review'
 
 const ViewOneContent = () => {
     return (
         <div className="viewOne__contents">
-            <h1>Hey </h1>
-            {/* <Review />
-            <Calander />  */}
+            <Review />
+            {/* <Calander />  */}
         </div>
     )
 }
