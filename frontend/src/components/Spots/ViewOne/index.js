@@ -4,36 +4,29 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { viewOneSpot } from '../../../store/spots'
 import './ViewOne.css'
-import ViewOneContent from './ViewOneContent'
 
 
 const ViewOne = () => {
     const { spotId } = useParams()
     const spots = useSelector(state => state.spots)
     const spot = Object.values(spots)
+    const choice = spot.find(location => location?.id === +spotId)
     const dispatch = useDispatch()
+
     useEffect(() => {
         dispatch(viewOneSpot(spotId))
     }, [dispatch])
 
     return (
-        <div className='viewOne__page'>
-            {spot.map(loc => (
-                <>
-                    <div key={loc.id} className='viewOne__card'>
-                        <img className='viewOne__image' src={loc.imageLink} alt='' />
-                    </div>
-                </>
-            ))}
-            {spot.map(loc => (
-                <div className="viewOne__textInfo">
-                    <h2 className='viewOne__title'>{loc.title}</h2>
-                    <h3 className='viewOne__address'>{loc.address}</h3>
-                    <h3 className='viewOne__city'>{loc.city}</h3>
-                    <h3 className='viewOne__country'>{loc.country}</h3>
+        <div className='viewOne'>
+            <div className='viewOne__page'>
+                <h2 className='viewOne__title'>{choice?.title}</h2>
+                <div className="viewOne__labels">
+                    <i class="fa-solid fa-star"></i>
+                    <h4 className='viewOne__address'>{choice?.address}</h4>
                 </div>
-            ))}
-            <ViewOneContent />
+                <img src={choice?.imageLink} alt='' />
+            </div>
         </div>
     )
 }

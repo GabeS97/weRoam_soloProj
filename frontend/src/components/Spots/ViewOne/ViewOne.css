@@ -1,19 +1,28 @@
-.viewOne__page {
+.viewOne {
     display: flex;
-    height: 100%;
-    position: absolute;
-    flex-direction: column;
-    width: 100%;
+    justify-content: center;
+    padding-top: .5em;
 }
 
-.fa-grip-dots {
-
+.viewOne__title {
+    padding-top: .5em;
 }
 
-.viewOne__moreButton {
-    background-color: beige;
-    z-index: 10;
-    width: 2em;
-    height: 2em;
-    background-color: transparent;
+.viewOne__labels {
+    display: flex;
+    font-size: 14px !important;
+    position: relative !important;
+    color: rgb(113, 113, 113) !important;
+    font-weight: 600 !important;
+    padding-top: 1em;
+    text-decoration: underline !important;
+    padding-bottom: 1em;
+}
+
+.viewOne__address {
+    padding-left: .5em;
+}
+
+.fa-star {
+    color: red;
 }
