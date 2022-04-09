@@ -30,7 +30,7 @@ export const remove = (review) => ({
 })
 
 export const seeReview = (id) => async dispatch => {
-    const res = await csrfFetch(`/api/reviews/${id}`)
+    const res = await csrfFetch(`/api/reviews/spots/${id}`)
 
     if (res.ok) {
         const reviews = await res.json()

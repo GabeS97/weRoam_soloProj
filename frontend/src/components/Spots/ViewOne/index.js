@@ -1,7 +1,9 @@
 import React from 'react'
 import { useEffect } from 'react'
+import { Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
+import { seeReview } from '../../../store/reviews'
 import { viewOneSpot } from '../../../store/spots'
 import './ViewOne.css'
 
@@ -11,10 +13,18 @@ const ViewOne = () => {
     const spots = useSelector(state => state.spots)
     const spot = Object.values(spots)
     const choice = spot.find(location => location?.id === +spotId)
+    const reviews = useSelector(state => Object.values(state.review))
+    let review = reviews.filter(rates => rates.rating)
+    console.log(review);
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(viewOneSpot(spotId))
+    }, [dispatch])
+
+
+    useEffect(() => {
+        dispatch(seeReview(spotId))
     }, [dispatch])
 
     return (
@@ -27,6 +37,7 @@ const ViewOne = () => {
                 </div>
                 <img src={choice?.imageLink} alt='' />
             </div>
+
         </div>
     )
 }

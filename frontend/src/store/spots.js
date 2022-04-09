@@ -1,8 +1,4 @@
 import { csrfFetch } from './csrf';
-// export const LOAD_SPOTS = 'reviews/LOAD_SPOTS';
-// export const ADD_SPOTS = 'reviews/ADD_SPOTS';
-// export const EDIT_SPOTS = 'reviews/EDIT_SPOTS';
-// export const REMOVE_SPOTS = 'reviews/REMOVE_SPOTS';
 export const LOAD_SPOTS = 'spots/LOAD_SPOTS';
 export const ADD_SPOTS = 'spots/ADD_SPOTS';
 export const EDIT_SPOTS = 'spots/EDIT_SPOTS';

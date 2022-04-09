@@ -15,6 +15,7 @@
     color: rgb(113, 113, 113) !important;
     font-weight: 600 !important;
     padding-top: 1em;
+    text-align: center;
     text-decoration: underline !important;
     padding-bottom: 1em;
 }
@@ -25,4 +26,10 @@
 
 .fa-star {
     color: red;
+}
+
+.viewOne img {
+    width: 50vw;
+    height: 50vh;
+    border-radius: 25px;
 }

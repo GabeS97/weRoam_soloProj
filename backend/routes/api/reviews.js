@@ -5,11 +5,10 @@ const { restoreUser } = require('../../utils/auth');
 const router = express.Router();
 
 router.get(
-    "/:spotId",
+    "/spots/:spotId",
     restoreUser,
     asyncHandler(async (req, res) => {
         const { spotId } = req.params
-        console.log('am i even in the db? ', spotId)
         const reviews = await Review.findAll({
             where: { spotId }
         });
