@@ -3,10 +3,6 @@ export const LOAD_REVIEW = 'reviews/LOAD_REVIEW';
 export const ADD_REVIEW = 'reviews/ADD_REVIEW';
 export const EDIT_REVIEW = 'reviews/EDIT_REVIEW';
 export const REMOVE_REVIEW = 'reviews/REMOVE_REVIEW';
-// export const LOAD_REVIEW = 'spots/LOAD_REVIEW';
-// export const ADD_REVIEW = 'spots/ADD_REVIEW';
-// export const EDIT_REVIEW = 'spots/EDIT_REVIEW';
-// export const REMOVE_REVIEW = 'spots/REMOVE_REVIEW';
 
 export const load = (review) => ({
     type: LOAD_REVIEW,

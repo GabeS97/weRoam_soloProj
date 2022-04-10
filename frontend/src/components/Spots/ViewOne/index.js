@@ -14,8 +14,15 @@ const ViewOne = () => {
     const spot = Object.values(spots)
     const choice = spot.find(location => location?.id === +spotId)
     const reviews = useSelector(state => Object.values(state.review))
-    let review = reviews.filter(rates => rates.rating)
-    console.log(review);
+    console.log(reviews);
+    let sum = 0
+    reviews.forEach(ele => {
+        sum += ele.rating
+    })
+
+    let avg = sum / reviews.length
+    console.log(avg);
+
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -33,6 +40,8 @@ const ViewOne = () => {
                 <h2 className='viewOne__title'>{choice?.title}</h2>
                 <div className="viewOne__labels">
                     <i class="fa-solid fa-star"></i>
+                    <h4 className='viewOne__avg'>{avg} </h4>
+                    <h4 className='viewOne__review'>{reviews.length} reviews</h4>
                     <h4 className='viewOne__address'>{choice?.address}</h4>
                 </div>
                 <img src={choice?.imageLink} alt='' />
