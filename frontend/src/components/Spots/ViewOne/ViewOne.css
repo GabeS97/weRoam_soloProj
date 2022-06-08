@@ -1,0 +1,46 @@
+.viewOne {
+    display: flex;
+    justify-content: center;
+    padding-top: .5em;
+}
+
+.viewOne__title {
+    padding-top: .5em;
+}
+
+.viewOne__labels {
+    /* margin-left:  .5em; */
+    display: flex;
+    font-size: 14px !important;
+    position: relative !important;
+    color: rgb(113, 113, 113) !important;
+    font-weight: 600 !important;
+    padding-top: 1em;;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+.viewOne__address {
+    padding-left: .5em;
+    text-decoration: underline !important;
+
+}
+
+.fa-star {
+    color: red;
+    padding-right: .5em;
+}
+
+.viewOne img {
+    width: 50vw;
+    height: 50vh;
+    border-radius: 25px;
+}
+
+.viewOne__avg{
+    padding-right: .5em;
+}
+
+.viewOne__review {
+    text-decoration: underline !important;
+}

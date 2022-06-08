@@ -1,32 +1,34 @@
 import { csrfFetch } from './csrf';
-// export const LOAD_spots = 'reviews/LOAD_spots';
-// export const ADD_spots = 'reviews/ADD_spots';
-// export const EDIT_spots = 'reviews/EDIT_spots';
-// export const REMOVE_spots = 'reviews/REMOVE_spots';
-export const LOAD_spots = 'spots/LOAD_spots';
-export const ADD_spots = 'spots/ADD_spots';
-export const EDIT_spots = 'spots/EDIT_spots';
-export const REMOVE_spots = 'spots/REMOVE_spots';
+export const LOAD_SPOTS = 'spots/LOAD_SPOTS';
+export const ADD_SPOTS = 'spots/ADD_SPOTS';
+export const EDIT_SPOTS = 'spots/EDIT_SPOTS';
+export const REMOVE_SPOTS = 'spots/REMOVE_SPOTS';
+export const LOAD_SPOT = 'spots/LOAD_SPOT';
 
 export const load = (spots) => ({
-    type: LOAD_spots,
+    type: LOAD_SPOTS,
     spots
 });
 
 export const add = (spots) => ({
-    type: ADD_spots,
+    type: ADD_SPOTS,
     spots
 });
 
 export const edit = (spots) => ({
-    type: EDIT_spots,
+    type: EDIT_SPOTS,
     spots
 });
 
 export const remove = (spots) => ({
-    type: REMOVE_spots,
+    type: REMOVE_SPOTS,
     spots
 });
+
+export const loadOne = (spot) => ({
+    type: LOAD_SPOT,
+    spot
+})
 
 export const addSpots = payload => async dispatch => {
 
@@ -71,9 +73,7 @@ export const editSpots = (payload) => async dispatch => {
 export const removeSpots = payload => async dispatch => {
     const res = await csrfFetch(`/api/spots/${payload}`, {
         method: 'DELETE',
-        // headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ payload })
-        // body: JSON.stringify({payload })
     })
 
     const spots = await res.json();
@@ -81,12 +81,21 @@ export const removeSpots = payload => async dispatch => {
     return spots
 }
 
+export const viewOneSpot = spotId => async dispatch => {
+    const res = await csrfFetch(`/api/spots//${spotId}`)
+
+    if (res.ok) {
+        const spot = await res.json()
+        dispatch(loadOne(spot))
+        return spot
+    }
+}
 const initialState = {};
 
 const spotsReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
-        case LOAD_spots: {
+        case LOAD_SPOTS: {
             newState = { ...state }
             const allSpots = {};
             action.spots.forEach(spots => {
@@ -95,7 +104,7 @@ const spotsReducer = (state = initialState, action) => {
             newState = allSpots
             return newState
         }
-        case ADD_spots: {
+        case ADD_SPOTS: {
             newState = { ...state }
             newState = {
                 ...state,
@@ -103,14 +112,19 @@ const spotsReducer = (state = initialState, action) => {
             };
             return newState;
         }
-        case EDIT_spots: {
+        case EDIT_SPOTS: {
             newState = { ...state }
             newState = { ...state, [action.spots.id]: action.spots }
             return newState;
         }
-        case REMOVE_spots: {
+        case REMOVE_SPOTS: {
             newState = { ...state }
             delete newState[action.spots.id]
+            return newState
+        }
+        case LOAD_SPOT: {
+            newState = { ...state }
+            newState = { state, [action.spot.id]: action.spot }
             return newState
         }
         default:

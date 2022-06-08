@@ -3,10 +3,6 @@ export const LOAD_REVIEW = 'reviews/LOAD_REVIEW';
 export const ADD_REVIEW = 'reviews/ADD_REVIEW';
 export const EDIT_REVIEW = 'reviews/EDIT_REVIEW';
 export const REMOVE_REVIEW = 'reviews/REMOVE_REVIEW';
-// export const LOAD_REVIEW = 'spots/LOAD_REVIEW';
-// export const ADD_REVIEW = 'spots/ADD_REVIEW';
-// export const EDIT_REVIEW = 'spots/EDIT_REVIEW';
-// export const REMOVE_REVIEW = 'spots/REMOVE_REVIEW';
 
 export const load = (review) => ({
     type: LOAD_REVIEW,
@@ -30,8 +26,7 @@ export const remove = (review) => ({
 })
 
 export const seeReview = (id) => async dispatch => {
-    console.log('seeReview paylaod', id)
-    const res = await csrfFetch(`/api/reviews/`)
+    const res = await csrfFetch(`/api/reviews/spots/${id}`)
 
     if (res.ok) {
         const reviews = await res.json()
@@ -57,7 +52,6 @@ export const addReview = (payload) => async dispatch => {
 
 export const editReview = (payload) => async dispatch => {
         // thunk
-        console.log('2..................', payload)
     const res = await csrfFetch(`/api/reviews/${payload.reviewId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -67,7 +61,6 @@ export const editReview = (payload) => async dispatch => {
     if (res.ok) {
         const review = await res.json();
         // thunk
-        console.log('4.......................', review)
         dispatch(edit(review));
         return review
     }
@@ -86,7 +79,7 @@ export const removeReview = payload => async dispatch => {
 const initialState = {};
 
 const reviewReducer = (state = initialState, action) => {
-    
+
     let newState;
     switch (action.type) {
         case LOAD_REVIEW: {

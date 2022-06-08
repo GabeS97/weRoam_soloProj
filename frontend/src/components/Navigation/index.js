@@ -6,6 +6,7 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal'
 import './Navigation.css';
 import DemoUser from './DemoUser';
+import ViewOne from '../Spots/ViewOne';
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
@@ -20,31 +21,32 @@ function Navigation({ isLoaded }) {
       <>
         <LoginFormModal />
         <SignupFormModal />
-        {/* <DemoUser /> */}
       </>
     );
   }
 
   return (
-    <nav className='navBar'>
-      <NavLink className="home" exact to="/">
-        <img
-          className="home_icon"
-          src='../../../images/weRoam-logos_black.png'
-          alt=""
-        />
-      </NavLink>
-      <input
-        className='search'
-        placeholder='Start your search'
-      ></input>
-      <div className='buttons'>
+    <>
+      <nav className='navBar'>
+        <NavLink className="home" exact to="/">
+          <img
+            className="home_icon"
+            src='../../../images/weRoam-logos_black.png'
+            alt=""
+          />
+        </NavLink>
+        <input
+          className='search'
+          placeholder='Start your search'
+        ></input>
+        <div className='buttons'>
           <Link className='hyperlink' to='/spots'>
-            {sessionUser && (  <p className='host'>Become a host</p>)}
+            {sessionUser && (<p className='host'>Become a host</p>)}
           </Link>
-        {isLoaded && sessionLinks}
-      </div>
-    </nav>
+          {isLoaded && sessionLinks}
+        </div>
+      </nav>
+    </>
   );
 }
 

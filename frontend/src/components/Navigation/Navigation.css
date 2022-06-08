@@ -1,14 +1,19 @@
 .navBar {
+  align-items: center;
   display: flex;
-  position: sticky;
+  flex-direction: row;
+  height: 80px;
   justify-content: space-between;
-  background-color: white;
-  top: 0;
-  z-index: 100;
-  right: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: rgb(255, 255, 255);
+  position: sticky;
   border-bottom: solid lightgrey;
-  width: 100%;
+  top: 0;
+  z-index: 10;
 }
+
+
 
 .buttons {
   display: flex;
@@ -28,7 +33,7 @@
   display: flex;
   position: relative;
   left: 5%;
-  margin-top: 25px;
+  margin-top: 10px;
   width: 20%;
   padding: 10px;
   height: 50px;
@@ -86,4 +91,62 @@ input:focus {
   background-color: white;
   color: lightcoral;
   transition-duration: 250ms;
+}
+.dropdown__button {
+  display: flex;
+  background-color: transparent;
+  border-radius: 999px;
+  height: 3em;
+  width: 3em;
+  object-fit: fill;;
+  cursor: pointer;
+}
+
+.dropdown__image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  /* display: inline-block; */
+}
+
+
+.profile__dropdown {
+  /* display: none; */
+  /* opacity: 0; */
+  right: .02em;
+  display: flex;
+  flex-direction: column;
+  top: 5em;
+  border: solid lightgray;
+  justify-content:center;
+  align-items: center;
+  position: absolute;;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.profile__dropdown p {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.profile__dropdown p:hover {
+  background-color: #f1f1f1;
+}
+
+/* .dropdown__image .profile__dropdown {
+  display: block;
+} */
+
+.dropdown__menu {
+  display:flex;
+}
+
+.dropdown__logout {
+  cursor: pointer;
 }
