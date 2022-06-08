@@ -20,7 +20,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  text-align: center;;
   flex-direction: column;
   filter: grayscale();
   position: relative;
@@ -29,7 +29,7 @@
 .viewSpots__image {
   display: flex;
   height: 35vh;
-  /* filter: grayscale(100%); */
+  filter: grayscale(100%);
   width: 35vw;
   flex-direction: column;
 }

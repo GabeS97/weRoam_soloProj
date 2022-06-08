@@ -3,8 +3,6 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { removeSpots, seeSpots } from '../../../store/spots'
 import './ViewSpots.css'
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
 import { Link } from 'react-router-dom'
 
 const ViewSpots = () => {
@@ -30,7 +28,7 @@ const ViewSpots = () => {
                                 <div className='viewSpots__label'>
                                     <h1 className='viewSpots__title'>{view.title}</h1>
                                     <h3 className='viewSpots__city'>{view.city}</h3>
-                                    <p className='viewSpots__address'>{view.address}</p>
+                                    <p className='viewSpots__address'>{view.address}</p> 
                                 </div>
                             </div>
                         </div>
