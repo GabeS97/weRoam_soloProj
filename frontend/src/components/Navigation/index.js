@@ -5,8 +5,7 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal'
 import './Navigation.css';
-import DemoUser from './DemoUser';
-import ViewOne from '../Spots/ViewOne';
+import LogOut from './LogOut';
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
@@ -28,6 +27,7 @@ function Navigation({ isLoaded }) {
   return (
     <>
       <nav className='navBar'>
+        <LogOut />
         <NavLink className="home" exact to="/">
           <img
             className="home_icon"
@@ -43,7 +43,16 @@ function Navigation({ isLoaded }) {
           <Link className='hyperlink' to='/spots'>
             {sessionUser && (<p className='host'>Become a host</p>)}
           </Link>
-          {isLoaded && sessionLinks}
+          <div className="navBar__login__signin">
+            <i class="fa-solid fa-bars"></i>
+            <div className="navBar__avatarDrpdwn">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <div className="navBar__loginDrpdwn">
+              {isLoaded && sessionLinks}
+            </div>
+
+          </div>
         </div>
       </nav>
     </>

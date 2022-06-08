@@ -23,13 +23,14 @@ function LoginForm() {
 
   return (
     <form className='login_form' onSubmit={handleSubmit}>
-      <header className="title">Log In</header>
+      <header className="login__title">Log In</header>
       {/* <ul>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
       </ul> */}
-      <div className="inputs">
+
+      <div className="login__inputs">
         <label>
           {/* Username or Email */}
           <input className="user"
@@ -52,13 +53,23 @@ function LoginForm() {
           />
         </label>
       </div>
+
       <div className="login__buttons">
-        <button className="submit" type="submit">Log In</button>
-        <button className="submit" type="submit">
-          <DemoUser />
-        </button>
+        <div className="login__button">
+          <button className="login__submit" type="submit">Log In</button>
+        </div>
+
+        <div className="login__or__demo">
+          or
+        </div>
+
+        <div className="demo__button">
+          <button className="demo__submit" type="submit">
+            <DemoUser />
+          </button>
+        </div>
       </div>
-    </form>
+    </form >
   );
 }
 
