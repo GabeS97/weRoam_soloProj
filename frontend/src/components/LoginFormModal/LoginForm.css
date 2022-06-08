@@ -1,85 +1,111 @@
-.login_form {
-  display: flex;
-  flex-direction: column;
-}
-
-.title {
-  position: relative;
-  font-weight: bolder;
-  font-size: 150%;
-  top: 20px;
-  margin-left: 5%;
-}
-
-.user,
-.password {
-  display: flex;
-  margin-bottom: 4;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  height: 2em;
-  width: 14em;
-  outline: none;
-  border: 1px solid lightgray;
-}
-
-.inputs {
-  margin-top: 16vh;
-}
-
-.submit {
-  margin-top: 20px;
-  cursor: pointer;
-  border-radius: 999px;
-  background-color: lightcoral;
-  outline: none;
-  /* width: 15%; */
-  height: 2em;
-  border: 1px solid lightgray;
-}
-
-.submit:hover {
-  margin-top: 20px;
-  cursor: pointer;
-  background-color: white;
-  color: lightcoral;
-  transform: scale(1.05);
-  transition-duration: 250ms;
-}
-
-::placeholder {
-  text-align: center;
-}
-
-#demo_button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.login__buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 2em;
-}
-
 .login__loginButton {
   background-color: transparent;
+  border: none;
+  outline: none;
   cursor: pointer;
-  font-weight: bold;
-  width: 5em;
-  height: 2em;
-  border: solid antiquewhite;
-  border-radius: 999px;
 }
 
 .login__loginButton:hover {
-  background-color: rgb(230, 230, 230);
-  border: none;
+  background-color: rgb(247, 247, 247);
+}
+
+.login_form {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.login__inputs,
+.login__buttons {
+  display: flex;
+  justify-content: center;
+  row-gap: 1em;
+  flex-direction: column;
+}
+
+.login__buttons {
+  padding-bottom: 1em;
+  width: 80%;
+}
+
+.demo__submit {
+  width: 100%;
+}
+
+.login__button button {
+  width: 100%;
+}
+
+.login__buttons button {
+  height: 2em;
+  border-radius: 5px;
   cursor: pointer;
+}
+.login__title {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-bottom: solid rgb(234, 234, 234) 2px;
+  width: 100%;
+}
+
+#demo_button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.login__submit {
+  background-color: rgb(227, 29, 91);
   color: white;
-  transition-duration: 250ms;
+  border: none;
+  transition: all;
+}
+
+.demo__submit {
+  color: black;
+  border: solid rgb(34, 34, 34) 2px;
+  background-color: white;
+}
+
+.demo__submit:hover {
+  background-color: rgb(246, 246, 246);
+}
+
+.login__inputs {
+  width: 80%;
+}
+
+.login__inputs input {
+  width: 100%;
+  border-radius: 5px;
+  text-indent: 0.5em;
+  height: 2em;
+  cursor: text;
+}
+
+.login__or__demo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: rgb(221, 221, 221);
+}
+.login__or__demo::before {
+  content: "" ;
+  display: block ;
+  width: 100% ;
+  height: 1px ;
+  background-color: rgb(221, 221, 221) ;
+  margin-right: 16px ;
+}
+
+.login__or__demo::after {
+  content: "" ;
+  display: block ;
+  width: 100% ;
+  height: 1px ;
+  background-color: rgb(221, 221, 221) ;
+  margin-left: 16px ;
 }

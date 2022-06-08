@@ -4,6 +4,9 @@ html {
     overflow-y: scroll;
 }
 
+html::-webkit-scrollbar {
+    display: none;
+}
 * {
     /* font-family: Trebuchet MS,Lucida Sans Unicode,Lucida Grande,Lucida Sans,Arial,sans-serif; */
     list-style: none;
