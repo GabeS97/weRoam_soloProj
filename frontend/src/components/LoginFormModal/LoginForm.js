@@ -64,7 +64,9 @@ function LoginForm() {
         </div>
 
         <div className="demo__button">
-          <button className="demo__submit" type="submit">
+          <button
+            className="demo__submit"
+            type="submit">
             <DemoUser />
           </button>
         </div>
