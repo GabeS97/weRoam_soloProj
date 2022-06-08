@@ -27,7 +27,6 @@ function Navigation({ isLoaded }) {
   return (
     <>
       <nav className='navBar'>
-        <LogOut />
         <NavLink className="home" exact to="/">
           <img
             className="home_icon"
@@ -48,6 +47,7 @@ function Navigation({ isLoaded }) {
             <div className="navBar__avatarDrpdwn">
               <i class="fa-solid fa-user"></i>
             </div>
+
             <div className="navBar__loginDrpdwn">
               {isLoaded && sessionLinks}
             </div>
