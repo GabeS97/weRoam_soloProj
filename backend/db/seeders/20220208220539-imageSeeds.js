@@ -54,24 +54,24 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
-      // {
-      //   // Tokyo
-      //   userId: 1,
-      //   spotId: 1,
-      //   imageUrl: 'https://images.unsplash.com/photo-1530339287297-fec8f06e0bda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHNoaW5qdWt1JTIwZ3lvZW4lMjBuYXRpb25hbCUyMGdhcmRlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-      //   content: 'I love this place',
-      //   createdAt: new Date(),
-      //   updatedAt: new Date(),
-      // },
-      // {
-      //   // Tokyo
-      //   userId: 1,
-      //   spotId: 1,
-      //   imageUrl: 'https://images.unsplash.com/photo-1553956684-103abbe21f75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHNoaW5qdWt1JTIwZ3lvZW4lMjBuYXRpb25hbCUyMGdhcmRlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-      //   content: 'I love this place',
-      //   createdAt: new Date(),
-      //   updatedAt: new Date(),
-      // },
+      {
+        // Tokyo
+        userId: 1,
+        spotId: 1,
+        imageUrl: 'https://images.unsplash.com/photo-1530339287297-fec8f06e0bda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHNoaW5qdWt1JTIwZ3lvZW4lMjBuYXRpb25hbCUyMGdhcmRlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+        content: 'I love this place',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        // Tokyo
+        userId: 1,
+        spotId: 1,
+        imageUrl: 'https://images.unsplash.com/photo-1553956684-103abbe21f75?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHNoaW5qdWt1JTIwZ3lvZW4lMjBuYXRpb25hbCUyMGdhcmRlbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+        content: 'I love this place',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
       {
         // Paris
         userId: 1,
