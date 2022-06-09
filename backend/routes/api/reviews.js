@@ -16,9 +16,9 @@ router.get(
         return res.json(reviews);
     }));
 
-router.post('/', asyncHandler(async (req, res) => {
-    const { userId, spotId, title, reviews } = req.body;
-    const review = await Review.create({ userId, spotId, title, reviews });
+router.post('/spots/:spotId', asyncHandler(async (req, res) => {
+    const { userId, spotId, title, reviews, rating } = req.body;
+    const review = await Review.create({ userId, spotId, title, reviews, rating });
     return res.json(review)
 }));
 
