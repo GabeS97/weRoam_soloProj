@@ -2,7 +2,8 @@
 module.exports = (sequelize, DataTypes) => {
   const Spot = sequelize.define('Spot', {
     userId: DataTypes.INTEGER,
-    imageLink: DataTypes.STRING,
+    // imageLink: DataTypes.STRING,
+    // imageId: DataTypes.INTEGER,
     address: DataTypes.STRING,
     city: DataTypes.STRING,
     state: DataTypes.STRING,
@@ -18,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     Spot.belongsTo(models.User, { foreignKey: 'userId' })
     Spot.hasMany(models.Booking, { foreignKey: 'spotId', onDelete: 'cascade', hooks: true })
     Spot.hasMany(models.Review, { foreignKey: 'spotId', onDelete: 'cascade', hooks: true })
-    Spot.hasMany(models.Image, { foreignKey: 'imageId' })
+    Spot.hasMany(models.Image, { foreignKey: 'spotId' })
   };
   return Spot;
 };

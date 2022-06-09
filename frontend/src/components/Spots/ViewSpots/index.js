@@ -21,7 +21,7 @@ const ViewSpots = () => {
                         <Link key={view.id} to={`/spots/${view.id}`} style={{ textDecoration: 'none', color: 'black' }}>
                             <div className='viewSpots__cardContainer'>
                                 <div className='viewSpots__imgContainer'>
-                                    <img className='viewSpots__image' src={view.imageLink} alt='' />
+                                    <img className='viewSpots__image' src={view.Images[0].imageUrl} alt='' />
                                 </div>
                                 <div className='viewSpots__infoContainer'>
                                     <div className='viewSpots__label'>

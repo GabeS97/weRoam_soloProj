@@ -1,46 +1,112 @@
 .viewOne {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5em;
+}
+
+.viewOne__page {
     display: flex;
     justify-content: center;
-    padding-top: .5em;
+    flex-direction: column;
+    align-items: center;
 }
 
 .viewOne__title {
-    padding-top: .5em;
+  padding-top: 0.5em;
 }
 
 .viewOne__labels {
-    /* margin-left:  .5em; */
-    display: flex;
-    font-size: 14px !important;
-    position: relative !important;
-    color: rgb(113, 113, 113) !important;
-    font-weight: 600 !important;
-    padding-top: 1em;;
-    text-align: center;
-    padding-bottom: 1em;
+  /* margin-left:  .5em; */
+  display: flex;
+  font-size: 14px !important;
+  position: relative !important;
+  color: rgb(113, 113, 113) !important;
+  font-weight: 600 !important;
+  padding-top: 1em;
+  text-align: center;
+  padding-bottom: 1em;
 }
 
 .viewOne__address {
-    padding-left: .5em;
-    text-decoration: underline !important;
-
+  padding-left: 0.5em;
+  text-decoration: underline !important;
 }
 
 .fa-star {
-    color: red;
-    padding-right: .5em;
+  color: red;
+  padding-right: 0.5em;
 }
 
-.viewOne img {
-    width: 50vw;
-    height: 50vh;
-    border-radius: 25px;
-}
+/* .viewOne img {
+  width: 50vw;
+  height: 50vh;
+  border-radius: 25px 25px 0 0;
+} */
 
-.viewOne__avg{
-    padding-right: .5em;
+.viewOne__avg {
+  padding-right: 0.5em;
 }
 
 .viewOne__review {
-    text-decoration: underline !important;
+  text-decoration: underline !important;
+}
+
+.testing {
+    border: black red;
+    display: grid;
+    grid-template-rows: repeat(2, 200px);
+    grid-auto-columns: minmax(250px, auto );
+    grid-gap: 15px;
+    grid-template-areas:
+    'a b c'
+    'a d e';
+    justify-content: center;
+    align-content: center;
+    width: 50%;
+}
+
+/* .viewOne__slidebar {
+    border:  solid black;
+    display: ƒlex ;
+} */
+
+#viewOne__image__1 {
+    background-color: blue;
+    grid-area: a;
+    width: 100%
+}
+#viewOne__image__2 {
+    background-color: black;
+    grid-area: b;
+    height: 100%;
+
+}
+#viewOne__image__3 {
+    background-color: red;
+    grid-area: c;
+    height: 100%;
+
+}
+#viewOne__image__4 {
+    background-color: lightgray;
+    grid-area: d;
+    height: 100%;
+}
+#viewOne__image__5 {
+    grid-area: e;
+    height: 100%;
+
+    background-color: lightblue;
+}
+
+.viewOne__slidebar__image {
+    background-color: beige;
+    z-index: 4;
+    height: 100%;
+    width: 100%;
+}
+
+.viewOne__slidebar {
+    display: flex;
+    justify-content: center;
 }
