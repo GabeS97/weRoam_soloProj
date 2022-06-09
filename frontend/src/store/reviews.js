@@ -36,9 +36,10 @@ export const seeReview = (id) => async dispatch => {
 }
 
 export const addReview = (payload) => async dispatch => {
-    const res = await csrfFetch(`/api/reviews`, {
+    console.log(payload)
+    const res = await csrfFetch(`/api/reviews/spots/${payload?.spotId}`, {
         method: 'POST',
-        Headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
     })
 

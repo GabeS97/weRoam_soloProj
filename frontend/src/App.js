@@ -33,7 +33,7 @@ function App() {
           <ViewOne />
         </Route>
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

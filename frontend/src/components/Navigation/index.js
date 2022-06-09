@@ -43,9 +43,9 @@ function Navigation({ isLoaded }) {
             {sessionUser && (<p className='host'>Become a host</p>)}
           </Link>
           <div className="navBar__login__signin">
-            <i class="fa-solid fa-bars"></i>
+            <i className="fa-solid fa-bars"></i>
             <div className="navBar__avatarDrpdwn">
-              <i class="fa-solid fa-user"></i>
+              <i className="fa-solid fa-user"></i>
             </div>
 
             <div className="navBar__loginDrpdwn">
