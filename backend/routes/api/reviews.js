@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { Spot, Image, Review } = require('../../db/models')
+const { Spot, Image, Review, User } = require('../../db/models')
 const { restoreUser } = require('../../utils/auth');
 const router = express.Router();
 
@@ -10,7 +10,8 @@ router.get(
     asyncHandler(async (req, res) => {
         const { spotId } = req.params
         const reviews = await Review.findAll({
-            where: { spotId }
+            where: { spotId },
+            include: User
         });
         return res.json(reviews);
     }));

@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { Spot, Image, Review } = require('../../db/models')
+const { Spot, Image, Review, User } = require('../../db/models')
 const router = express.Router();
 
 // const asyncHandler = (handler) => (req, res, next) => {
@@ -51,7 +51,7 @@ router.get('/:spotId', asyncHandler(async (req, res) => {
     const { spotId } = req.params
 
     const spot = await Spot.findByPk(spotId, {
-        include: Image
+        include: [Image, User]
     })
     return res.json(spot)
 }))
