@@ -12,7 +12,7 @@ module.exports = {
       {
         userId: 1,
         title: 'Tokyo Sight Seers',
-        imageLink: 'https://www.japan-guide.com/g18/3034_001_01.jpg',
+        // imageId: 1,
         address: '11 Naitomachi, Shinjuku City, Tokyo 160-0014, Japan',
         city: 'Tokyo',
         state: null,
@@ -25,7 +25,7 @@ module.exports = {
       {
         userId: 1,
         title: 'Walk with me in Paris',
-        imageLink: 'https://res.klook.com/image/upload/c_fill,w_1160,h_460,f_auto/w_80,x_15,y_15,g_south_west,l_klook_water/activities/tfo7smrskl1zkmmx6afp.webp',
+        // imageId: 2,
         address: 'Rue de Rivoli, 75001 Paris, France',
         city: 'Paris',
         state: null,
@@ -38,7 +38,7 @@ module.exports = {
       {
         userId: 1,
         title: 'viewOne__imagelike London',
-        imageLink: 'https://upload.travelawaits.com/ta/uploads/2021/04/westminster-abbey-in-london25c6b2-800x800.jpg',
+        // imageId: 3,
         address: '20 Deans Yd, London SW1P 3PA, United Kingdom',
         city: 'London',
         state: null,
@@ -51,7 +51,7 @@ module.exports = {
       {
         userId: 1,
         title: 'Vamos a la playa',
-        imageLink: 'https://wallpapercave.com/wp/wp4196581.jpg',
+        // imageId: 4,
         address: 'C/ de Mallorca, 401, 08013 Barcelona, Spain',
         city: 'Barcelona',
         state: null,
@@ -64,7 +64,7 @@ module.exports = {
       {
         userId: 1,
         title: 'Long way from home? Come to Rome!',
-        imageLink: 'https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1569583137/my603i6e4wp3jk6rhjdn.jpg',
+        // imageId: 5,
         address: ' Piazza del Colosseo, 1, 00184 Roma RM, Italy',
         city: 'Rome',
         state: null,
@@ -77,7 +77,7 @@ module.exports = {
       {
         userId: 1,
         title: 'First Timer! Explore with me',
-        imageLink: 'https://wallpapercave.com/wp/wp1851483.jpg',
+        // imageId: 6,
         address: '1 Sheikh Mohammed bin Rashid Blvd - Downtown Dubai - Dubai - UAE',
         city: 'Dubai',
         state: null,
@@ -90,7 +90,7 @@ module.exports = {
       {
         userId: 1,
         title: 'Beauty in Greece',
-        imageLink: 'https://c0.wallpaperflare.com/preview/864/822/468/fira-santorini-greece.jpg',
+        // imageId: 7,
         address: 'Fira town',
         city: 'Santorini',
         state: null,
@@ -103,7 +103,7 @@ module.exports = {
       {
         userId: 1,
         title: 'For outdoor enthusiasts',
-        imageLink: 'https://wallpapercave.com/wp/wp4190535.jpg',
+        // imageId: 8,
         address: 'Gansu Province',
         city: 'Zhangye City',
         state: null,

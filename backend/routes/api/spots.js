@@ -8,7 +8,7 @@ const router = express.Router();
 // }
 
 router.post('/', asyncHandler(async (req, res) => {
-    const { address, city, state, country, price, name, userId, imageLink, spotId } = req.body;
+    const { address, city, state, country, price, name, userId, imageId, spotId } = req.body;
     const newSpot = await Spot.create({
         address,
         city,
@@ -17,7 +17,7 @@ router.post('/', asyncHandler(async (req, res) => {
         price,
         name,
         userId,
-        imageLink,
+        imageId,
         spotId
     });
     return res.json(newSpot);
@@ -25,6 +25,7 @@ router.post('/', asyncHandler(async (req, res) => {
 
 router.get('/', asyncHandler(async (req, res) => {
     const spot = await Spot.findAll({
+        include: Image
     });
     return res.json(spot)
 }))
@@ -49,7 +50,9 @@ router.delete('/:id', asyncHandler(async (req, res) => {
 router.get('/:spotId', asyncHandler(async (req, res) => {
     const { spotId } = req.params
 
-    const spot = await Spot.findByPk(spotId)
+    const spot = await Spot.findByPk(spotId, {
+        include: Image
+    })
     return res.json(spot)
 }))
 
