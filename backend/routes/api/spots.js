@@ -1,14 +1,23 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { Spot, Image, Review, User } = require('../../db/models')
+
+const { handleValidationErrors } = require('../../utils/validation');
+
+const { setTokenCookie, requireAuth } = require("../../utils/auth");
+const {
+    singleMulterUpload,
+    singlePublicFileUpload,
+    multipleMulterUpload,
+    multiplePublicFileUpload,
+} = require("../../awsS3");
+
 const router = express.Router();
 
-// const asyncHandler = (handler) => (req, res, next) => {
-//     handler(req, res, next). catch(next);
-// }
 
 router.post('/', asyncHandler(async (req, res) => {
-    const { address, city, state, country, price, name, userId, imageId, spotId } = req.body;
+    const { address, city, state, country, price, title, name, userId, spotId } = req.body;
+    const spotImageUrl = await singlePublicFileUpload(req.file)
     const newSpot = await Spot.create({
         address,
         city,
@@ -16,6 +25,7 @@ router.post('/', asyncHandler(async (req, res) => {
         country,
         price,
         name,
+        title,
         userId,
         spotId
     });

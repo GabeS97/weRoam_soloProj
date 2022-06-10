@@ -180,3 +180,48 @@
 .viewOne__comment__rating {
   padding-top: 1em;
 }
+
+.viewOne__comment__content__left {
+  display: flex;
+}
+
+.viewOne__comment__options {
+  cursor: pointer;
+}
+
+.viewOne__comment__dropdownContainer {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.viewOne__comment__dropdown__content {
+  display: flex;
+  border: solid rgb(211, 211, 211) 1px;
+  width: 7em;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 5;
+  justify-content: center;
+  /* display: none; */
+  opacity: 0;
+  flex-direction: column;
+}
+
+.viewOne__comment__edit,
+.viewOne__comment__delete {
+  display: flex;
+  cursor: pointer;
+}
+
+.viewOne__comment__editAndDelete:hover .viewOne__comment__dropdown__content {
+  /* display: flex; */
+  opacity: 100;
+  transition-duration: 500ms;
+}
+
+.viewOne__comment__edit:hover,
+.viewOne__comment__delete:hover {
+  background-color: rgb(211, 211, 211);
+}

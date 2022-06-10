@@ -1,37 +1,46 @@
-import React, { useState } from 'react'
+import { handleBreakpoints } from '@mui/system'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addReview } from '../../../store/reviews'
+import { addReview, seeReview } from '../../../store/reviews'
 import '../../Spots/ViewOne/ViewOne.css'
 
-const CreateReview = ({ spotId }) => {
+const CreateReview = ({ spotId, dispatch }) => {
     const sessionUser = useSelector(state => state.session.user);
     const [currTitle, setCurrTitle] = useState('');
     const [currReview, setCurrReview] = useState('');
     const [currRating, setCurrRating] = useState(1);
-    const date = new Date().toDateString()
-    const dispatch = useDispatch()
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
         const add_review = {
+            username: sessionUser?.username,
             userId: sessionUser?.id,
             spotId: +spotId,
             title: currTitle,
             reviews: currReview,
             rating: +currRating
         }
+
         await dispatch(addReview(add_review))
         setCurrTitle('')
         setCurrReview('')
         setCurrRating(1)
     }
+
+    
+
+
     return (
         <div className="viewOne__comment">
             <form onSubmit={handleSubmit}>
                 <div className="viewOne__comment__content">
                     <div className="viewOne__comment__content__left">
-                        <div>{sessionUser?.username}</div>
+                        <input
+                            type='text'
+                            value={sessionUser?.username}
+                            disabled></input>
                         <input
                             className='viewOne__comment__title'
                             type='text'

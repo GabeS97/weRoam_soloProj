@@ -1,16 +1,16 @@
-import React from 'react'
-import { useEffect } from 'react'
-import { Route } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { seeReview } from '../../../store/reviews'
+import { removeReview, seeReview } from '../../../store/reviews'
 import { viewOneSpot } from '../../../store/spots'
 import './ViewOne.css'
 import CreateReview from '../../Reviews/CreateReview'
+import EditReviewDropDown from '../../Reviews/EditReviewDropDown'
 
 
 const ViewOne = () => {
     const { spotId } = useParams()
+    const sessionUser = useSelector(state => state.session.user)
     const spots = useSelector(state => state.spots)
     const spot = Object.values(spots)
     const choice = spot.find(location => location?.id === +spotId)
@@ -51,7 +51,7 @@ const ViewOne = () => {
                             <div className="viewOne__grid">
                                 {choice?.Images.slice(0, 5).map(image => (
                                     <div className="viewOne__image" id={`viewOne__image__${image.id}`} key={image?.id}>
-                                        <img className='viewOne__slidebar__image' id={`viewOne__img__${image.id}`} src={image.imageUrl} alt='' />
+                                        <img className='viewOne__slidebar__image' id={`viewOne__img__${image?.id}`} src={image?.imageUrl} alt='' />
                                     </div>
                                 ))}
                             </div>
@@ -61,7 +61,7 @@ const ViewOne = () => {
 
                 <div className="viewOne__bodyContainer">
                     <div className="viewOne__event__info">
-                        <h3>{choice?.name} hosted by {choice?.User.username}</h3>
+                        <h3>{choice?.name} hosted by {choice?.User?.username}</h3>
                     </div>
 
                     <div className="viewOne__comments">
@@ -75,14 +75,35 @@ const ViewOne = () => {
                     </div>
 
                     <div className="viewOne__comment__box">
-                        <CreateReview spotId={spotId} />
+                        <CreateReview
+                            spotId={spotId}
+                            dispatch={dispatch}
+                        />
                         {reviews.map(review => (
                             <div className="viewOne__comment" key={review?.id}>
                                 <div className="viewOne__comment__content">
                                     <div className="viewOne__comment__content__left">
-                                        <h3 className='viewOne__username'>{review?.User?.username}</h3>
-                                        <h5 className='viewOne__comment__title'>{review?.title}</h5>
-                                        <h5 className='viewOne__comment__createdAt'>{review?.createdAt}</h5>
+                                        <div className="vieOne_comment__left__info">
+                                            <h3 className='viewOne__username'>{review?.User?.username}</h3>
+                                            <h5 className='viewOne__comment__title'>{review?.title}</h5>
+                                            <h5 className='viewOne__comment__createdAt'>{review?.createdAt}</h5>
+                                        </div>
+
+                                        <div className="viewOne__comment__left__options">
+                                            {review?.userId === sessionUser?.id && (
+                                                <div className="viewOne__comment__editAndDelete">
+                                                    <div className="viewOne__comment__dropdown">
+                                                        <i className="fa-solid fa-ellipsis-vertical viewOne__comment__options"></i>
+                                                    </div>
+
+                                                    <EditReviewDropDown
+                                                        dispatch={dispatch}
+                                                        removeReview={removeReview}
+                                                        review={review}
+                                                        spotId={spotId} />
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
 
                                     <div className="viewOne__comment__content__right">
@@ -93,6 +114,8 @@ const ViewOne = () => {
                                 <div className="viewOne__comment__rating">
                                     {review?.reviews}
                                 </div>
+
+
                             </div>
                         ))}
                     </div>

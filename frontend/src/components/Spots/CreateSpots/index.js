@@ -12,6 +12,8 @@ const CreateSpot = () => {
     const [currCountry, setCurrCountry] = useState('')
     const [currName, setCurrName] = useState('')
     const [currPrice, setCurrPrice] = useState(5)
+    const [image, setImage] = useState(null)
+
     const dispatch = useDispatch()
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -24,9 +26,16 @@ const CreateSpot = () => {
             state: currState,
             country: currCountry,
             name: currName,
-            price: currPrice
+            price: currPrice,
         }
-        await dispatch(addSpots(handleSubmit))
+        await dispatch(addSpots(add_spot))
+    }
+
+    const updateFile = (e) => {
+        const file = e.target.files[0]
+        if (file) {
+            setImage(file)
+        }
     }
 
     return (
@@ -36,7 +45,70 @@ const CreateSpot = () => {
             </div>
 
             <div className="createSpot__right">
-                <form className='createSpot__form'>
+                <form
+                    className='createSpot__form'
+                    onSubmit={handleSubmit}>
+                    <input
+                        value={currAddress}
+                        onChange={(e) => setCurrAddress(e.target.value)}
+                        type='text'
+                        placeholder='Address'
+                        >
+                    </input>
+
+                    <input
+                        value={currTitle}
+                        onChange={(e) => setCurrTitle(e.target.value)}
+                        type='text'
+                        placeholder='Title'
+                        >
+                    </input>
+
+                    <input
+                        value={currCity}
+                        onChange={(e) => setCurrCity(e.target.value)}
+                        type='text'
+                        placeholder='City'
+                        >
+                    </input>
+
+                    <input
+                        value={currState}
+                        onChange={(e) => setCurrState(e.target.value)}
+                        type='text'
+                        placeholder='State'
+                        >
+                    </input>
+
+                    <input
+                        value={currCountry}
+                        onChange={(e) => setCurrCountry(e.target.value)}
+                        type='text'
+                        placeholder='Country'
+                        >
+                    </input>
+
+                    <input
+                        value={currName}
+                        onChange={(e) => setCurrName(e.target.value)}
+                        type='text'
+                        placeholder='Location name'
+                        >
+                    </input>
+
+                    <input
+                        value={currPrice}
+                        onChange={(e) => setCurrPrice(e.target.value)}
+                        type='text'
+                        >
+                    </input>
+
+                    {/* <input
+                        type='file'
+                        onChange={updateFile}>
+                    </input> */}
+
+                    <button type='submit'>New Post!</button>
                 </form>
             </div>
         </div>

@@ -12,7 +12,6 @@ module.exports = {
       {
         userId: 1,
         title: 'Tokyo Sight Seers',
-        // imageId: 1,
         address: '11 Naitomachi, Shinjuku City, Tokyo 160-0014, Japan',
         city: 'Tokyo',
         state: null,
