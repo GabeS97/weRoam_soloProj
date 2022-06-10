@@ -32,7 +32,7 @@ const ViewOne = () => {
 
     useEffect(() => {
         dispatch(seeReview(spotId))
-    }, [dispatch])
+    }, [dispatch, reviews])
 
     return (
         <div className='viewOne'>
@@ -114,8 +114,6 @@ const ViewOne = () => {
                                 <div className="viewOne__comment__rating">
                                     {review?.reviews}
                                 </div>
-
-
                             </div>
                         ))}
                     </div>
