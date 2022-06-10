@@ -39,8 +39,8 @@ function Navigation({ isLoaded }) {
           placeholder='Start your search'
         ></input>
         <div className='buttons'>
-          <Link className='hyperlink' to='/spots'>
-            {sessionUser && (<p className='host'>Become a host</p>)}
+          <Link className='create__post' to='/new_posting'>
+            {sessionUser && (<p className='host'>Host a trip</p>)}
           </Link>
           <div className="navBar__login__signin">
             <i className="fa-solid fa-bars"></i>

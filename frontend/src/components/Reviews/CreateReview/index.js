@@ -13,7 +13,7 @@ const CreateReview = ({ spotId }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
- 
+
         const add_review = {
             userId: sessionUser?.id,
             spotId: +spotId,
@@ -43,7 +43,7 @@ const CreateReview = ({ spotId }) => {
                         <select
                             value={currRating}
                             onChange={(e) => setCurrRating(e.target.value)}
-                            className='viewOne__comment__createdAt'
+                            className='viewOne__comment__rating__select'
                         >
                             <option value={1}>1</option>
                             <option value={2}>2</option>
@@ -51,10 +51,6 @@ const CreateReview = ({ spotId }) => {
                             <option value={4}>4</option>
                             <option value={5}>5</option>
                         </select>
-                    </div>
-
-                    <div className="viewOne__comment__content__right">
-                        <h5>{date}</h5>
                     </div>
                 </div>
 

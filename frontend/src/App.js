@@ -7,6 +7,7 @@ import Splash from "./components/Splash/Splash";
 import Footer from "./components/Footer/Footer";
 import ViewSpots from "./components/Spots/ViewSpots";
 import ViewOne from "./components/Spots/ViewOne";
+import CreateSpot from "./components/Spots/CreateSpots";
 
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route path='/spots/:spotId'>
           <ViewOne />
+        </Route>
+        <Route path='/new_posting'>
+          <CreateSpot />
         </Route>
       </Switch>
       {/* <Footer /> */}
