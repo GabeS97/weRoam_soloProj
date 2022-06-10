@@ -17,7 +17,6 @@ router.post('/', asyncHandler(async (req, res) => {
         price,
         name,
         userId,
-        imageId,
         spotId
     });
     return res.json(newSpot);
