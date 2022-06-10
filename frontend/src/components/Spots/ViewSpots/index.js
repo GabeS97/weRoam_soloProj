@@ -7,28 +7,31 @@ import { Link } from 'react-router-dom'
 
 const ViewSpots = () => {
     const dispatch = useDispatch()
-    const views = useSelector(state => state.spots)
+    const views = useSelector(state => state?.spots)
     const viewPage = Object.values(views)
     console.log(viewPage)
     useEffect(() => {
         dispatch(seeSpots())
     }, [dispatch])
+
     return (
         <div className='viewSpots__page'>
             <div className='viewSpots__gridContainer'>
                 <div className="viewSpots__imageContainer">
-                    {viewPage.map(view => (
-                        <Link key={view.id} to={`/spots/${view.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                    {viewPage?.map(view => (
+                        <Link
+                            key={view?.id}
+                            to={`/spots/${view?.id}`}
+                            style={{ textDecoration: 'none', color: 'black' }}>
                             <div className='viewSpots__cardContainer'>
                                 <div className='viewSpots__imgContainer'>
-                                    <img className='viewSpots__image' src={view.Images[0].imageUrl} alt='' />
+                                    <img className='viewSpots__image' src={view?.Images?.[0]?.imageUrl} alt='' />
                                 </div>
                                 <div className='viewSpots__infoContainer'>
                                     <div className='viewSpots__label'>
-                                        <h2 className='viewSpots__title'>{view.title}</h2>
-                                        {/* <h3 className='viewSpots__city'>{view.city}</h3> */}
-                                        <p className='viewSpots__address'>{view.address}</p>
-                                        <p className='viewSpots__price'>{`$${view.price}`}</p>
+                                        <h2 className='viewSpots__title'>{view?.title}</h2>
+                                        <p className='viewSpots__address'>{view?.address}</p>
+                                        <p className='viewSpots__price'>{`$${view?.price}`}</p>
                                     </div>
                                 </div>
                             </div>

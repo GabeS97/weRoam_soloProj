@@ -12,6 +12,7 @@ module.exports = {
       {
         userId: 1,
         spotId: 1,
+        username: '	Demo-lition',
         // imageId: 2,
         rating: 4,
         title: 'Love it',
@@ -22,6 +23,7 @@ module.exports = {
       {
         userId: 3,
         spotId: 1,
+        username: 'FakeUser2',
         // imageId: 2,
         rating: 3,
         title: 'Love it',
@@ -31,6 +33,7 @@ module.exports = {
       },
       {
         userId: 3,
+        username: 'FakeUser2',
         spotId: 1,
         // imageId: 2,
         rating: 5,
@@ -42,6 +45,7 @@ module.exports = {
       {
         userId: 2,
         spotId: 2,
+        username: 'FakeUser1',
         // imageId: 1,
         rating: 4,
         title: 'Could have been better',
@@ -53,6 +57,7 @@ module.exports = {
         userId: 3,
         spotId: 3,
         // imageId: 3,
+        username: 'FakeUser3',
         rating: 4,
         title: 'Im coming back next year with my family',
         reviews: 'amazing. ',

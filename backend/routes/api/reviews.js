@@ -17,8 +17,8 @@ router.get(
     }));
 
 router.post('/spots/:spotId', asyncHandler(async (req, res) => {
-    const { userId, spotId, title, reviews, rating } = req.body;
-    const review = await Review.create({ userId, spotId, title, reviews, rating });
+    const { userId, spotId, title, reviews, rating, username } = req.body;
+    const review = await Review.create({ userId, spotId, title, reviews, rating, username });
     return res.json(review)
 }));
 
@@ -27,7 +27,7 @@ router.post('/spots/:spotId', asyncHandler(async (req, res) => {
 router.put(
     '/:id',
     asyncHandler(async function (req, res) {
-        const reviewId = req.params.reviewId;
+        const reviewId = req.params.id;
 
         const review = await Review.findOne({ where: { id: reviewId } });
         review.update(req.body)

@@ -13,6 +13,10 @@ module.exports = {
         allowNull: false,
         references: { model: 'Users' }
       },
+      username: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       spotId: {
         type: Sequelize.INTEGER,
         allowNull: false,
