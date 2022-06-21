@@ -32,7 +32,7 @@ const ViewOne = () => {
 
     useEffect(() => {
         dispatch(seeReview(spotId))
-    }, [dispatch, reviews])
+    }, [dispatch])
 
     return (
         <div className='viewOne'>
@@ -46,12 +46,16 @@ const ViewOne = () => {
                         <h4 className='viewOne__review'>{reviews.length} reviews</h4>
                         <h4 className='viewOne__address'>{choice?.address}</h4>
                     </div>
-                    <div className="viewOne__imageContainer">
-                        <div className="viewOne__slidebar">
-                            <div className="viewOne__grid">
-                                {choice?.Images.slice(0, 5).map(image => (
-                                    <div className="viewOne__image" id={`viewOne__image__${image.id}`} key={image?.id}>
-                                        <img className='viewOne__slidebar__image' id={`viewOne__img__${image?.id}`} src={image?.imageUrl} alt='' />
+
+                    <div className="viewOne__container">
+                        <div className="viewOne__contain__top">
+                            <img src={choice?.Images?.[0]?.imageUrl} alt='' />
+                            <div className="viewOne__contain">
+                                {choice?.Images?.slice(1)?.map(image => (
+                                    <div className="viewOne__contain__bottom">
+                                        {choice?.Images?.length > 1 && (
+                                            <img className='viewOne__contain__image' src={image?.imageUrl} alt='' />
+                                        )}
                                     </div>
                                 ))}
                             </div>

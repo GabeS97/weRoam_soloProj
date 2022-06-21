@@ -9,7 +9,8 @@ const ViewSpots = () => {
     const dispatch = useDispatch()
     const views = useSelector(state => state?.spots)
     const viewPage = Object.values(views)
-    console.log(viewPage)
+
+    
     useEffect(() => {
         dispatch(seeSpots())
     }, [dispatch])

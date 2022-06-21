@@ -103,7 +103,6 @@ input:focus {
   cursor: pointer;
 }
 
-
 .profile__dropdown p {
   color: black;
   padding: 12px 16px;
@@ -114,7 +113,6 @@ input:focus {
 .profile__dropdown p:hover {
   background-color: #f1f1f1;
 }
-
 
 .dropdown__menu {
   display: flex;
@@ -161,8 +159,11 @@ input:focus {
   height: fit-content;
   background-color: white;
   width: 7em;
+  opacity: 0;
 }
 
 .navBar__login__signin:hover .navBar__loginDrpdwn {
   display: flex;
+  opacity: 1;
+  transition-duration: 500ms;
 }

@@ -41,7 +41,6 @@ const CreateSpot = () => {
     return (
         <div className='createSpot'>
             <div className="createSpot__left">
-
             </div>
 
             <div className="createSpot__right">
@@ -53,7 +52,7 @@ const CreateSpot = () => {
                         onChange={(e) => setCurrAddress(e.target.value)}
                         type='text'
                         placeholder='Address'
-                        >
+                    >
                     </input>
 
                     <input
@@ -61,7 +60,7 @@ const CreateSpot = () => {
                         onChange={(e) => setCurrTitle(e.target.value)}
                         type='text'
                         placeholder='Title'
-                        >
+                    >
                     </input>
 
                     <input
@@ -69,7 +68,7 @@ const CreateSpot = () => {
                         onChange={(e) => setCurrCity(e.target.value)}
                         type='text'
                         placeholder='City'
-                        >
+                    >
                     </input>
 
                     <input
@@ -77,7 +76,7 @@ const CreateSpot = () => {
                         onChange={(e) => setCurrState(e.target.value)}
                         type='text'
                         placeholder='State'
-                        >
+                    >
                     </input>
 
                     <input
@@ -85,7 +84,7 @@ const CreateSpot = () => {
                         onChange={(e) => setCurrCountry(e.target.value)}
                         type='text'
                         placeholder='Country'
-                        >
+                    >
                     </input>
 
                     <input
@@ -93,20 +92,20 @@ const CreateSpot = () => {
                         onChange={(e) => setCurrName(e.target.value)}
                         type='text'
                         placeholder='Location name'
-                        >
+                    >
                     </input>
 
                     <input
                         value={currPrice}
                         onChange={(e) => setCurrPrice(e.target.value)}
                         type='text'
-                        >
+                    >
                     </input>
 
-                    {/* <input
+                    <input
                         type='file'
                         onChange={updateFile}>
-                    </input> */}
+                    </input>
 
                     <button type='submit'>New Post!</button>
                 </form>
