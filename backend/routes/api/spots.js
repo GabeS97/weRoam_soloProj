@@ -15,22 +15,26 @@ const {
 const router = express.Router();
 
 
-router.post('/', asyncHandler(async (req, res) => {
-    const { address, city, state, country, price, title, name, userId, spotId } = req.body;
-    const spotImageUrl = await singlePublicFileUpload(req.file)
-    const newSpot = await Spot.create({
-        address,
-        city,
-        state,
-        country,
-        price,
-        name,
-        title,
-        userId,
-        spotId
-    });
-    return res.json(newSpot);
-}))
+router.post('/',
+    multipleMulterUpload('images'),
+    asyncHandler(async (req, res) => {
+        const { address, city, state, country, price, title, name, userId, spotId, } = req.body;
+        const images = await multiplePublicFileUpload(req.files);
+        const newSpot = await Spot.create({
+            address,
+            city,
+            state,
+            country,
+            price,
+            name,
+            title,
+            userId,
+            spotId,
+            images
+
+        });
+        return res.json(newSpot);
+    }))
 
 router.get('/', asyncHandler(async (req, res) => {
     const spot = await Spot.findAll({
