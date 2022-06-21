@@ -36,7 +36,7 @@ module.exports = {
       },
       {
         userId: 1,
-        title: 'viewOne__imagelike London',
+        title: 'London views',
         // imageId: 3,
         address: '20 Deans Yd, London SW1P 3PA, United Kingdom',
         city: 'London',

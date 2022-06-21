@@ -30,19 +30,52 @@ export const loadOne = (spot) => ({
     spot
 })
 
-export const addSpots = payload => async dispatch => {
+// export const addSpots = payload => async dispatch => {
+
+//     const res = await csrfFetch('/api/spots/', {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify(payload)
+//     })
+
+//     if (res.ok) {
+//         const spots = await res.json();
+//         dispatch(add(spots));
+//         return spots;
+//     }
+// }
+
+export const addSpots = (payload) => async (dispatch) => {
+    const { images, userId, address, title, city, state, country, name, price } = payload;
+    const formData = new FormData();
+    formData.append('images', images);
+    formData.append('userId', userId);
+    formData.append('address', address);
+    formData.append('title', title);
+    formData.append('city', city);
+    formData.append('state', state);
+    formData.append('country', country);
+    formData.append('name', name);
+    formData.append('price', price);
+
+    if (images && images.length !== 0) {
+        for (let i = 0; i < images.length; i++) {
+            formData.append('images', images[i]);
+        }
+    }
 
     const res = await csrfFetch('/api/spots/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        headers: { "Content-Type": "multipart/form-data" },
+        body: formData
     })
 
     if (res.ok) {
-        const spots = await res.json();
-        dispatch(add(spots));
-        return spots;
+        const spot = await res.json();
+        dispatch(add(spot));
+        return spot;
     }
+
 }
 
 export const seeSpots = () => async dispatch => {

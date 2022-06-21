@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { addSpots } from '../../../store/spots'
 
 import './CreateSpot.css'
@@ -12,7 +13,8 @@ const CreateSpot = () => {
     const [currCountry, setCurrCountry] = useState('')
     const [currName, setCurrName] = useState('')
     const [currPrice, setCurrPrice] = useState(5)
-    const [image, setImage] = useState(null)
+    const [images, setImages] = useState([]);
+    const history = useHistory()
 
     const dispatch = useDispatch()
     const handleSubmit = async (e) => {
@@ -27,21 +29,28 @@ const CreateSpot = () => {
             country: currCountry,
             name: currName,
             price: currPrice,
+            images
         }
         await dispatch(addSpots(add_spot))
+        history.push('/spots')
+
     }
 
-    const updateFile = (e) => {
-        const file = e.target.files[0]
-        if (file) {
-            setImage(file)
-        }
-    }
+    // const updateFile = (e) => {
+    //     const file = e.target.files[0]
+    //     if (file) {
+    //         setImage(file)
+    //     }
+    // }
+
+    const updateFiles = (e) => {
+        const files = e.target.files;
+        setImages(files);
+    };
 
     return (
         <div className='createSpot'>
             <div className="createSpot__left">
-
             </div>
 
             <div className="createSpot__right">
@@ -53,7 +62,7 @@ const CreateSpot = () => {
                         onChange={(e) => setCurrAddress(e.target.value)}
                         type='text'
                         placeholder='Address'
-                        >
+                    >
                     </input>
 
                     <input
@@ -61,7 +70,7 @@ const CreateSpot = () => {
                         onChange={(e) => setCurrTitle(e.target.value)}
                         type='text'
                         placeholder='Title'
-                        >
+                    >
                     </input>
 
                     <input
@@ -69,7 +78,7 @@ const CreateSpot = () => {
                         onChange={(e) => setCurrCity(e.target.value)}
                         type='text'
                         placeholder='City'
-                        >
+                    >
                     </input>
 
                     <input
@@ -77,7 +86,7 @@ const CreateSpot = () => {
                         onChange={(e) => setCurrState(e.target.value)}
                         type='text'
                         placeholder='State'
-                        >
+                    >
                     </input>
 
                     <input
@@ -85,7 +94,7 @@ const CreateSpot = () => {
                         onChange={(e) => setCurrCountry(e.target.value)}
                         type='text'
                         placeholder='Country'
-                        >
+                    >
                     </input>
 
                     <input
@@ -93,20 +102,21 @@ const CreateSpot = () => {
                         onChange={(e) => setCurrName(e.target.value)}
                         type='text'
                         placeholder='Location name'
-                        >
+                    >
                     </input>
 
                     <input
                         value={currPrice}
                         onChange={(e) => setCurrPrice(e.target.value)}
                         type='text'
-                        >
+                    >
                     </input>
 
-                    {/* <input
-                        type='file'
-                        onChange={updateFile}>
-                    </input> */}
+                    <input
+                        type="file"
+                        multiple
+                        onChange={updateFiles}>
+                    </input>
 
                     <button type='submit'>New Post!</button>
                 </form>
