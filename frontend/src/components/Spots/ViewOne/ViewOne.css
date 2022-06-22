@@ -11,7 +11,7 @@
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  width: 70%;
+  /* width: 70%; */
   /* he */
 }
 
@@ -63,8 +63,13 @@
 .viewOne__contain__top {
   display: flex;
   flex-direction: column;
+  height: 25em;
   position: relative;
   width: 50em;
+}
+
+.viewOne__contain__top__image {
+  height: 100%;
 }
 .viewOne__contain {
   display: flex;
@@ -75,7 +80,7 @@
   justify-content: center;
   align-items: center;
   background-color: rgba(97, 96, 96, 0.689);
-  column-gap: .5em;
+  column-gap: 0.5em;
 }
 
 .viewOne__contain__bottom {
@@ -136,24 +141,46 @@
 
 .viewOne__bodyContainer {
   display: flex;
-  /* text-indent: 5px; */
   width: 100%;
   flex-direction: column;
   justify-content: center;
+  background-color: lightpink;
   align-items: center;
-  /* row-gap: 2em; */
+}
+
+.viewOne__event__info {
+  display: flex;
+  background-color: lightblue;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.viewOne__add__comment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid black 1px;
+  background-color: aliceblue;
+  border-radius: 10px;
+  width: 10em;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0.3em;
+}
+
+.viewOne__event__label {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  flex-direction: column;
+  background-color: lightgreen;
+  /* text-indent: 1em; */
 }
 
 .star__ratings {
   color: rgb(211, 211, 211);
 }
-
-.viewOne__comments {
-  display: flex;
-  align-items: center;
-  height: 4em;
-}
-
 .viewOne__ratings {
   display: flex;
   justify-content: center;
@@ -166,15 +193,19 @@
 }
 
 .viewOne__comment__box {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1em;
-  text-indent: 1em;
+  display: grid;
+  grid-template-columns: repeat(2, 350px);
+  grid-gap: 1em;
+  justify-content: center;
+  background-color: lightcoral;
+  width: 100%;
+  padding-top: 1em;
 }
 
 .viewOne__comment {
   border: solid black 1px;
-  width: 25em;
+  width: 100%;
+  background-color: aliceblue;
   padding: 5px;
   border-radius: 10px;
 }
