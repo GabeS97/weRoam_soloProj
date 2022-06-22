@@ -26,6 +26,8 @@ const ViewOne = () => {
 
     const dispatch = useDispatch()
 
+    const closeComment = () => showAddComment(false)
+
     useEffect(() => {
         dispatch(viewOneSpot(spotId))
     }, [dispatch])
@@ -34,6 +36,8 @@ const ViewOne = () => {
     useEffect(() => {
         dispatch(seeReview(spotId))
     }, [dispatch])
+
+
 
     return (
         <div className='viewOne'>
@@ -88,6 +92,7 @@ const ViewOne = () => {
                                 <CreateReview
                                     spotId={spotId}
                                     dispatch={dispatch}
+                                    closeComment={closeComment}
                                 />
                             </Modal>
                         )}
@@ -99,7 +104,7 @@ const ViewOne = () => {
                                 <div className="viewOne__comment__content">
                                     <div className="viewOne__comment__content__left">
                                         <div className="vieOne_comment__left__info">
-                                            <h3 className='viewOne__username'>{review?.User?.username}</h3>
+                                            <h3 className='viewOne__username'>{review?.username}</h3>
                                             <h5 className='viewOne__comment__title'>{review?.title}</h5>
                                             <h5 className='viewOne__comment__createdAt'>{review?.createdAt}</h5>
                                         </div>
