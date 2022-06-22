@@ -33,7 +33,6 @@ const ViewSpots = () => {
                                         <h2 className='viewSpots__title'>{view?.title}</h2>
                                         <p className='viewSpots__address'>{view?.address}</p>
                                         <p className='viewSpots__price'>{`$${view?.price}`}</p>
-                                        {console.log(view, '<<<<<<<<<<<<<<<<<')}
                                     </div>
                                 </div>
                             </div>

@@ -20,7 +20,6 @@
 }
 
 .viewOne__labels {
-  /* margin-left:  .5em; */
   display: flex;
   font-size: 14px !important;
   position: relative !important;
@@ -273,4 +272,45 @@
 .viewOne__comment__edit:hover,
 .viewOne__comment__delete:hover {
   background-color: rgb(211, 211, 211);
+}
+
+.viewOne__comment__form {
+  background-color: lightseagreen;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.viewOne__CreateComment__content {
+  background-color: honeydew;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  height: 100%;
+  padding: 10px;
+}
+
+.viewOne__CreateComment__content input,
+select {
+  width: 100%;
+  border-radius: 5px;
+  border: solid rgb(34, 34, 34) 2px;
+  text-indent: 0.5em;
+  height: 2em;
+}
+.viewOne__CreateComment__content textarea {
+  width: 100%;
+  border-radius: 5px;
+  text-indent: 0.5em;
+  border: solid rgb(34, 34, 34) 2px;
+  height: 10em;
+}
+.viewOne__submit__createComment {
+  background-color: rgb(227, 29, 91);
+  color: white;
+  height: 2em;
+  border: none;
+  transition: all;
+  border-radius: 5px;
+  cursor: pointer;
 }
