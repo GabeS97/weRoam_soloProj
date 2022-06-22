@@ -55,6 +55,8 @@
   background-color: transparent;
   border: none;
   outline: none;
+  width: 100%;
+  border: solid rgb(34, 34, 34) 2px;
 }
 
 .login__submit {

@@ -6,6 +6,7 @@ import { viewOneSpot } from '../../../store/spots'
 import './ViewOne.css'
 import CreateReview from '../../Reviews/CreateReview'
 import EditReviewDropDown from '../../Reviews/EditReviewDropDown'
+import { Modal } from '../../../context/Modal'
 
 
 const ViewOne = () => {
@@ -15,7 +16,7 @@ const ViewOne = () => {
     const spot = Object.values(spots)
     const choice = spot.find(location => location?.id === +spotId)
     const reviews = useSelector(state => Object.values(state.review))
-
+    const [addComment, showAddComment] = useState(false)
     let sum = 0
     reviews.forEach(ele => {
         sum += ele.rating
@@ -49,9 +50,9 @@ const ViewOne = () => {
 
                     <div className="viewOne__container">
                         <div className="viewOne__contain__top">
-                            <img src={choice?.Images?.[0]?.imageUrl} alt='' />
+                            <img className='viewOne__contain__top__image' src={choice?.Images?.[0]?.imageUrl} alt='' />
                             <div className="viewOne__contain">
-                                {choice?.Images?.slice(1)?.map(image => (
+                                {choice?.Images?.map(image => (
                                     <div className="viewOne__contain__bottom">
                                         {choice?.Images?.length > 1 && (
                                             <img className='viewOne__contain__image' src={image?.imageUrl} alt='' />
@@ -65,24 +66,34 @@ const ViewOne = () => {
 
                 <div className="viewOne__bodyContainer">
                     <div className="viewOne__event__info">
-                        <h3>{choice?.name} hosted by {choice?.User?.username}</h3>
-                    </div>
-
-                    <div className="viewOne__comments">
-                        <div className="viewOne__ratings">
-                            <i className="fa-solid fa-star fa-lg star__ratings"></i>
-                            <i className="fa-solid fa-star fa-lg star__ratings"></i>
-                            <i className="fa-solid fa-star fa-lg star__ratings"></i>
-                            <i className="fa-solid fa-star fa-lg star__ratings"></i>
-                            <i className="fa-solid fa-star fa-lg star__ratings"></i>
+                        <div className="viewOne__event__label">
+                            <h3 className='viewOne__event__owner'>{choice?.name} hosted by {choice?.User?.username}</h3>
+                            <div className="viewOne__comments">
+                                <div className="viewOne__ratings">
+                                    <i className="fa-solid fa-star fa-lg star__ratings" style={{ color: 'red' }}></i>
+                                    <h3 className='viewOne__avg'>{reviews.length > 1 ? avg : null}</h3>
+                                    <h3 className='viewOne__review'>{reviews.length} reviews</h3>
+                                </div>
+                            </div>
                         </div>
+
+                        <div
+                            className="viewOne__add__comment"
+                            onClick={() => showAddComment(true)}>
+                            Add Comment
+                        </div>
+
+                        {addComment && (
+                            <Modal onClose={() => showAddComment(false)}>
+                                <CreateReview
+                                    spotId={spotId}
+                                    dispatch={dispatch}
+                                />
+                            </Modal>
+                        )}
                     </div>
 
                     <div className="viewOne__comment__box">
-                        <CreateReview
-                            spotId={spotId}
-                            dispatch={dispatch}
-                        />
                         {reviews.map(review => (
                             <div className="viewOne__comment" key={review?.id}>
                                 <div className="viewOne__comment__content">

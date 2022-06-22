@@ -64,11 +64,11 @@ function LoginForm() {
         </div>
 
         <div className="demo__button">
-          <button
+          {/* <button
             className="demo__submit"
-            type="submit">
+            type="submit"> */}
             <DemoUser />
-          </button>
+          {/* </button> */}
         </div>
       </div>
     </form >
