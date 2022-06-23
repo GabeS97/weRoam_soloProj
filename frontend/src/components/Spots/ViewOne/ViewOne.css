@@ -8,7 +8,7 @@
 
 .viewOne__page {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-direction: column;
   align-items: center;
   /* width: 70%; */
@@ -70,6 +70,7 @@
 .viewOne__contain__top__image {
   height: 100%;
 }
+
 .viewOne__contain {
   display: flex;
   flex-direction: row;
@@ -143,13 +144,12 @@
   width: 100%;
   flex-direction: column;
   justify-content: center;
-  background-color: lightpink;
   align-items: center;
 }
 
 .viewOne__event__info {
+  padding-top: 0.5em;
   display: flex;
-  background-color: lightblue;
   width: 100%;
   align-items: center;
   justify-content: space-between;
@@ -173,7 +173,6 @@
   justify-content: flex-start;
   width: 100%;
   flex-direction: column;
-  background-color: lightgreen;
   /* text-indent: 1em; */
 }
 
@@ -196,7 +195,6 @@
   grid-template-columns: repeat(2, 350px);
   grid-gap: 1em;
   justify-content: center;
-  background-color: lightcoral;
   width: 100%;
   padding-top: 1em;
 }
@@ -275,7 +273,6 @@
 }
 
 .viewOne__comment__form {
-  background-color: lightseagreen;
   display: flex;
   flex-direction: column;
   width: 100%;
