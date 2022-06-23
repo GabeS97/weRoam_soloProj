@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import './LoginForm.css'
 import DemoUser from "../Navigation/DemoUser";
 
-function LoginForm() {
+function LoginForm({ hideForm }) {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
@@ -67,7 +67,7 @@ function LoginForm() {
           {/* <button
             className="demo__submit"
             type="submit"> */}
-            <DemoUser />
+          <DemoUser hideForm={hideForm} />
           {/* </button> */}
         </div>
       </div>

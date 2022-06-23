@@ -216,7 +216,6 @@
 }
 
 .viewOne__comment__content__right {
-  text-indent: -1em;
 }
 
 .viewOne__comment__createdAt {
@@ -229,6 +228,7 @@
 
 .viewOne__comment__content__left {
   display: flex;
+  justify-content: center;
 }
 
 .viewOne__comment__options {

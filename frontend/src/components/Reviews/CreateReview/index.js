@@ -1,3 +1,4 @@
+import { Divider } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addReview, seeReview } from '../../../store/reviews'
@@ -8,7 +9,14 @@ const CreateReview = ({ spotId, dispatch, closeComment }) => {
     const [currTitle, setCurrTitle] = useState('');
     const [currReview, setCurrReview] = useState('');
     const [currRating, setCurrRating] = useState('---Rate Us---');
+    const [currStar, setCurrStar] = useState(0);
+    const [hoverValue, setHoverValue] = useState(undefined);
 
+    const stars = new Array(5).fill(0)
+
+    const handleClick = (val) => setCurrStar(val);
+    const handleHover = (val) => setHoverValue(val);
+    const handleMouseLeave = () => setHoverValue(undefined);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -19,7 +27,8 @@ const CreateReview = ({ spotId, dispatch, closeComment }) => {
             spotId: +spotId,
             title: currTitle,
             reviews: currReview,
-            rating: +currRating
+            rating: +currStar
+            // rating: +currRating
         }
 
         await dispatch(addReview(add_review))
@@ -46,7 +55,7 @@ const CreateReview = ({ spotId, dispatch, closeComment }) => {
                     placeholder='Title'
 
                 ></input>
-                <select
+                {/* <select
                     value={currRating}
                     onChange={(e) => setCurrRating(e.target.value)}
                     className='viewOne__comment__rating__select'
@@ -57,7 +66,22 @@ const CreateReview = ({ spotId, dispatch, closeComment }) => {
                     <option value={3}>3</option>
                     <option value={4}>4</option>
                     <option value={5}>5</option>
-                </select>
+                </select> */}
+                <div className="test__starRatings">
+                    {stars.map((_, idx) => (
+                        <i
+                            key={idx}
+                            className="fa-solid fa-star fa-lg star__ratings"
+                            style={{ color: (hoverValue || currStar) > idx ? 'red' : 'grey' }}
+                            // color={(hoverValue || currStar) > idx ? 'red' : 'grey'}
+
+                            onClick={() => handleClick(idx + 1)}
+                            onMouseOver={() => handleHover(idx + 1)}
+                            onMouseLeave={(handleMouseLeave)}
+
+                        ></i>
+                    ))}
+                </div>
 
                 <textarea
                     value={currReview}

@@ -3,8 +3,9 @@ import * as actionSesh from '../../store/session'
 import { useDispatch } from 'react-redux'
 import '../LoginFormModal/LoginForm.css'
 
-const DemoUser = () => {
+const DemoUser = ({ hideForm }) => {
     const dispatch = useDispatch()
+
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -13,6 +14,7 @@ const DemoUser = () => {
         const password = 'password'
 
         dispatch(actionSesh.login({ credential, password }))
+        hideForm()
     }
     return (
         <button id='demo_button' onClick={handleClick} type="submit">Demo</button>
