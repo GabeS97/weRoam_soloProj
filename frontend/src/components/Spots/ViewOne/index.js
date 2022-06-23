@@ -17,6 +17,8 @@ const ViewOne = () => {
     const choice = spot.find(location => location?.id === +spotId)
     const reviews = useSelector(state => Object.values(state.review))
     const [addComment, showAddComment] = useState(false)
+    const stars = new Array(5).fill(0)
+
     let sum = 0
     reviews.forEach(ele => {
         sum += ele.rating
@@ -93,6 +95,7 @@ const ViewOne = () => {
                                     spotId={spotId}
                                     dispatch={dispatch}
                                     closeComment={closeComment}
+                                    stars={stars}
                                 />
                             </Modal>
                         )}
@@ -108,31 +111,44 @@ const ViewOne = () => {
                                             <h5 className='viewOne__comment__title'>{review?.title}</h5>
                                             <h5 className='viewOne__comment__createdAt'>{review?.createdAt}</h5>
                                         </div>
-                                        <div className="viewOne__comment__content__right">
-                                            <h5>{review?.rating}</h5>
-                                            <i className="fa-solid fa-starstar__ratings" style={{ color: 'red' }}></i>
-                                            <i className="fa-solid fa-starstar__ratings" style={{ color: 'red' }}></i>
-                                            <i className="fa-solid fa-starstar__ratings" style={{ color: 'red' }}></i>
-                                            <i className="fa-solid fa-starstar__ratings" style={{ color: 'red' }}></i>
-                                            <i className="fa-solid fa-starstar__ratings" style={{ color: 'red' }}></i>
 
-                                        </div>
-                                    </div>
+                                        <div className="viewOne__comment__rating__mid">
+                                            {/* <h5>{review?.rating}</h5> */}
+                                            <div className="viewOne__starRatings">
+                                                {stars.map((_, idx) => (
+                                                    <i
+                                                        key={idx}
+                                                        className="fa-solid fa-star star__ratings"
+                                                        style={{ color: (review?.rating) > idx ? 'red' : 'grey' }}
+                                                    // color={(hoverValue || currStar) > idx ? 'red' : 'grey'}
 
-                                    <div className="viewOne__comment__left__options">
-                                        {review?.userId === sessionUser?.id && (
-                                            <div className="viewOne__comment__editAndDelete">
-                                                <div className="viewOne__comment__dropdown">
-                                                    <i className="fa-solid fa-ellipsis-vertical viewOne__comment__options"></i>
-                                                </div>
+                                                    // onClick={() => handleClick(idx + 1)}
+                                                    // onMouseOver={() => handleHover(idx + 1)}
+                                                    // onMouseLeave={(handleMouseLeave)}
 
-                                                <EditReviewDropDown
-                                                    dispatch={dispatch}
-                                                    removeReview={removeReview}
-                                                    review={review}
-                                                    spotId={spotId} />
+                                                    ></i>
+                                                ))}
                                             </div>
-                                        )}
+                                        </div>
+
+
+                                        <div className="viewOne__comment__right__options">
+                                            {review?.userId === sessionUser?.id && (
+                                                <div className="viewOne__comment__editAndDelete">
+                                                    <div className="viewOne__comment__dropdown">
+                                                        <i className="fa-solid fa-ellipsis-vertical viewOne__comment__options"></i>
+                                                    </div>
+
+                                                    <EditReviewDropDown
+                                                        dispatch={dispatch}
+                                                        removeReview={removeReview}
+                                                        review={review}
+                                                        spotId={spotId}
+                                                        stars={stars}/>
+                                                </div>
+                                            )}
+                                        </div>
+
                                     </div>
 
                                 </div>

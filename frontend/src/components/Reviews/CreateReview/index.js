@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addReview, seeReview } from '../../../store/reviews'
 import '../../Spots/ViewOne/ViewOne.css'
 
-const CreateReview = ({ spotId, dispatch, closeComment }) => {
+const CreateReview = ({ spotId, dispatch, closeComment, stars }) => {
     const sessionUser = useSelector(state => state.session.user);
     const [currTitle, setCurrTitle] = useState('');
     const [currReview, setCurrReview] = useState('');
@@ -12,7 +12,6 @@ const CreateReview = ({ spotId, dispatch, closeComment }) => {
     const [currStar, setCurrStar] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
 
-    const stars = new Array(5).fill(0)
 
     const handleClick = (val) => setCurrStar(val);
     const handleHover = (val) => setHoverValue(val);
@@ -34,7 +33,8 @@ const CreateReview = ({ spotId, dispatch, closeComment }) => {
         await dispatch(addReview(add_review))
         setCurrTitle('')
         setCurrReview('')
-        setCurrRating('---Rate Us---')
+        // setCurrRating('---Rate Us---')
+        setCurrStar(0)
         closeComment()
     }
 
@@ -67,7 +67,7 @@ const CreateReview = ({ spotId, dispatch, closeComment }) => {
                     <option value={4}>4</option>
                     <option value={5}>5</option>
                 </select> */}
-                <div className="test__starRatings">
+                <div className="viewOne__Create__starRatings">
                     {stars.map((_, idx) => (
                         <i
                             key={idx}

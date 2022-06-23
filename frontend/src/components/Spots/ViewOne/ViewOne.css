@@ -215,20 +215,29 @@
   padding-bottom: 1em;
 }
 
-.viewOne__comment__content__right {
+.viewOne__comment__rating__mid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .viewOne__comment__createdAt {
   font-size: 10px;
 }
 
+.viewOne__comment__right__options {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .viewOne__comment__rating {
   padding-top: 1em;
 }
 
 .viewOne__comment__content__left {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .viewOne__comment__options {
@@ -247,10 +256,8 @@
   width: 7em;
   background-color: white;
   position: absolute;
-  top: 0;
-  left: 5;
+  top: 1;
   justify-content: center;
-  /* display: none; */
   opacity: 0;
   flex-direction: column;
 }
@@ -263,7 +270,7 @@
 
 .viewOne__comment__editAndDelete:hover .viewOne__comment__dropdown__content {
   /* display: flex; */
-  opacity: 100;
+  opacity: 1;
   transition-duration: 500ms;
 }
 
