@@ -108,27 +108,33 @@ const ViewOne = () => {
                                             <h5 className='viewOne__comment__title'>{review?.title}</h5>
                                             <h5 className='viewOne__comment__createdAt'>{review?.createdAt}</h5>
                                         </div>
+                                        <div className="viewOne__comment__content__right">
+                                            <h5>{review?.rating}</h5>
+                                            <i className="fa-solid fa-starstar__ratings" style={{ color: 'red' }}></i>
+                                            <i className="fa-solid fa-starstar__ratings" style={{ color: 'red' }}></i>
+                                            <i className="fa-solid fa-starstar__ratings" style={{ color: 'red' }}></i>
+                                            <i className="fa-solid fa-starstar__ratings" style={{ color: 'red' }}></i>
+                                            <i className="fa-solid fa-starstar__ratings" style={{ color: 'red' }}></i>
 
-                                        <div className="viewOne__comment__left__options">
-                                            {review?.userId === sessionUser?.id && (
-                                                <div className="viewOne__comment__editAndDelete">
-                                                    <div className="viewOne__comment__dropdown">
-                                                        <i className="fa-solid fa-ellipsis-vertical viewOne__comment__options"></i>
-                                                    </div>
-
-                                                    <EditReviewDropDown
-                                                        dispatch={dispatch}
-                                                        removeReview={removeReview}
-                                                        review={review}
-                                                        spotId={spotId} />
-                                                </div>
-                                            )}
                                         </div>
                                     </div>
 
-                                    <div className="viewOne__comment__content__right">
-                                        <h5>{review?.rating}</h5>
+                                    <div className="viewOne__comment__left__options">
+                                        {review?.userId === sessionUser?.id && (
+                                            <div className="viewOne__comment__editAndDelete">
+                                                <div className="viewOne__comment__dropdown">
+                                                    <i className="fa-solid fa-ellipsis-vertical viewOne__comment__options"></i>
+                                                </div>
+
+                                                <EditReviewDropDown
+                                                    dispatch={dispatch}
+                                                    removeReview={removeReview}
+                                                    review={review}
+                                                    spotId={spotId} />
+                                            </div>
+                                        )}
                                     </div>
+
                                 </div>
 
                                 <div className="viewOne__comment__rating">

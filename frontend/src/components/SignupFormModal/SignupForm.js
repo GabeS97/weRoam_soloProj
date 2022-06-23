@@ -6,7 +6,7 @@ import * as sessionActions from "../../store/session";
 import DemoUser from "../Navigation/DemoUser";
 import './SignupForm.css'
 
-function SignupForm() {
+function SignupForm({ hideForm }) {
   const dispatch = useDispatch();
   // const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
@@ -89,11 +89,11 @@ function SignupForm() {
 
         <div className="demo__button">
           <button className="demo__submit" type="submit">
-            <DemoUser />
+            <DemoUser hideForm={hideForm} />
           </button>
         </div>
       </div>
-      
+
     </form>
   );
 }

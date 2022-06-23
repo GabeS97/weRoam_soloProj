@@ -10,6 +10,8 @@ import SignupForm from '../SignupFormModal/SignupForm';
 function Banner() {
     const [showModal, setShowModal] = useState(false)
     const user = useSelector(state => state.session.user)
+
+    const hideForm = () => setShowModal(false)
     return (
         <div className='banner'>
             <div className='sidebar'>
@@ -24,7 +26,7 @@ function Banner() {
                     }
                     {showModal && (
                         <Modal onClose={() => setShowModal(false)}>
-                            <SignupForm />
+                            <SignupForm hideForm={hideForm} />
                         </Modal>
                     )}
                 </div>
