@@ -19,6 +19,7 @@ const ViewOne = () => {
     const [addComment, showAddComment] = useState(false)
     const stars = new Array(5).fill(0)
 
+    const test = choice?.address.split(' ').join('+')
 
     let sum = 0
     reviews.forEach(ele => {
@@ -26,7 +27,6 @@ const ViewOne = () => {
     })
 
     let avg = (sum / reviews.length)
-    console.log(avg)
 
     const dispatch = useDispatch()
 
@@ -61,7 +61,7 @@ const ViewOne = () => {
                             <img className='viewOne__contain__top__image' src={choice?.Images?.[0]?.imageUrl} alt='' />
                             <div className="viewOne__contain">
                                 {choice?.Images?.map(image => (
-                                    <div className="viewOne__contain__bottom">
+                                    <div className="viewOne__contain__bottom" key={image?.id}>
                                         {choice?.Images?.length > 1 && (
                                             <img className='viewOne__contain__image' src={image?.imageUrl} alt='' />
                                         )}
@@ -149,6 +149,12 @@ const ViewOne = () => {
                                 </div>
                             </div>
                         ))}
+                    </div>
+
+                    <div className="viewOne__google__static__api">
+
+                        {/* <img className='viewOne__google__maps' src={`https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=AIzaSyDu8qWEuIFgYdK54EORgwkxzbXZEGqXsTs&signature=YOUR_SIGNATURE&signature=MozxZqP8BTHZ6NvTCLQ77qV46AA=`} alt='' /> */}
+                        <img className='viewOne__google__maps' src={`https://maps.googleapis.com/maps/api/staticmap?center=${test}&zoom=14&size=600x300&maptype=roadmap&markers=color:red%7C${test}&size=600x300&key=AIzaSyDu8qWEuIFgYdK54EORgwkxzbXZEGqXsTs`} alt='' />
                     </div>
                 </div>
             </div>
