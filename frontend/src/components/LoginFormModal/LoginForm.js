@@ -3,12 +3,14 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import './LoginForm.css'
 import DemoUser from "../Navigation/DemoUser";
+import { useHistory } from "react-router-dom";
 
 function LoginForm({ hideForm }) {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const history = useHistory()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,6 +19,8 @@ function LoginForm({ hideForm }) {
       async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
+        history.push('/spots')
+        hideForm()
       }
     );
   };

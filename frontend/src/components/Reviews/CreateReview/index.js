@@ -4,15 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addReview, seeReview } from '../../../store/reviews'
 import '../../Spots/ViewOne/ViewOne.css'
 
-const CreateReview = ({ spotId, dispatch, closeComment }) => {
+const CreateReview = ({ spotId, dispatch, closeComment, stars}) => {
     const sessionUser = useSelector(state => state.session.user);
     const [currTitle, setCurrTitle] = useState('');
     const [currReview, setCurrReview] = useState('');
     const [currRating, setCurrRating] = useState('---Rate Us---');
     const [currStar, setCurrStar] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
-
-    const stars = new Array(5).fill(0)
 
     const handleClick = (val) => setCurrStar(val);
     const handleHover = (val) => setHoverValue(val);
