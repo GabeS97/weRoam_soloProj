@@ -17,12 +17,16 @@ const ViewOne = () => {
     const choice = spot.find(location => location?.id === +spotId)
     const reviews = useSelector(state => Object.values(state.review))
     const [addComment, showAddComment] = useState(false)
+    const stars = new Array(5).fill(0)
+
+
     let sum = 0
     reviews.forEach(ele => {
         sum += ele.rating
     })
 
-    let avg = (sum / reviews.length).toFixed(2)
+    let avg = (sum / reviews.length)
+    console.log(avg)
 
     const dispatch = useDispatch()
 
@@ -47,8 +51,8 @@ const ViewOne = () => {
                     <h2 className='viewOne__title'>{choice?.title}</h2>
                     <div className="viewOne__labels">
                         <i className="fa-solid fa-star"></i>
-                        <h4 className='viewOne__avg'>{reviews.length > 1 ? avg : null} </h4>
-                        <h4 className='viewOne__review'>{reviews.length} reviews</h4>
+                        <h4 className='viewOne__avg'>{reviews.length > 0 ? avg : null} </h4>
+                        <h4 className='viewOne__review'>{reviews.length} reviews </h4>
                         <h4 className='viewOne__address'>{choice?.address}</h4>
                     </div>
 
@@ -75,7 +79,7 @@ const ViewOne = () => {
                             <div className="viewOne__comments">
                                 <div className="viewOne__ratings">
                                     <i className="fa-solid fa-star fa-lg star__ratings" style={{ color: 'red' }}></i>
-                                    <h3 className='viewOne__avg'>{reviews.length > 1 ? avg : null}</h3>
+                                    <h3 className='viewOne__avg'>{reviews.length > 0 ? avg : null}</h3>
                                     <h3 className='viewOne__review'>{reviews.length} reviews</h3>
                                 </div>
                             </div>
@@ -93,6 +97,7 @@ const ViewOne = () => {
                                     spotId={spotId}
                                     dispatch={dispatch}
                                     closeComment={closeComment}
+                                    stars={stars}
                                 />
                             </Modal>
                         )}
@@ -108,33 +113,35 @@ const ViewOne = () => {
                                             <h5 className='viewOne__comment__title'>{review?.title}</h5>
                                             <h5 className='viewOne__comment__createdAt'>{review?.createdAt}</h5>
                                         </div>
+
                                         <div className="viewOne__comment__content__right">
-                                            <h5>{review?.rating}</h5>
-                                            <i className="fa-solid fa-starstar__ratings" style={{ color: 'red' }}></i>
-                                            <i className="fa-solid fa-starstar__ratings" style={{ color: 'red' }}></i>
-                                            <i className="fa-solid fa-starstar__ratings" style={{ color: 'red' }}></i>
-                                            <i className="fa-solid fa-starstar__ratings" style={{ color: 'red' }}></i>
-                                            <i className="fa-solid fa-starstar__ratings" style={{ color: 'red' }}></i>
-
+                                            {stars.map(idx => (
+                                                <i
+                                                    key={idx}
+                                                    className="fa-solid fa-star star__ratings"
+                                                    style={{ color: (review?.rating) > idx ? 'red' : 'grey' }}
+                                                // color={(hoverValue || currStar) > idx ? 'red' : 'grey'}
+                                                ></i>
+                                            ))}
                                         </div>
-                                    </div>
 
-                                    <div className="viewOne__comment__left__options">
-                                        {review?.userId === sessionUser?.id && (
-                                            <div className="viewOne__comment__editAndDelete">
-                                                <div className="viewOne__comment__dropdown">
-                                                    <i className="fa-solid fa-ellipsis-vertical viewOne__comment__options"></i>
+                                        <div className="viewOne__comment__left__options">
+                                            {review?.userId === sessionUser?.id && (
+                                                <div className="viewOne__comment__editAndDelete">
+                                                    <div className="viewOne__comment__dropdown">
+                                                        <i className="fa-solid fa-ellipsis-vertical viewOne__comment__options"></i>
+                                                    </div>
+
+                                                    <EditReviewDropDown
+                                                        dispatch={dispatch}
+                                                        removeReview={removeReview}
+                                                        review={review}
+                                                        spotId={spotId} />
                                                 </div>
+                                            )}
+                                        </div>
 
-                                                <EditReviewDropDown
-                                                    dispatch={dispatch}
-                                                    removeReview={removeReview}
-                                                    review={review}
-                                                    spotId={spotId} />
-                                            </div>
-                                        )}
                                     </div>
-
                                 </div>
 
                                 <div className="viewOne__comment__rating">

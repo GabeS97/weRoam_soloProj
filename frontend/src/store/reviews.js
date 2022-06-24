@@ -36,7 +36,6 @@ export const seeReview = (spotId) => async dispatch => {
 }
 
 export const addReview = (payload) => async dispatch => {
-    console.log(payload)
     const res = await csrfFetch(`/api/reviews/spots/${payload?.spotId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -45,7 +44,6 @@ export const addReview = (payload) => async dispatch => {
 
     if (res.ok) {
         const review = await res.json();
-        console.log(review, '<<<<<<<<<<<<<<<<<<<')
         dispatch(add(review))
         return review
     }
@@ -53,7 +51,6 @@ export const addReview = (payload) => async dispatch => {
 
 
 export const editReview = (payload) => async dispatch => {
-    console.log(payload)
     const res = await csrfFetch(`/api/reviews/${payload.reviewId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -62,7 +59,6 @@ export const editReview = (payload) => async dispatch => {
 
     if (res.ok) {
         const review = await res.json();
-        console.log(review);
         // thunk
         dispatch(edit(review));
         return review
@@ -92,7 +88,6 @@ const reviewReducer = (state = initialState, action) => {
                 alLReviews[review.id] = review
             })
             newState = alLReviews
-            console.log(newState)
             return newState
         }
         case ADD_REVIEW: {
