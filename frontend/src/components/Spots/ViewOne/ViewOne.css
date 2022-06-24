@@ -314,3 +314,28 @@ select {
   border-radius: 5px;
   cursor: pointer;
 }
+
+.viewOne__google__static__api {
+  display: flex;
+  margin-top: 1em;
+  flex-direction: column;
+  width: 100%;
+}
+
+.viewOne__google__static__api > h3 {
+  margin-bottom: 1em;
+}
+
+.viewOne__google__maps {
+  border: solid black;
+}
+
+.viewOne__map__comment__divider {
+  content: "";
+  display: block;
+  width: 100%;
+  margin-top: 2em;
+  height: 1px;
+  background-color: rgb(221, 221, 221);
+  margin-left: 16px;
+}

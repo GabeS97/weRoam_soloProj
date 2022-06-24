@@ -151,9 +151,12 @@ const ViewOne = () => {
                         ))}
                     </div>
 
-                    <div className="viewOne__google__static__api">
+                    <div className="viewOne__map__comment__divider">
+                        
+                    </div>
 
-                        {/* <img className='viewOne__google__maps' src={`https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=AIzaSyDu8qWEuIFgYdK54EORgwkxzbXZEGqXsTs&signature=YOUR_SIGNATURE&signature=MozxZqP8BTHZ6NvTCLQ77qV46AA=`} alt='' /> */}
+                    <div className="viewOne__google__static__api">
+                        <h3>The area you will be in</h3>
                         <img className='viewOne__google__maps' src={`https://maps.googleapis.com/maps/api/staticmap?center=${test}&zoom=14&size=600x300&maptype=roadmap&markers=color:red%7C${test}&size=600x300&key=AIzaSyDu8qWEuIFgYdK54EORgwkxzbXZEGqXsTs`} alt='' />
                     </div>
                 </div>
