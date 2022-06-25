@@ -12,6 +12,7 @@ const {
     multiplePublicFileUpload,
 } = require("../../awsS3");
 
+
 const router = express.Router();
 
 
@@ -30,18 +31,19 @@ router.post('/',
             title,
             userId,
             spotId,
-            images
-
+            images,
         });
         return res.json(newSpot);
     }))
 
-router.get('/', asyncHandler(async (req, res) => {
-    const spot = await Spot.findAll({
-        include: Image,
-    });
-    return res.json(spot)
-}))
+router.get(
+    '/',
+    asyncHandler(async (req, res) => {
+        const spot = await Spot.findAll({
+            include: Image,
+        });
+        return res.json(spot)
+    }))
 
 router.put('/:id', asyncHandler(async (req, res) => {
     const spotId = req.params.id;
