@@ -26,7 +26,7 @@ const ViewOne = ({ GOOGLE_STATIC_API }) => {
         sum += ele.rating
     })
 
-    let avg = (sum / reviews.length)
+    let avg = (sum / reviews.length).toFixed(2)
 
     const dispatch = useDispatch()
 
@@ -115,11 +115,11 @@ const ViewOne = ({ GOOGLE_STATIC_API }) => {
                                         </div>
 
                                         <div className="viewOne__comment__content__right">
-                                            {stars.map(idx => (
+                                            {stars.map((_,idx) => (
                                                 <i
                                                     key={idx}
                                                     className="fa-solid fa-star star__ratings"
-                                                    style={{ color: (review?.rating) > idx ? 'red' : 'grey' }}
+                                                    style={{ color: (review?.rating > idx) ? 'red' : 'grey' }}
                                                 // color={(hoverValue || currStar) > idx ? 'red' : 'grey'}
                                                 ></i>
                                             ))}
@@ -136,7 +136,8 @@ const ViewOne = ({ GOOGLE_STATIC_API }) => {
                                                         dispatch={dispatch}
                                                         removeReview={removeReview}
                                                         review={review}
-                                                        spotId={spotId} />
+                                                        spotId={spotId}
+                                                        stars={stars} />
                                                 </div>
                                             )}
                                         </div>
