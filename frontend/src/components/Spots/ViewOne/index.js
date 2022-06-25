@@ -9,7 +9,7 @@ import EditReviewDropDown from '../../Reviews/EditReviewDropDown'
 import { Modal } from '../../../context/Modal'
 
 
-const ViewOne = () => {
+const ViewOne = ({ GOOGLE_STATIC_API }) => {
     const { spotId } = useParams()
     const sessionUser = useSelector(state => state.session.user)
     const spots = useSelector(state => state.spots)
@@ -19,6 +19,7 @@ const ViewOne = () => {
     const [addComment, showAddComment] = useState(false)
     const stars = new Array(5).fill(0)
 
+    const test = choice?.address.split(' ').join('+')
 
     let sum = 0
     reviews.forEach(ele => {
@@ -26,7 +27,6 @@ const ViewOne = () => {
     })
 
     let avg = (sum / reviews.length)
-    console.log(avg)
 
     const dispatch = useDispatch()
 
@@ -61,7 +61,7 @@ const ViewOne = () => {
                             <img className='viewOne__contain__top__image' src={choice?.Images?.[0]?.imageUrl} alt='' />
                             <div className="viewOne__contain">
                                 {choice?.Images?.map(image => (
-                                    <div className="viewOne__contain__bottom">
+                                    <div className="viewOne__contain__bottom" key={image?.id}>
                                         {choice?.Images?.length > 1 && (
                                             <img className='viewOne__contain__image' src={image?.imageUrl} alt='' />
                                         )}
@@ -149,6 +149,15 @@ const ViewOne = () => {
                                 </div>
                             </div>
                         ))}
+                    </div>
+
+                    <div className="viewOne__map__comment__divider">
+
+                    </div>
+
+                    <div className="viewOne__google__static__api">
+                        <h3>The area you will be in</h3>
+                        <img className='viewOne__google__maps' src={`https://maps.googleapis.com/maps/api/staticmap?center=${test}&zoom=14&size=600x300&maptype=roadmap&markers=color:red%7C${test}&size=600x300&key=${GOOGLE_STATIC_API}`} alt='' />
                     </div>
                 </div>
             </div>

@@ -18,8 +18,7 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-
-
+  let GOOGLE_STATIC_API = process.env.REACT_APP_MAPS_API_KEY
   return isLoaded && (
     <>
       <Navigation isLoaded={isLoaded} />
@@ -31,7 +30,7 @@ function App() {
           <ViewSpots />
         </Route>
         <Route path='/spots/:spotId'>
-          <ViewOne />
+          <ViewOne API_KEY={GOOGLE_STATIC_API}/>
         </Route>
         <Route path='/new_posting'>
           <CreateSpot />
