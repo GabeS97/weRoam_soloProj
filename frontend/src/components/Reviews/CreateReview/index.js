@@ -32,7 +32,7 @@ const CreateReview = ({ spotId, dispatch, closeComment, stars}) => {
         await dispatch(addReview(add_review))
         setCurrTitle('')
         setCurrReview('')
-        setCurrRating('---Rate Us---')
+        setCurrStar(0)
         closeComment()
     }
 
@@ -71,7 +71,6 @@ const CreateReview = ({ spotId, dispatch, closeComment, stars}) => {
                             key={idx}
                             className="fa-solid fa-star fa-lg star__ratings"
                             style={{ color: (hoverValue || currStar) > idx ? 'red' : 'grey' }}
-                            // color={(hoverValue || currStar) > idx ? 'red' : 'grey'}
 
                             onClick={() => handleClick(idx + 1)}
                             onMouseOver={() => handleHover(idx + 1)}

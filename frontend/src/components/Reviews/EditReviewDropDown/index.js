@@ -4,7 +4,7 @@ import { seeReview } from '../../../store/reviews'
 import '../../Spots/ViewOne/ViewOne.css'
 import EditReview from './EditReview'
 
-const EditReviewDropDown = ({ dispatch, removeReview, review, spotId }) => {
+const EditReviewDropDown = ({ dispatch, removeReview, review, spotId, stars }) => {
     const [showModal, setShowModal] = useState(false)
 
     const hideForm = () => {
@@ -26,7 +26,7 @@ return (
 
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <EditReview spotId={spotId} review={review} hideForm={hideForm} />
+                    <EditReview spotId={spotId} review={review} hideForm={hideForm} stars={stars}/>
                 </Modal>
             )}
         </div>
