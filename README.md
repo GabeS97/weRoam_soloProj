@@ -16,12 +16,12 @@ https://github.com/GabeS97/weRoam_soloProj.wiki.git
 4.  Create a .env file using the follwing format 
 5.  
             PORT=5000
-            DB_USERNAME=auth_app
+            DB_USERNAME=<database username>
             DB_PASSWORD= <create password>
-            DB_DATABASE=auth_db
+            DB_DATABASE=<database name> 
             DB_HOST=localhost
-            JWT_SECRET= <ener secret token>
-            JWT_EXPIRES_IN=604800
+            JWT_SECRET= <enter secret token>
+            JWT_EXPIRES_IN= <enter token expiry> 
 
 5.  Create a user in psql based on what the foramt given above: 
 6.  Enter psql onto your terminal and create a user using the follwing command: 
