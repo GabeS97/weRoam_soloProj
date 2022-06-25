@@ -30,7 +30,7 @@ function App() {
           <ViewSpots />
         </Route>
         <Route path='/spots/:spotId'>
-          <ViewOne API_KEY={GOOGLE_STATIC_API}/>
+          <ViewOne GOOGLE_STATIC_API={GOOGLE_STATIC_API}/>
         </Route>
         <Route path='/new_posting'>
           <CreateSpot />
