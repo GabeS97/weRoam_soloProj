@@ -9,7 +9,7 @@ import EditReviewDropDown from '../../Reviews/EditReviewDropDown'
 import { Modal } from '../../../context/Modal'
 
 
-const ViewOne = ({ API_KEY }) => {
+const ViewOne = ({ GOOGLE_STATIC_API }) => {
     const { spotId } = useParams()
     const sessionUser = useSelector(state => state.session.user)
     const spots = useSelector(state => state.spots)
@@ -157,7 +157,7 @@ const ViewOne = ({ API_KEY }) => {
 
                     <div className="viewOne__google__static__api">
                         <h3>The area you will be in</h3>
-                        <img className='viewOne__google__maps' src={`https://maps.googleapis.com/maps/api/staticmap?center=${test}&zoom=14&size=600x300&maptype=roadmap&markers=color:red%7C${test}&size=600x300&key=${API_KEY}`} alt='' />
+                        <img className='viewOne__google__maps' src={`https://maps.googleapis.com/maps/api/staticmap?center=${test}&zoom=14&size=600x300&maptype=roadmap&markers=color:red%7C${test}&size=600x300&key=${GOOGLE_STATIC_API}`} alt='' />
                     </div>
                 </div>
             </div>
