@@ -31,6 +31,7 @@ const CreateSpot = () => {
             price: currPrice,
             images
         }
+        console.log(add_spot)
         await dispatch(addSpots(add_spot))
         history.push('/spots')
 

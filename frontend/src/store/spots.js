@@ -58,6 +58,7 @@ export const addSpots = (payload) => async (dispatch) => {
     formData.append('name', name);
     formData.append('price', price);
 
+    console.log(images)
     if (images && images.length !== 0) {
         for (let i = 0; i < images.length; i++) {
             formData.append('images', images[i]);
@@ -72,6 +73,7 @@ export const addSpots = (payload) => async (dispatch) => {
 
     if (res.ok) {
         const spot = await res.json();
+        console.log(spot);
         dispatch(add(spot));
         return spot;
     }
