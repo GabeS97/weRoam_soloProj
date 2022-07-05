@@ -19,12 +19,14 @@
 .country__container {
   display: flex;
   justify-content: center;
+  /* flex-direction: row; */
 }
 
 .explore__country {
   margin-top: 1em;
   display: flex;
   height: 18em;
+  flex-direction: column;
   width: 15em;
   border-radius: 25px;
   border: solid black;
@@ -37,4 +39,44 @@
   column-gap: 1em;
   justify-content: center;
   align-items: center;
+}
+
+.explore__country__img {
+  height: 100%;
+  width: 100%;
+}
+
+.explore__country__img > img {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 25px 25px 0 0;
+}
+
+.explore__country__name {
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.explore__country__name > div {
+  display: flex;
+  border-radius: 0 0 25px 25px;
+  background-color: lightcoral;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-weight: bolder;
+  color: white;
+}
+
+.explore__country:hover > .explore__country__name > div {
+  cursor: pointer;
+  background-color: white;
+  color: lightcoral;
+  transform: scale(1.05);
+  transition-duration: 250ms;
 }

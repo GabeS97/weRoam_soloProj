@@ -7,15 +7,23 @@ const Explore = () => {
     const spots = Object.values(useSelector(state => state.spots))
     const dispatch = useDispatch()
 
-    const countries = new Set()
-
+    const countries = {}
+    const uniqueCountries = new Set()
     spots.forEach(ele => {
-        if (!countries.has(ele.country)) {
-            countries.add(ele.country)
+        if (!countries[ele.country]) {
+            countries[ele.country] = ele?.Images?.[0]?.imageUrl
         }
     })
-    const countryArr = [...countries]
+
+    spots.forEach(ele => {
+        if (!uniqueCountries.has(ele.country)) {
+            uniqueCountries.add(ele.country)
+        }
+    })
+
+    const countryArr = [...uniqueCountries]
     console.log(countryArr)
+
 
     useEffect(() => {
         dispatch(seeSpots())
@@ -29,9 +37,15 @@ const Explore = () => {
 
             <div className="country__container">
                 <div>
-                    {countryArr.slice(0, 3).map(country => (
-                        <div className="explore__country">
-                            hey
+                    {countryArr.slice(0, 4).map(country => (
+                        <div className="explore__country" key={country.id}>
+                            <div className="explore__country__img">
+                                <img src={countries[country]} alt='' />
+                            </div>
+
+                            <div className="explore__country__name">
+                                <div>{country.toUpperCase()}</div>
+                            </div>
                         </div>
                     ))}
                 </div>
