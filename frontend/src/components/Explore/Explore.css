@@ -1,0 +1,40 @@
+.explore {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+.get__inspired {
+  padding-top: 2em;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.get__inspired > h1 {
+  display: flex;
+  margin-left: 2em;
+}
+
+.country__container {
+  display: flex;
+  justify-content: center;
+}
+
+.explore__country {
+  margin-top: 1em;
+  display: flex;
+  height: 18em;
+  width: 15em;
+  border-radius: 25px;
+  border: solid black;
+  align-items: center;
+  justify-content: center;
+}
+
+.country__container > div {
+  display: flex;
+  column-gap: 1em;
+  justify-content: center;
+  align-items: center;
+}
