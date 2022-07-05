@@ -135,6 +135,42 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        // Paris
+        userId: 1,
+        spotId: 9,
+        imageUrl: 'https://res.klook.com/image/upload/c_fill,w_1160,h_460,f_auto/w_80,x_15,y_15,g_south_west,l_klook_water/activities/tfo7smrskl1zkmmx6afp.webp',
+        content: 'I love this place',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        // Paris
+        userId: 1,
+        spotId: 10,
+        imageUrl: 'https://res.klook.com/image/upload/c_fill,w_1160,h_460,f_auto/w_80,x_15,y_15,g_south_west,l_klook_water/activities/tfo7smrskl1zkmmx6afp.webp',
+        content: 'I love this place',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        // Paris
+        userId: 1,
+        spotId: 11,
+        imageUrl: 'https://res.klook.com/image/upload/c_fill,w_1160,h_460,f_auto/w_80,x_15,y_15,g_south_west,l_klook_water/activities/tfo7smrskl1zkmmx6afp.webp',
+        content: 'I love this place',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        // Paris
+        userId: 1,
+        spotId: 12,
+        imageUrl: 'https://res.klook.com/image/upload/c_fill,w_1160,h_460,f_auto/w_80,x_15,y_15,g_south_west,l_klook_water/activities/tfo7smrskl1zkmmx6afp.webp',
+        content: 'I love this place',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ], {});
   },
 

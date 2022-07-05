@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 import { seeSpots } from '../../store/spots'
 import './Explore.css'
 
@@ -38,15 +39,17 @@ const Explore = () => {
             <div className="country__container">
                 <div>
                     {countryArr.slice(0, 4).map(country => (
-                        <div className="explore__country" key={country.id}>
-                            <div className="explore__country__img">
-                                <img src={countries[country]} alt='' />
-                            </div>
+                        <NavLink to={`/${country.toLowerCase()}/spots`}>
+                            <div className="explore__country" key={country.id}>
+                                <div className="explore__country__img">
+                                    <img src={countries[country]} alt='' />
+                                </div>
 
-                            <div className="explore__country__name">
-                                <div>{country.toUpperCase()}</div>
+                                <div className="explore__country__name">
+                                    <div>{country.toUpperCase()}</div>
+                                </div>
                             </div>
-                        </div>
+                        </NavLink>
                     ))}
                 </div>
             </div>

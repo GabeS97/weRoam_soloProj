@@ -8,6 +8,7 @@ import Footer from "./components/Footer/Footer";
 import ViewSpots from "./components/Spots/ViewSpots";
 import ViewOne from "./components/Spots/ViewOne";
 import CreateSpot from "./components/Spots/CreateSpots";
+import SpotByCountry from "./components/SpotByCountry";
 
 
 function App() {
@@ -30,10 +31,13 @@ function App() {
           <ViewSpots />
         </Route>
         <Route path='/spots/:spotId'>
-          <ViewOne GOOGLE_STATIC_API={GOOGLE_STATIC_API}/>
+          <ViewOne GOOGLE_STATIC_API={GOOGLE_STATIC_API} />
         </Route>
         <Route path='/new_posting'>
           <CreateSpot />
+        </Route>
+        <Route path='/:country/spots'>
+          <SpotByCountry />
         </Route>
       </Switch>
       {/* <Footer /> */}

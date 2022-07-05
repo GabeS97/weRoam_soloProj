@@ -31,6 +31,7 @@
   border-radius: 25px;
   border: solid black;
   align-items: center;
+  cursor: pointer;
   justify-content: center;
 }
 

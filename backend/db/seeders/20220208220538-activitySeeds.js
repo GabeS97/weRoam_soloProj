@@ -112,6 +112,58 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
+      {
+        userId: 1,
+        title: 'Walk with me in Paris',
+        // imageId: 2,
+        address: 'Rue de Rivoli, 75001 Paris, France',
+        city: 'Paris',
+        state: null,
+        country: 'France',
+        price: 15.00,
+        name: 'The Louvre',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 1,
+        title: 'Walk with me in Paris',
+        // imageId: 2,
+        address: 'Rue de Rivoli, 75001 Paris, France',
+        city: 'Paris',
+        state: null,
+        country: 'France',
+        price: 15.00,
+        name: 'The Louvre',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 1,
+        title: 'Walk with me in Paris',
+        // imageId: 2,
+        address: 'Rue de Rivoli, 75001 Paris, France',
+        city: 'Paris',
+        state: null,
+        country: 'France',
+        price: 15.00,
+        name: 'The Louvre',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        userId: 1,
+        title: 'Walk with me in Paris',
+        // imageId: 2,
+        address: 'Rue de Rivoli, 75001 Paris, France',
+        city: 'Paris',
+        state: null,
+        country: 'France',
+        price: 15.00,
+        name: 'The Louvre',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
 
 
     ], {});
